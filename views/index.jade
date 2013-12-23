@@ -1,0 +1,632 @@
+doctype html
+html.no-js(lang='en', itemscope='itemscope', itemtype='http://schema.org/Product')
+//
+    <![endif]
+head
+    //
+       Meta tags & title /
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title Wintered - An Easy to Use Personnal or Agency Portfolio
+    meta(name='description', content='.')
+    meta(name='keywords', content='')
+    meta(name='author', content='humans.txt')
+    //
+       Favicon /
+    link(rel='shortcut icon', href='favicon.png', type='image/x-icon')
+    //
+       Favicon /
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1')
+    //
+       Stylesheets /
+    link(rel='stylesheet', href='css/gumby.css')
+    //
+       Gumby Framework /
+    link(rel='stylesheet', href='css/style.css')
+    //
+       Main stylesheet /
+    link(rel='stylesheet', href='css/component.css')
+    //
+       Header Slider /
+    link(rel='stylesheet', href='css/owl.carousel.css')
+    //
+       Owl Carousel Assets
+    link(rel='stylesheet', href='css/animate.css')
+    //
+       Animate for Process Slider
+    link(rel='stylesheet', href='css/liquid-slider.css')
+    //
+       Liquid Slider ( Process Section )
+    script(src='js/modernizr-2.6.2.min.js')
+    //
+       Modernizr /
+body
+    //
+       Preload the Whole Page
+    #preloader
+        #loading-animation  
+    section#menu
+        //
+           Mobile Menu
+        .mobile-menu
+            section#collapse
+                .row
+                    .mobile-menu-inner
+                        ul.nav-mobile
+                            li
+                                a(href='#works') Works
+                            li
+                                a(href='#crew') Crew
+                            li
+                                a(href='#process') Process
+                            li
+                                a(href='#contact') Contact
+            a#collapse-menu(href='#')
+                h3 Menu
+        //
+           NAVIGATION ###############################################
+        .cbp-af-header
+            nav.row
+                #logo
+                    a(href='#')
+                        img(alt='YOURLOGO', src='img/logo.png')
+                ul#nav
+                    li
+                        a.goto(href='#works') Works
+                    li
+                        a.goto(href='#crew') Crew
+                    li
+                        a.goto(href='#process') Process
+                    li
+                        a.goto(href='#contact') Contact
+        //
+           END NAVIGATION ###############################################
+    //
+       HEADER ###############################################
+    section#header
+        ul#cbp-bislideshow.cbp-bislideshow
+            //
+               Slide /
+            li
+                img(src='img/background1.jpg', alt='Vancouver Skytrain')
+            //
+               Slide /
+            li
+                img(src='img/background2.jpg', alt='iMac & Cinema Front')
+            //
+               Slide /
+            li
+                img(src='img/background3.jpg', alt='iMac & Cinema Angle')
+            //
+               Slide /
+            li
+                img(src='img/background4.jpg', alt='Portland at Night')
+        #cbp-bicontrols.cbp-bicontrols
+            span.cbp-biprev
+            span.cbp-binext
+        .row
+            #impressionFader.eight.columns.centered(data-0='opacity:1;', data-top='opacity:0;')
+                //
+                   Impression /
+                .Impressions.First.hidden(style='opacity: 0;')
+                    span.Head Makes a good impression.
+                    span.Sub Visual excellence.
+                //
+                   Impression /
+                .Impressions.Second.hidden(style='opacity: 0;')
+                    span.Head Make a better experience.
+                    span.Sub Design that simply works.
+                //
+                   Impression /
+                .Impressions.Third.hidden(style='opacity: 0;')
+                    span.Head Stay on top level.
+                    span.Sub We have an edge.
+                //
+                   Impression /
+                .Impressions.Last.hidden(style='opacity: 0;')
+                    img(alt='YOURLOGO', src='img/logotop.png')
+                    span.Sub2
+                        | We can help you with your
+                        a.goto(href='#contact') next project
+                        | .
+    //
+       END HEADER ###############################################
+    //
+       INTRODUCE ###############################################
+    section#intro
+        .row
+            .ten.columns.centered.make-it-appear-top
+                hr.separator
+                h2.lead Introduce ourself
+                p
+                    | Bacon ipsum dolor sit amet t-bone shank sirloin beef pastrami ribeye jowl pork belly kevin tenderloin.
+                    | Chicken chuck sausage salami, ball tip turkey sirloin turducken tri-tip ribeye tenderloin rump ham hock
+                    | meatball. Pork chop pastrami flank cow biltong bacon ground round pancetta sausage ball tip jowl. Tail
+                    | leberkas rump, shankle andouille jerky ribeye hamburger. Tongue filet mignon shankle shoulder, strip
+                    | steak pancetta swine pork loin rump venison drumstick shank biltong. Tongue t-bone chicken ball tip
+                    a(href='#') pork belly beef ribs
+                    | meatball.
+    //
+      END INTRODUCE ###############################################
+    //
+       WORKS ###############################################
+    //
+       Grid of Works /
+    section#works
+        //
+           PORTFOLIO DETAIL CONTAINER
+        #portfolio_detail
+            //
+               PORTFOLIO DETAIL
+            #portfolio1.row.slide_portfolio
+                .seven.columns.centered
+                    img.closeit(src='img/close.png', alt='Close Project', onclick='$(\'#portfolio1\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#works\').offset().top -70 }, 800);')
+                    h3 Draggable Slider
+                    p
+                        | Bacon ipsum dolor sit amet shank tri-tip pig, short loin pork belly boudin ground round flank sirloin
+                        | bresaola filet mignon sausage beef ribs kielbasa. flow freely, we've created a studio where we can not
+                        | only work but also have fun and learn.
+                    //
+                       DRAGGABLE SLIDER
+                    .exemple_slider.owl-carousel
+                        img(src='img/slider1.png', alt='EXEMPLE')
+                        img(src='img/slider2.png', alt='EXEMPLE')
+            //
+               PORTFOLIO DETAIL
+            #portfolio2.row.slide_portfolio
+                .seven.columns.centered
+                    img.closeit(src='img/close.png', alt='Close Project', onclick='$(\'#portfolio2\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#works\').offset().top -70 }, 800);')
+                    h3 Draggable Slider
+                    p
+                        | Bacon ipsum dolor sit amet shank tri-tip pig, short loin pork belly boudin ground round flank sirloin
+                        | bresaola filet mignon sausage beef ribs kielbasa. flow freely, we've created a studio where we can not
+                        | only work but also have fun and learn.
+                    //
+                       DRAGGABLE SLIDER
+                    .exemple_slider.owl-carousel
+                        img(src='img/slider1.png', alt='EXEMPLE')
+                        img(src='img/slider2.png', alt='EXEMPLE')
+            //
+               PORTFOLIO DETAIL
+            #portfolio3.row.slide_portfolio
+                .seven.columns.centered
+                    img.closeit(src='img/close.png', alt='Close Project', onclick='$(\'#portfolio3\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#works\').offset().top -70 }, 800);')
+                    h3 EXEMPLE
+                    p
+                        | Bacon ipsum dolor sit amet shank tri-tip pig, short loin pork belly boudin ground round flank sirloin
+                        | bresaola filet mignon sausage beef ribs kielbasa. flow freely, we've created a studio where we can not
+                        | only work but also have fun and learn.
+                    //
+                       DRAGGABLE SLIDER
+                    .exemple_slider.owl-carousel
+                        img(src='img/slider1.png', alt='EXEMPLE')
+                        img(src='img/slider2.png', alt='EXEMPLE')
+            //
+               PORTFOLIO DETAIL
+            #portfolio4.row.slide_portfolio
+                .seven.columns.centered
+                    img.closeit(src='img/close.png', alt='Close Project', onclick='$(\'#portfolio4\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#works\').offset().top -70 }, 800);')
+                    h3 Draggable Slider
+                    p
+                        | Bacon ipsum dolor sit amet shank tri-tip pig, short loin pork belly boudin ground round flank sirloin
+                        | bresaola filet mignon sausage beef ribs kielbasa. flow freely, we've created a studio where we can not
+                        | only work but also have fun and learn.
+                    //
+                       DRAGGABLE SLIDER
+                    .exemple_slider.owl-carousel
+                        img(src='img/slider1.png', alt='EXEMPLE')
+                        img(src='img/slider2.png', alt='EXEMPLE')
+            //
+               PORTFOLIO DETAIL
+            #portfolio5.row.slide_portfolio
+                .seven.columns.centered
+                    img.closeit(src='img/close.png', alt='Close Project', onclick='$(\'#portfolio5\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#works\').offset().top -70 }, 800);')
+                    h3 A Simple Image
+                    p
+                        | Bacon ipsum dolor sit amet shank tri-tip pig, short loin pork belly boudin ground round flank sirloin
+                        | bresaola filet mignon sausage beef ribs kielbasa. flow freely, we've created a studio where we can not
+                        | only work but also have fun and learn.
+                    img(src='http://placehold.it/700x700', alt='EXEMPLE')
+            //
+               PORTFOLIO DETAIL
+            #portfolio6.row.slide_portfolio
+                .seven.columns.centered
+                    img.closeit(src='img/close.png', alt='Close Project', onclick='$(\'#portfolio6\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#works\').offset().top -70 }, 800);')
+                    h3 Wistia Video
+                    p
+                        | Bacon ipsum dolor sit amet shank tri-tip pig, short loin pork belly boudin ground round flank sirloin
+                        | bresaola filet mignon sausage beef ribs kielbasa. flow freely, we've created a studio where we can not
+                        | only work but also have fun and learn.
+            //
+               PORTFOLIO DETAIL
+            #portfolio7.row.slide_portfolio
+                .seven.columns.centered
+                    img.closeit(src='img/close.png', alt='Close Project', onclick='$(\'#portfolio7\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#works\').offset().top -70 }, 800);')
+                    h3 Vimeo Video
+                    p
+                        | Bacon ipsum dolor sit amet shank tri-tip pig, short loin pork belly boudin ground round flank sirloin
+                        | bresaola filet mignon sausage beef ribs kielbasa. flow freely, we've created a studio where we can not
+                        | only work but also have fun and learn.
+            //
+               PORTFOLIO DETAIL
+            #portfolio8.row.slide_portfolio
+                .seven.columns.centered
+                    img.closeit(src='img/close.png', alt='Close Project', onclick='$(\'#portfolio8\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#works\').offset().top -70 }, 800);')
+                    h3 Images Exemples
+                    p
+                        | Bacon ipsum dolor sit amet shank tri-tip pig, short loin pork belly boudin ground round flank sirloin
+                        | bresaola filet mignon sausage beef ribs kielbasa. flow freely, we've created a studio where we can not
+                        | only work but also have fun and learn.
+                    img(src='http://placehold.it/700x700', alt='EXEMPLE')
+                    img(src='http://placehold.it/700x700', alt='EXEMPLE')
+        //
+           END PORTFOLIO DETAIL CONTAINER
+        .grid
+            //
+               Work /
+            .item
+                a.link(onclick='$(\'#portfolio1\').slideDown(); $(\'#portfolio2, #portfolio3, #portfolio4, #portfolio5, #portfolio6, #portfolio7, #portfolio8\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#portfolio_detail\').offset().top }, 800);')
+                .hovercontent
+                h1 Draggable Slider
+                h4 Designed by An Human
+                img(src='http://www.placehold.it/450x300', alt='EXEMPLE')
+            //
+               Work /
+            .item
+                a.link(onclick='$(\'#portfolio2\').slideDown(); $(\'#portfolio1, #portfolio3, #portfolio4, #portfolio5, #portfolio6, #portfolio7, #portfolio8\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#portfolio_detail\').offset().top }, 800);')
+                .hovercontent
+                h1 Draggable Slider
+                h4 Also by An Human
+                img(src='http://www.placehold.it/450x300', alt='EXEMPLE')
+            //
+               Work /
+            .item
+                a.link(onclick='$(\'#portfolio3\').slideDown(); $(\'#portfolio1, #portfolio2, #portfolio4, #portfolio5, #portfolio6, #portfolio7, #portfolio8\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#portfolio_detail\').offset().top }, 800);')
+                .hovercontent
+                h1 Draggable Slider
+                h4 Once again
+                img(src='http://www.placehold.it/450x300', alt='EXEMPLE')
+            //
+               Work /
+            .item
+                a.link(onclick='$(\'#portfolio4\').slideDown(); $(\'#portfolio1, #portfolio2, #portfolio3, #portfolio5, #portfolio6, #portfolio7, #portfolio8\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#portfolio_detail\').offset().top }, 800);')
+                .hovercontent
+                h1 Draggable Slider
+                h4 It's the last one
+                img(src='http://www.placehold.it/450x300', alt='EXEMPLE')
+            //
+               Work /
+            .item
+                a.link(onclick='$(\'#portfolio5\').slideDown(); $(\'#portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio6, #portfolio7, #portfolio8\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#portfolio_detail\').offset().top }, 800);')
+                .hovercontent
+                h1 Simple Image
+                h4 A Single Picture
+                img(src='http://www.placehold.it/450x300', alt='EXEMPLE')
+            //
+               Work /
+            .item
+                a.link(onclick='$(\'#portfolio6\').slideDown(); $(\'#portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio5, #portfolio7, #portfolio8\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#portfolio_detail\').offset().top }, 800);')
+                .hovercontent
+                h1 A Video
+                h4 For sure :)
+                img(src='http://www.placehold.it/450x300', alt='EXEMPLE')
+            //
+               Work /
+            .item
+                a.link(onclick='$(\'#portfolio7\').slideDown(); $(\'#portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio5, #portfolio6, #portfolio8\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#portfolio_detail\').offset().top }, 800);')
+                .hovercontent
+                h1 A Video
+                h4 Easy to Set-Up
+                img(src='http://www.placehold.it/450x300', alt='EXEMPLE')
+            //
+               Work /
+            .item
+                a.link(onclick='$(\'#portfolio8\').slideDown(); $(\'#portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio5, #portfolio6, #portfolio7\').slideUp(); $(\'html, body\').animate({scrollTop: $(\'#portfolio_detail\').offset().top }, 800);')
+                .hovercontent
+                h1 Single Image
+                h4 Work In Progress
+                img(src='http://www.placehold.it/450x300', alt='EXEMPLE')
+        //
+          END GRID WORKS /
+    //
+       END WORKS SECTION ###############################################
+    //
+       INTERSECTION TESTIMONIALS ###############################################
+    section#intersection
+        .row
+            .twelve.columns.centered
+                #testimonial.owl-carousel
+                    //
+                       testimonial
+                    .testimonial-quote
+                        blockquote
+                            p
+                                | Overall, fantastic! I'd recommend them to anyone looking for a creative, thoughtful, and
+                                | professional team.”
+                        cite
+                            span Kristi Bruno
+                            br
+                            | Social Media Specialist
+                            br
+                            | American College of Chest Physicians
+                    //
+                       testimonial
+                    .testimonial-quote
+                        blockquote
+                            p
+                                | Bacon ipsum dolor sit amet t-bone frankfurter ground round, tri-tip meatball short ribs
+                                | turkey bresaola tail boudin. Ball tip."
+                        cite
+                            span Francseco Martinez
+                            br
+                            | CEO of Rey Bon
+                            br
+                            | Belgium
+                    //
+                       testimonial
+    //
+       END INTERSECTION TESTIMONIALS ###############################################
+    //
+       CREW ###############################################
+    section#crew
+        .row
+            .six.columns.make-it-appear-left
+                hr.separator
+                h2.lead About us
+                p(style='')
+                    | Bacon ipsum dolor sit amet t-bone shank sirloin beef pastrami ribeye jowl pork belly
+                    | kevin tenderloin. Chicken chuck sausage salami, ball tip turkey sirloin turducken tri-tip ribeye
+                    | tenderloin rump ham hock meatball. Pork chop pastrami flank cow biltong bacon ground round pancetta
+                    | sausage ball tip jowl.
+            .six.columns.make-it-appear-right
+                hr.separator
+                h2.lead Crew
+                ul.four_up.tiles
+                    //
+                       Member /
+                    li.teamlink
+                        span Mateo
+                        img(src='http://www.placehold.it/125x100', alt='EXEMPLE')
+                    //
+                       Member /
+                    li.teamlink
+                        span Manon
+                        img(src='http://www.placehold.it/125x100', alt='EXEMPLE')
+                    //
+                       Member /
+                    li.teamlink
+                        span Frank
+                        img(src='http://www.placehold.it/125x100', alt='EXEMPLE')
+                    //
+                       Member /
+                    li.teamlink
+                        span Potch
+                        img(src='http://www.placehold.it/125x100', alt='EXEMPLE')
+                    //
+                       Member /
+                    li.teamlink
+                        span Alain
+                        img(src='http://www.placehold.it/125x100', alt='EXEMPLE')
+                    //
+                       Member /
+                    li.teamlink
+                        span Jolan
+                        img(src='http://www.placehold.it/125x100', alt='EXEMPLE')
+                    //
+                       Member /
+                    li.teamlink
+                        span Kate
+                        img(src='http://www.placehold.it/125x100', alt='EXEMPLE')
+    //
+      END CREW ###############################################
+    //
+       CLIENTS ###############################################
+    section#client
+        .row
+            //
+               Each div is a client /
+            #clients.owl-carousel
+                .item_client.pulse
+                    img(src='http://www.placehold.it/350x125', alt='EXEMPLE')
+                .item_client
+                    img(src='http://www.placehold.it/350x125', alt='EXEMPLE')
+                .item_client
+                    img(src='http://www.placehold.it/350x125', alt='EXEMPLE')
+                .item_client
+                    img(src='http://www.placehold.it/350x125', alt='EXEMPLE')
+                .item_client
+                    img(src='http://www.placehold.it/350x125', alt='EXEMPLE')
+                .item_client
+                    img(src='http://www.placehold.it/350x125', alt='EXEMPLE')
+                .item_client
+                    img(src='http://www.placehold.it/350x125', alt='EXEMPLE')
+                .item_client
+                    img(src='http://www.placehold.it/350x125', alt='EXEMPLE')
+                .item_client
+                    img(src='http://www.placehold.it/350x125', alt='EXEMPLE')
+                .item_client
+                    img(src='http://www.placehold.it/350x125', alt='EXEMPLE')
+    //
+       END CLIENTS ###############################################
+    //
+       PROCESS ###############################################
+    section#process
+        .row
+            .twelve.columns.centered.make-it-appear-top
+                hr.separator
+                h2.lead Wanna know how we process ?
+                #process-slider.liquid-slider
+                    //
+                       Process /
+                    div
+                        h2.title
+                            img(src='http://www.placehold.it/100x100', alt='exemple')
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales
+                            | sed, dignissim pretium nunc. Nam et lacus neque. Sed volutpat ante id mauris laoreet vestibulum.
+                            | Nam blandit felis non neque cursus aliquet. Morbi vel enim dignissim massa dignissim commodo
+                            | vitae quis tellus. Nunc non mollis nulla. Sed consectetur elit id mi consectetur bibendum. Ut
+                            | enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem
+                            | pellentesque quis iaculis mi mattis. Aliquam sit amet purus lectus. Maecenas tempor ornare
+                            | sollicitudin.
+                    //
+                       Process /
+                    div
+                        h2.title
+                            img(src='http://www.placehold.it/100x100', alt='exemple')
+                        p
+                            | Proin nec turpis eget dolor dictum lacinia. Nullam nunc magna, tincidunt eu porta in, faucibus
+                            | sed magna. Suspendisse laoreet ornare ullamcorper. Nulla in tortor nibh. Pellentesque sed est
+                            | vitae odio vestibulum aliquet in nec leo.
+                    //
+                       Process /
+                    div
+                        h2.title
+                            img(src='http://www.placehold.it/100x100', alt='exemple')
+                        p
+                            | Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                            | Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero
+                            | sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                            | Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+                            | commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros
+                            | ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar
+                            | facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu
+                            | vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
+                            | porttitor, facilisis luctus, metus
+                    //
+                       Process /
+                    div
+                        h2.title
+                            img(src='http://www.placehold.it/100x100', alt='exemple')
+                        p
+                            | Proin nec turpis eget dolor dictum lacinia. Nullam nunc magna, tincidunt eu porta in, faucibus
+                            | sed magna. Suspendisse laoreet ornare ullamcorper. Nulla in tortor nibh. Pellentesque sed est
+                            | vitae odio vestibulum aliquet in nec leo.
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales
+                            | sed, dignissim pretium nunc. Nam et lacus neque. Sed volutpat ante id mauris laoreet vestibulum.
+                            | Nam blandit felis non neque cursus aliquet. Morbi vel enim dignissim massa dignissim commodo
+                            | vitae quis tellus. Nunc non mollis nulla. Sed consectetur elit id mi consectetur bibendum. Ut
+                            | enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem
+                            | pellentesque quis iaculis mi mattis. Aliquam sit amet purus lectus. Maecenas tempor ornare
+                            | sollicitudin.
+    //
+      END PROCESS ###############################################
+    //
+       INTERSECTION CONTACT ###############################################
+    section#contact_intersection
+        .row
+            .twelve.columns.centered(style='text-align: center;')
+                h2 This is the time to buy this awesome template!
+                a(href='#')
+                    button.btn.pulse Alright i'm in!
+    //
+       END INTERSECTION CONTACT ###############################################
+    //
+       CONTACT INFO ###############################################
+    section#contact
+        .row
+            .twelve.columns.make-it-appear-top
+                .three.columns
+                    hr.separator
+                    h2.lead Mail
+                    p
+                        a(href='mailto:#') hello@wintered.be
+                    p
+                        a(href='mailto:#') job@wintered.be
+                .three.columns
+                    hr.separator
+                    h2.lead Call
+                    p +32(0)456 78 91 00
+                .three.columns
+                    hr.separator
+                    h2.lead Follow
+                    p
+                        a(href='#') Twitter
+                    p
+                        a(href='#') Facebook
+                    p
+                        a(href='#') Dribbble
+                    p
+                        a(href='#') Instagram
+                .three.columns
+                    hr.separator
+                    h2.lead Visit
+                    p Avenue Saint Pierre, 82
+                    p
+                        | 1000 Bruxelles
+                        p
+                            p BELGIUM
+    //
+      END CONTACT ###############################################
+    //
+       FOOTER  ###############################################
+    section#footer
+        .row
+            .twelve.columns
+                a.goto.back-to-top.pull_right(href='#')
+                    img(src='img/top.png', alt='Back to Top')
+                p © 2013 WINTERED, LLC. All rights reserved.
+    //
+       END FOOTER  ###############################################
+    script(src='js/jquery-2.0.2.min.js', type='text/javascript')
+    //
+       jQuery
+    script(src='js/mediaCheck.js', type='text/javascript')
+    //
+       Media Check
+    script(src='js/main.js', type='text/javascript')
+    //
+       Main Javascript File
+    script(src='js/jquery.easing.1.3.js', type='text/javascript')
+    //
+       Easing Effect
+    script(src='js/grid.js', type='text/javascript')
+    //
+       Owl Carousel
+    script(src='js/jquery.parallax-1.1.3.js', type='text/javascript')
+    //
+       jQuery Parallax
+    script(src='js/waypoints.min.js', type='text/javascript')
+    //
+       Smooth Scrolling
+    script(src='js/jquery.scrollto.js', type='text/javascript')
+    //
+       ScrollTo
+    script(src='js/classie.js', type='text/javascript')
+    //
+       Menu
+    script(src='js/jquery.imagesloaded.min.js', type='text/javascript')
+    //
+       Header Slideshow
+    script(src='js/cbpBGSlideshow.min.js', type='text/javascript')
+    //
+       Header Slideshow
+    script(src='js/owl.carousel.js', type='text/javascript')
+    //
+       Owl Carousel
+    script(src='js/jquery.touchSwipe.min.js', type='text/javascript')
+    //
+       TouchSwipe for Process Slider
+    script(src='js/jquery.liquid-slider.js', type='text/javascript')
+    //
+       Process Slider
+    //
+       Change UA-XXXXX-X to be your site's ID
+    //
+      <script>
+      window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+      Modernizr.load({
+        load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+      });
+      </script>
+    //
+       Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+         chromium.org/developers/how-tos/chrome-frame-getting-started
+    //if lt IE 7
+      script(src='//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js')
+      script
+        window.attachEvent('onload', function () {
+        CFInstall.check({mode: 'overlay'})
+        })
+                          
