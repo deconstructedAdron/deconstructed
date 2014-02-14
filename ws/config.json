@@ -1,5 +1,5 @@
 {
-    "output":"../",
+  "output":"../",
   "locals": {
     "url": "http://localhost:8080",
     "name": "Deconstructed Documentation",
