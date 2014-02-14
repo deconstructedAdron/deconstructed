@@ -4,31 +4,28 @@ block content
   .container-fluid.main-content
   .page-title
     h1 Deconstructed Documentation
-
-
-
   include author
   each article in articles
     article.article.intro
       .row
         .col-lg-12
           .widget-container.fluid-height.clearfix
-            .col-md-4
+            .col-md-3
               .heading
                 header
-                p.date
-                  span= moment.utc(article.date).format('DD. MMMM YYYY')
-                i.icon-book
+                h2
                   a(href=article.url)= article.title
-                .widget-content.padded
-                  if article.hasMore
-                    p.more
-                      a(href=article.url) more
+                i.icon-book.date
+                  span= moment.utc(article.date).format('ddd DD, MMMM YYYY')
             .col-md-8
               .widget-content.padded
                 section.content
                   | !{ typogr(article.intro).typogrify() }
-
+            .col-md-1
+              .widget-content.padded.clearfix
+                if article.hasMore
+                  p.more
+                    a(href=article.url) more
 block prepend footer
   div.nav
     if prevPage
