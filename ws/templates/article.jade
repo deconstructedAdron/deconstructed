@@ -5,21 +5,34 @@ block append vars
   - bodyclass = 'article-detail'
 
 block prepend title
-  | #{ page.title + " - "}
+
 
 block header
-  include author
-  h1= page.title
-  p.author
-    | #{ "Written by " }
-    mixin author(page.metadata.author)
 
 block content
-  article.article
-    section.content!= typogr(page.html).typogrify()
+    .container-fluid.main-content
+    .page-title
+        h1 Storgie Ecosystem
+        .row
+            .col-lg-12
+                .widget-container.fluid-height.clearfix
+                    article.article
+                        section.content!= typogr(page.html).typogrify()
+                    .col-md-12
+                        .heading
+                            i.icon-book #{ page.title + " - "}
+
+
+                        .widget-content.padded
+                            include author
+                            p.author
+                                | #{ "Written by " }
+                                i.icon-book
+                                    author(page.metadata.author)
+
+                            p.lead Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit.
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec ullamcorper mauris. Pellentesque ligula justo, imperdiet sit amet vehicula id, lobortis eu ligula. Vestibulum vel massa a turpis scelerisque scelerisque. Quisque tincidunt interdum tortor nec consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris aliquam fermentum elementum. Praesent vitae erat at dui imperdiet faucibus vitae rutrum lorem. Aliquam nunc odio, eleifend vel dignissim a, interdum id est. In ornare eleifend orci, quis suscipit quam molestie id. Cras eget nulla nec dui hendrerit aliquam. Nam id mi iaculis, facilisis mi sit amet, rhoncus ante. Integer eget lorem dignissim purus tempor imperdiet vel lobortis risus. Phasellus imperdiet mi in mattis vestibulum.
 
 block prepend footer
-  div.nav
-    a(href=contents.index.url) « Full blog
-
-
+    div.nav
+        a(href=contents.index.url) « Full blog
