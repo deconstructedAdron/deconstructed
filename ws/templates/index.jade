@@ -8,21 +8,21 @@ block content
         p.date
           span= moment.utc(article.date).format('DD. MMMM YYYY')
         h2
-          a(href=article.url)= article.title
+          a(href=locals.url+article.url)= article.title
       section.content
         | !{ typogr(article.intro).typogrify() }
         if article.hasMore
           p.more
-            a(href=article.url) more
+            a(href=locals.url+article.url) more
 
 block prepend footer
   div.nav
     if prevPage
-      a(href=prevPage.url) « Newer
+      a(href=locals.url+prevPage.url) « Newer
     else
-      a(href='/archive.html') « Archives
+      a(href=locals.url+'/archive.html') « Archives
     if nextPage
-      a(href=nextPage.url) Next page »
+      a(href=locals.url+nextPage.url) Next page »
 
 
 
