@@ -5,7 +5,7 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>This site provides the documentation around the Deconstructed API Services.</description>
-    <pubDate>Sun, 31 Mar 2013 17:00:00 -0700</pubDate>
+    <pubDate>Thu, 13 Feb 2014 16:00:00 -0800</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
   </channel>
