@@ -5,8 +5,7 @@ date: 2012-02-02
 template: article.jade
 ---
 
-Full markdown syntax taken from John Gruber's [Daring Fireball](http://daringfireball.net/projects/markdown/syntax).
-Did you know that 9 out of 10 bloggers prefer to write in markdown?
+This article is derived from the full markdown syntax taken from John Gruber's [Daring Fireball](http://daringfireball.net/projects/markdown/syntax) and the default sample markdown syntax blog entry that comes with the wintersmith example.
 
 ---
 
