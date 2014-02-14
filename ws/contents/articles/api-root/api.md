@@ -1,9 +1,11 @@
 ---
-title: Code and stuff!
-author: the-wintersmith
-date: 2012-10-01 15:00
+title: Deconstructed API Docs
+author: adron-hall
+date: 2014-02-13 21:58
 template: article.jade
 ---
+
+The Deconstructed system works in a way that enables extremely simple reads and writes that can be done via API, or done via web socket & socket technology with socket.io. This section of documentation is specifically in reference to the API.
 
 Syntax highlighting with [highlight.js](http://softwaremaniacs.org/soft/highlight/en/).
 The theme used is tomorrow, you can find more themes [here](http://jmblog.github.io/color-themes-for-highlightjs/).
