@@ -1,10 +1,10 @@
 {
-  "output": "../",
+    "output":"../",
   "locals": {
-    "url": "http://adron.github.io/deconstructed",
-    "name": "Deconstructed Docs",
+    "url": "http://localhost:8080",
+    "name": "Deconstructed Documentation",
     "owner": "Adron Hall",
-    "description": "Ramblings of an immor(t)al demigod"
+    "description": "This site provides the documentation around the Deconstructed API Services."
   },
   "plugins": [
     "./plugins/paginator.coffee"
