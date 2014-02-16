@@ -17,13 +17,5 @@ block content
             .col-lg-12
                 .widget-container.fluid-height.clearfix
                     .col-md-12
-                        .heading
-                            i.icon-book #{ page.subtitle }
                         .widget-content.padded
-                            
-                            p.author
-                                | #{ "Written by " }
-                                i.icon-book
-                                    author(page.metadata.author)
-
                             section.content!= typogr(page.html).typogrify()

@@ -1,6 +1,5 @@
 ---
 title: "API Docs"
-subtitle: "Routing, End Points and Samples"
 author: adron-hall
 date: 2014-02-14
 template: article.jade

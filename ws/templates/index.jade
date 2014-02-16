@@ -15,22 +15,26 @@ block content
                 header
                 h2
                   a(href=article.url)= article.title
-                i.icon-book.date
-                  span= moment.utc(article.date).format('ddd DD, MMMM YYYY')
-            .col-md-8
+                i.icon-archive.date
+                  |  Last Edit
+                  span= moment.utc(article.date).format('dddd DD, MMMM YYYY')
+            .col-md-9
               .widget-content.padded
                 section.content
                   | !{ typogr(article.intro).typogrify() }
-            .col-md-1
-              .widget-content.padded.clearfix
                 if article.hasMore
                   p.more
                     a(href=article.url) more
 block prepend footer
   div.nav
-    if prevPage
-      a(href=prevPage.url) « Newer
-    else
-      a(href='/archive.html') « Archives
-    if nextPage
-      a(href=nextPage.url) Next page »
+    .row
+      .col-lg-12
+        .widget-container.fluid-height.clearfix
+          .col-md-3
+            .heading      
+              if prevPage
+                a(href=prevPage.url) « Newer
+              else
+                a(href='/archive.html') « Archives |
+              if nextPage
+                a(href=nextPage.url) Next page »
