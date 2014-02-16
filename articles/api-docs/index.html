@@ -51,34 +51,50 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
     <link rel="alternate" href="http://docs.deconstructed.io//feed.xml" type="application/rss+xml" title="This site provides the documentation around the Deconstructed API Services.">
   </head>
-  <body>
+  <body class="page-header-fixed bg-1">
     <div class="modal-shiftfix">
       <!--Navigation
       -->
       <div class="navbar navbar-fixed-top scroll-hide">
-        <div class="container-fluid top-bar"><a href="http://deconstructed.io" class="logo"></a></div>
+        <div class="container-fluid top-bar">
+          <div class="pull-right">
+            <ul class="nav navbar-nav pull-right">
+              <li class="dropdown notifications hidden-xs"><a data-toggle="dropdown" href="#" class="dropdown-toggle"><span aria-hidden="true" class="se7en-flag"></span>
+                  <div class="sr-only">Notifications</div>
+                  <p class="counter">2</p></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/articles/deconstructed-architecture/">
+                      <div class="notifications label label-info">New</div>
+                      <p>Architecture</p></a></li>
+                  <li><a href="/articles/api-docs/">
+                      <div class="notifications label label-info">New</div>
+                      <p>API Docs</p></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <button class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="http://deconstructed.io" class="logo">se7en</a>
+        </div>
         <div class="container-fluid main-nav clearfix">
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="/" class="current"><span aria-hidden="true" class="se7en-home"></span>Docs</a></li>
+              <li><a href="/" class="current"><span aria-hidden="true" class="se7en-home"></span>Home</a></li>
+              <li><a href="/articles/deconstructed-architecture/" class="current"><span aria-hidden="true" class="se7en-feed"></span>Architecture</a></li>
+              <li><a href="/articles/api-docs/" class="current"><span aria-hidden="true" class="se7en-forms"></span>API</a></li>
             </ul>
           </div>
         </div>
       </div>
-      <!--End Navigation
-      -->
-      <div class="container-fluid main-content"></div>
-      <div class="page-title">
-        <h1>API Docs2 </h1>
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="widget-container fluid-height clearfix">
-              <div class="col-md-12">
-                <div class="heading"><i class="icon-book"></i></div>
-                <div class="widget-content padded">
-                  <p class="author">Written by <i class="icon-book">
-                      <author page.metadata.author></author></i></p>
-                  <section class="content"><p>The Deconstructed APIs are an extremely simple way to manage known identities across&nbsp;devices.</p>
+    </div>
+    <div class="container-fluid main-content"></div>
+    <div class="page-title">
+      <h1>API Docs </h1>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="widget-container fluid-height clearfix">
+            <div class="col-md-12">
+              <div class="widget-content padded">
+                <section class="content"><p>The Deconstructed APIs are an extremely simple way to manage known identities across&nbsp;devices.</p>
 <p><span class="more"></span></p>
 <h3 id="javascript">JavaScript</h3>
 <pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="title">getRandomNumber</span><span class="params">()</span> {</span>
@@ -87,7 +103,6 @@
 }
 </code></pre>
 </section>
-                </div>
               </div>
             </div>
           </div>
