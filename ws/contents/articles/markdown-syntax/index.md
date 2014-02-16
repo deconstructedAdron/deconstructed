@@ -1,6 +1,6 @@
 ---
 title: Markdown syntax
-author: John Gruber
+author: adron-hall
 date: 2012-02-02
 template: article.jade
 ---
