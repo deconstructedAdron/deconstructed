@@ -15,8 +15,9 @@ block content
                 header
                 h2
                   a(href=article.url)= article.title
-                i.icon-book.date
-                  span= moment.utc(article.date).format('ddd DD, MMMM YYYY')
+                i.icon-archive.date
+                  |  Last Edit
+                  span= moment.utc(article.date).format('dddd DD, MMMM YYYY')
             .col-md-9
               .widget-content.padded
                 section.content
@@ -34,7 +35,6 @@ block prepend footer
               if prevPage
                 a(href=prevPage.url) « Newer
               else
-                a(href='/archive.html') « Archives 
+                a(href='/archive.html') « Archives | 
               if nextPage
-                | | 
                 a(href=nextPage.url) Next page »
