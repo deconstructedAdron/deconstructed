@@ -5,7 +5,7 @@
     <atom:link href="http://docs.deconstructed.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://docs.deconstructed.io</link>
     <description>This site provides the documentation around the Deconstructed API Services.</description>
-    <pubDate>Sun, 13 Apr 2014 17:00:00 -0700</pubDate>
+    <pubDate>Tue, 15 Apr 2014 17:00:00 -0700</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
   </channel>
