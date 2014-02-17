@@ -88,74 +88,13 @@
     </div>
     <div class="container-fluid main-content"></div>
     <div class="page-title">
-      <h1>API Docs </h1>
+      <h1>Storgie Data Tier </h1>
       <div class="row">
         <div class="col-lg-12">
           <div class="widget-container fluid-height clearfix">
             <div class="col-md-12">
               <div class="widget-content padded">
-                <section class="content"><p>The Deconstructed APIs are an extremely simple way to manage known identities across&nbsp;devices.</p>
-<p><span class="more"></span></p>
-<h1 id="apis">APIs</h1>
-<ul>
-<li><a href="/articles/api-docs/#overview">Overview</a><ul>
-<li><a href="/articles/api-docs/#philosophy">Philosophy</a></li>
-<li><a href="/articles/api-docs/#conventions">Documentation&nbsp;Conventions</a></li>
-</ul>
-</li>
-<li><a href="/articles/api-docs/#identity">Identity <span class="caps">API</span>&nbsp;Services</a></li>
-<li><a href="/articles/api-docs/#consociation">Consociation <span class="caps">API</span>&nbsp;Services</a></li>
-</ul>
-<hr>
-<h2 id="overview">Overview</h2>
-
-<h3 id="philosophy">Philosophy</h3>
-
-<p>The idea behind the <span class="caps">API</span> services is to provide a simple RESTful style interface for interaction with client mobile apps, native interfaces, browser based clients or whatever might make use of this data&nbsp;consociation.</p>
-<h3 id="conventions">Documentation&nbsp;Conventions</h3>
-
-<p>In this documentation many of the <span class="caps">API</span> calls will have examples provided in JavaScript initially and over time in other prospective languages such as Csharp, Java, Objective-C and&nbsp;others.</p>
-<h4 id="example-javascript-code">Example JavaScript&nbsp;Code</h4>
-<pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="title">getStorgieConsociationData</span><span class="params">()</span> {</span>
-    <span class="keyword">return</span> StorgieStuff;
-}
-</code></pre>
-<h4 id="objectivec">ObjectiveC</h4>
-<pre><code class="lang-objectivec"><span class="preprocessor">#import <span class="title">&lt;stdio.h&gt;</span></span>
-
-<span class="keyword">int</span> main(<span class="keyword">void</span>)
-{
-    printf(<span class="string">"Hello, Storgie!\n"</span>);
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre>
-<h4 id="example-csharp-code">Example CSharp&nbsp;Code</h4>
-<pre><code class="lang-cs">class StorgieGetter
-{
-    <span class="keyword">static</span> <span class="keyword">void</span> Main()
-    {
-        System.Console.WriteLine(Consociation.Data.StorgieStuff());
-    }
-}
-</code></pre>
-<h4 id="java">Java</h4>
-<pre><code class="lang-java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StorgieGetter</span> {</span>
-   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(String[] args) {
-       System.out.println(Storgie.Data.StorgieStuff());
-   }
-}
-</code></pre>
-<p><h2 id="identity">Identity</h3></p>
-<p>// storgie api identity ident management.
-app.get(‘/api’, api.storgie_stat);
-app.post(‘/ident’, api.ident_create);
-app.get(‘/ident/:id’,&nbsp;api.ident_by_id);</p>
-<p><h2 id="consociation">Consociation</h3></p>
-<p>// storgie api converged data
-app.get(‘/convergence’, api.convergence);
-app.post(‘/converged’, api.converged_create);
-app.get(‘/converged/:id’, api.converged_by_id);
-app.get(‘/converged/:query’,&nbsp;api.converged_by_query);</p>
+                <section class="content"><p>The <a href="/articles/storgie/">Storgie Data Tier</a> provides the intelligent <span class="caps">API</span> access to the underlying key value, graph and event storage for the Deconstructed System. It acts as a simple facade, with intelligent organization, management, maintenance, selection and query of the underlying data collected. The Storgie Data Tier provides this data through mechanisms that provide easy access and also data&nbsp;collection.</p>
 </section>
               </div>
             </div>

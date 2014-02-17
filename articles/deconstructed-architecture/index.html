@@ -94,8 +94,19 @@
           <div class="widget-container fluid-height clearfix">
             <div class="col-md-12">
               <div class="widget-content padded">
-                <section class="content"><p>At a high level the Deconstructed Platform sits across a multi-region, multi-tier architecture that is setup to auto-scale compute, storage and other resources as needed. On the back end the platform uses a comobination of storage mechanisms that are also distributed, storing key value, graph and event series data. Currently these are the key storage types that provide the <a href="/articles/consociation/">consociation</a> <a href="http://www.merriam-webster.com/dictionary/consociation">(definition of consociation)</a>.</p>
-<h2 id="-span-class-more-span-"><span class="more"></span></h2>
+                <section class="content"><p>At a high level the Deconstructed Platform sits across a multi-region, multi-tier architecture that is setup to auto-scale compute, storage and other resources as needed. On the back end the platform uses a comobination of storage mechanisms that are also distributed, storing key value, graph and event series data. Currently these are the key storage types that provide the <a href="/articles/consociation/">consociation</a> <a href="http://www.merriam-webster.com/dictionary/consociation">(definition of consociation)</a> functionality the storage and retainment facilities the system&nbsp;needs.</p>
+<p>The Deconstructed Platform is made up of multiple layers distributed across a number of multi-server nodes that can scale horizontally and vertically as demand is increased or decreased. These layers can be broken down vertically into logical layers, from top to bottom&nbsp;as:</p>
+<ul>
+<li>Clients (Built, controlled, maintained or managed by clients or Deconstructed&nbsp;Inc.)</li>
+<li>SDKs or access tooling to the Deconstructed&nbsp;APIs.</li>
+<li>APIs and Real-time streams to provide read/write access and query to&nbsp;data.</li>
+<li>Consociation Engine providing data collation, processing, logic and identity&nbsp;convergence.</li>
+<li>Storgie is the storage facade that provides the logical data transfer style objects to, from and for the&nbsp;consociation.</li>
+<li>Data storage. This is the tier providing key value, graph and event based storage to the system, specifically to&nbsp;Storgie.</li>
+</ul>
+<p><span class="more"></span></p>
+<h1 id="data-structures">Data&nbsp;Structures</h1>
+<p>The key data structures that underpin the storage system for the Deconstructed Platform include key value, graph and event storage. These mechanisms are provided to the Storgie data tier which provides them via APIs for client systems and for the <a href="/articles/consociation/">Consociation Engine</a>. The <a href="/articles/storgie/">Storgie Data&nbsp;Tier</a></p>
 <p><img src="data-structures.svg" width="100%" height="100%"></img></p>
 <p><img src="storgie-simple-architecture.svg" width="100%" height="100%"></img></p>
 <p><img src="storgie-flow.svg" width="100%" height="100%"></img></p>
