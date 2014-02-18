@@ -15,8 +15,8 @@ APIs
 *   [Overview](#overview)
     *   [Philosophy](#philosophy)
     *   [Documentation Conventions](#conventions)
-*   [Identity API Services](#identity)
-*   [Consociation API Services](#consociation)
+*   [Identity API Services](#consociation)
+*   [Consociation API Services](#identity)
 
 * * *
 
@@ -74,19 +74,72 @@ public class StorgieGetter {
 
 <h2 id="identity">Identity</h3>
 
+The root of all API calls are located at http://api.deconstructed.io/. The following are all listed with the root assumed to be this URI. All paths are then appended to this root.
+
+    ‘/api/‘
+
+Submit a get against this path for a status on the Deconstructed Ecosystem. This API end point will return a number of values relevant to determine system availability and status.
+
+Example of calling this path with cURL:
+
+    curl api.deconstructed.io/api
+
+Example results would look like:
+
+```javascript
+{   "Servers":2,
+    "Compute":"2% Average Across Servers.",
+    "Memory":"2% Average Memory Consumption.",
+    "Stat": {
+        "Compute":"0 at Peak of 70% utilization.",
+        "Memory":"None beyond threshold of 80% Memory utilization.",
+        "Stamp":1392750541484 },
+    "Stamp":1392750541484 }
+```
+
+Identity Tracking & Retrieval
+
+    '/ident/‘
+
+Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the consociation engine. Examples of this path include:
+
+    http://api.deconstructed.io/ident/
 
 
-// storgie api identity ident management.
-app.get('/api', api.storgie_stat);
-app.post('/ident', api.ident_create);
-app.get('/ident/:id', api.ident_by_id);
+Example results would look like:
 
+```javascript
+{“”:”"}
+```
+
+    '/ident/:id’
+
+Get against this path to pull any ident information by the id passed in as a parameter. Examples of this path include:
+
+    http://api.deconstructed.io/ident/1
+
+or
+
+    http://api.deconstructed.io/ident/h4sh4y0u
+
+or
+
+    http://api.deconstructed.io/ident/1234-big1-guid-goes43here12
+
+
+Example results would look like:
+
+```javascript
+{“”:”"}
+```
 
 <h2 id="consociation">Consociation</h3>
 
 
-// storgie api converged data
-app.get('/convergence', api.convergence);
-app.post('/converged', api.converged_create);
-app.get('/converged/:id', api.converged_by_id);
-app.get('/converged/:query', api.converged_by_query);
+    ‘/convergence/‘
+
+    ‘/converged/‘
+
+    ‘/converged/:id’
+
+    ‘/converged/:query'
