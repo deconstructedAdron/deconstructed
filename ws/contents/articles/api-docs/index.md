@@ -131,7 +131,7 @@ or
 Example results would look like:
 
 ```javascript
-{“”:”"}
+{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
 ```
 
 <h2 id="consociation">Consociation</h2>
