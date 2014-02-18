@@ -103,13 +103,12 @@ Identity Tracking & Retrieval
 
 Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the consociation engine. Examples of this path include:
 
-    http://api.deconstructed.io/ident/
+    curl -X POST -H "Content-Type: application/json" -d '{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}' http://api.deconstructed.io/ident/
 
-
-Example results would look like:
+Example results would look like this, with the key being returned when the write is successful.
 
 ```javascript
-{“”:”"}
+{"key": "06e5140d-fa4e-4758-8d9d-e707bd19880d"};
 ```
 
     '/ident/:id’
