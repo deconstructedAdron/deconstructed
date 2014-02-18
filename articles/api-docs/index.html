@@ -105,8 +105,8 @@
 <li><a href="/articles/api-docs/#conventions">Documentation&nbsp;Conventions</a></li>
 </ul>
 </li>
-<li><a href="/articles/api-docs/#identity">Identity <span class="caps">API</span>&nbsp;Services</a></li>
-<li><a href="/articles/api-docs/#consociation">Consociation <span class="caps">API</span>&nbsp;Services</a></li>
+<li><a href="/articles/api-docs/#consociation">Identity <span class="caps">API</span>&nbsp;Services</a></li>
+<li><a href="/articles/api-docs/#identity">Consociation <span class="caps">API</span>&nbsp;Services</a></li>
 </ul>
 <hr>
 <h2 id="overview">Overview</h2>
@@ -147,17 +147,47 @@
    }
 }
 </code></pre>
-<p><h2 id="identity">Identity</h3></p>
-<p>// storgie api identity ident management.
-app.get(‘/api’, api.storgie_stat);
-app.post(‘/ident’, api.ident_create);
-app.get(‘/ident/:id’,&nbsp;api.ident_by_id);</p>
-<p><h2 id="consociation">Consociation</h3></p>
-<p>// storgie api converged data
-app.get(‘/convergence’, api.convergence);
-app.post(‘/converged’, api.converged_create);
-app.get(‘/converged/:id’, api.converged_by_id);
-app.get(‘/converged/:query’,&nbsp;api.converged_by_query);</p>
+<h2 id="identity">Identity</h2>
+
+<p>The root of all <span class="caps">API</span> calls are located at <a href="http://api.deconstructed.io/">http://api.deconstructed.io/</a>. The following are all listed with the root assumed to be this <span class="caps">URI</span>. All paths are then appended to this&nbsp;root.</p>
+<h3 id="-api-">/api/</h3>
+<p>Submit a get against this path for a status on the Deconstructed Ecosystem. This <span class="caps">API</span> end point will return a number of values relevant to determine system availability and&nbsp;status.</p>
+<p>Example of calling this path with&nbsp;cURL:</p>
+<pre><code>curl api.deconstructed.io/api
+</code></pre><p>Example results would look&nbsp;like:</p>
+<pre><code class="lang-javascript">{   <span class="string">"Servers"</span>:<span class="number">2</span>,
+    <span class="string">"Compute"</span>:<span class="string">"2% Average Across Servers."</span>,
+    <span class="string">"Memory"</span>:<span class="string">"2% Average Memory Consumption."</span>,
+    <span class="string">"Stat"</span>: {
+        <span class="string">"Compute"</span>:<span class="string">"0 at Peak of 70% utilization."</span>,
+        <span class="string">"Memory"</span>:<span class="string">"None beyond threshold of 80% Memory utilization."</span>,
+        <span class="string">"Stamp"</span>:<span class="number">1392750541484</span> },
+    <span class="string">"Stamp"</span>:<span class="number">1392750541484</span> }
+</code></pre>
+<p>Identity Tracking <span class="amp">&amp;</span>&nbsp;Retrieval</p>
+<h3 id="-ident-">/ident/</h3>
+<p>Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the consociation engine. For an example of <span class="caps">JSON</span> data to pass into the ident service check out the <a href="/articles/inbound-data-schema/">Inbound Consociated Data Schema</a>.</p>
+<p>Examples of this path&nbsp;include:</p>
+<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;{&quot;key&quot;:&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;, &quot;value&quot;:{&quot;KnownID&quot; : {&quot;ID&quot; : &quot;c625e601-fb42-40f8-a101-33301d290596&quot;}}}&#39; http://api.deconstructed.io/ident/
+</code></pre><p>Example results would look like this, with the key being returned when the write is&nbsp;successful.</p>
+<pre><code class="lang-javascript">{<span class="string">"key"</span>: <span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>};
+</code></pre>
+<h3 id="-ident-id">/ident/:id</h3>
+<p>Get against this path to pull any ident information by the id passed in as a parameter. Examples of this path&nbsp;include:</p>
+<pre><code>http://api.deconstructed.io/ident/1
+</code></pre><p>or</p>
+<pre><code>http://api.deconstructed.io/ident/h4sh4y0u
+</code></pre><p>or</p>
+<pre><code>http://api.deconstructed.io/ident/1234-big1-guid-goes43here12
+</code></pre><p>Example results would look&nbsp;like:</p>
+<pre><code class="lang-javascript">{“”:”<span class="string">"}</span>
+</code></pre>
+<h2 id="consociation">Consociation</h2>
+
+<h3 id="-convergence-">/convergence/</h3>
+<h3 id="-converged-">/converged/</h3>
+<h3 id="-converged-id">/converged/:id</h3>
+<h3 id="-converged-query">/converged/:query</h3>
 </section>
               </div>
             </div>
