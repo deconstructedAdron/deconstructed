@@ -15,8 +15,8 @@ APIs
 *   [Overview](#overview)
     *   [Philosophy](#philosophy)
     *   [Documentation Conventions](#conventions)
-*   [Identity API Services](#identity)
-*   [Consociation API Services](#consociation)
+*   [Identity API Services](#consociation)
+*   [Consociation API Services](#identity)
 
 * * *
 
