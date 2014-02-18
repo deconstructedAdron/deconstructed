@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Deconstructed Docs
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700" media="all" rel="stylesheet" type="text/css">
+    <link href="http://docs.deconstructed.io/stylesheets/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
+    <link href="http://docs.deconstructed.io/stylesheets/font-awesome.css" media="all" rel="stylesheet" type="text/css">
+    <link href="http://docs.deconstructed.io/stylesheets/se7en-font.css" media="all" rel="stylesheet" type="text/css">
+    <link href="http://docs.deconstructed.io/stylesheets/style.css" media="all" rel="stylesheet" type="text/css">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/raphael.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.mousewheel.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.vmap.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.vmap.sampledata.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.vmap.world.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/fullcalendar.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/gcal.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/datatable-editable.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.easy-pie-chart.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/excanvas.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.isotope.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/masonry.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/modernizr.custom.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/select2.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/styleswitcher.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/wysiwyg.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.inputmask.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.validate.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/bootstrap-fileupload.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/bootstrap-timepicker.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/bootstrap-colorpicker.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/daterange-picker.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/date.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/morris.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/skycons.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/fitvids.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/main.js" type="text/javascript"></script>
+    <script src="http://docs.deconstructed.io/javascripts/respond.js" type="text/javascript"></script>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <link rel="alternate" href="http://docs.deconstructed.io//feed.xml" type="application/rss+xml" title="This site provides the documentation around the Deconstructed API Services.">
+  </head>
+  <body class="page-header-fixed bg-1">
+    <div class="modal-shiftfix">
+      <!--Navigation
+      -->
+      <div class="navbar navbar-fixed-top scroll-hide">
+        <div class="container-fluid top-bar">
+          <div class="pull-right">
+            <ul class="nav navbar-nav pull-right">
+              <li class="dropdown notifications hidden-xs"><a data-toggle="dropdown" href="#" class="dropdown-toggle"><span aria-hidden="true" class="se7en-flag"></span>
+                  <div class="sr-only">Notifications</div>
+                  <p class="counter">2</p></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/articles/deconstructed-architecture/">
+                      <div class="notifications label label-info">New</div>
+                      <p>Architecture</p></a></li>
+                  <li><a href="/articles/api-docs/">
+                      <div class="notifications label label-info">New</div>
+                      <p>API Docs</p></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <button class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="http://deconstructed.io" class="logo">se7en</a>
+        </div>
+        <div class="container-fluid main-nav clearfix">
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/" class="current"><span aria-hidden="true" class="se7en-home"></span>Home</a></li>
+              <li><a href="/articles/deconstructed-architecture/" class="current"><span aria-hidden="true" class="se7en-feed"></span>Architecture</a></li>
+              <li><a href="/articles/api-docs/" class="current"><span aria-hidden="true" class="se7en-forms"></span>API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid main-content"></div>
+    <div class="page-title">
+      <h1>Storgie Data Tier </h1>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="widget-container fluid-height clearfix">
+            <div class="col-md-12">
+              <div class="widget-content padded">
+                <section class="content"><p>The <a href="/articles/storgie/">Storgie Data Tier</a> provides the intelligent <span class="caps">API</span> access to the underlying key value, graph and event storage for the Deconstructed System. It acts as a simple facade, with intelligent organization, management, maintenance, selection and query of the underlying data collected. The Storgie Data Tier provides this data through mechanisms that provide easy access and also data&nbsp;collection.</p>
+</section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                ga('create', 'UA-39158070-4', 'deconstructed.io');
+        ga('send', 'pageview');
+    </script>
+  </body>
+</html>
