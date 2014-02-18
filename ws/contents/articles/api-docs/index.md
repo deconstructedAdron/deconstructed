@@ -80,14 +80,21 @@ The root of all API calls are located at http://api.deconstructed.io/. The follo
 
 Submit a get against this path for a status on the Deconstructed Ecosystem. This API end point will return a number of values relevant to determine system availability and status.
 
-Examples of this path include:
+Example of calling this path with cURL:
 
-    http://api.deconstructed.io/api/
+    curl api.deconstructed.io/api
 
 Example results would look like:
 
 ```javascript
-{“”:”"}
+{   "Servers":2,
+    "Compute":"2% Average Across Servers.",
+    "Memory":"2% Average Memory Consumption.",
+    "Stat": {
+        "Compute":"0 at Peak of 70% utilization.",
+        "Memory":"None beyond threshold of 80% Memory utilization.",
+        "Stamp":1392750541484 },
+    "Stamp":1392750541484 }
 ```
 
 Identity Tracking & Retrieval
