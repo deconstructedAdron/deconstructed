@@ -72,11 +72,11 @@ public class StorgieGetter {
 }
 ```
 
-<h2 id="identity">Identity</h3>
+<h2 id="identity">Identity</h2>
 
 The root of all API calls are located at http://api.deconstructed.io/. The following are all listed with the root assumed to be this URI. All paths are then appended to this root.
 
-    ‘/api/‘
+### /api/
 
 Submit a get against this path for a status on the Deconstructed Ecosystem. This API end point will return a number of values relevant to determine system availability and status.
 
@@ -99,20 +99,21 @@ Example results would look like:
 
 Identity Tracking & Retrieval
 
-    '/ident/‘
+### /ident/
 
-Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the consociation engine. Examples of this path include:
+Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the consociation engine. For an example of JSON data to pass into the ident service check out the [Inbound Consociated Data Schema](/articles/inbound-data-schema/).
 
-    http://api.deconstructed.io/ident/
+Examples of this path include:
 
+    curl -X POST -H "Content-Type: application/json" -d '{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}' http://api.deconstructed.io/ident/
 
-Example results would look like:
+Example results would look like this, with the key being returned when the write is successful.
 
 ```javascript
-{“”:”"}
+{"key": "06e5140d-fa4e-4758-8d9d-e707bd19880d"};
 ```
 
-    '/ident/:id’
+### /ident/:id
 
 Get against this path to pull any ident information by the id passed in as a parameter. Examples of this path include:
 
@@ -133,13 +134,12 @@ Example results would look like:
 {“”:”"}
 ```
 
-<h2 id="consociation">Consociation</h3>
+<h2 id="consociation">Consociation</h2>
 
+### /convergence/
 
-    ‘/convergence/‘
+### /converged/
 
-    ‘/converged/‘
+### /converged/:id
 
-    ‘/converged/:id’
-
-    ‘/converged/:query'
+### /converged/:query
