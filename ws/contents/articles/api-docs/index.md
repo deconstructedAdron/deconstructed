@@ -15,8 +15,8 @@ APIs
 *   [Overview](#overview)
     *   [Philosophy](#philosophy)
     *   [Documentation Conventions](#conventions)
-*   [Identity API Services](#consociation)
-*   [Consociation API Services](#identity)
+*   [Identity API Services](#identity)
+*   [Consociation API Services](#consociation)
 
 * * *
 
@@ -99,7 +99,7 @@ Example results would look like:
 
 Identity Tracking & Retrieval
 
-### /ident/
+### /identity/
 
 Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the consociation engine. For an example of JSON data to pass into the ident service check out the [Inbound Consociated Data Schema](/articles/inbound-data-schema/).
 
@@ -113,26 +113,30 @@ Example results would look like this, with the key being returned when the write
 {"key": "06e5140d-fa4e-4758-8d9d-e707bd19880d"};
 ```
 
-### /ident/:id
+### /identity/:id
 
 Get against this path to pull any ident information by the id passed in as a parameter. Examples of this path include:
 
-    http://api.deconstructed.io/ident/1
-
-or
-
-    http://api.deconstructed.io/ident/h4sh4y0u
-
-or
-
-    http://api.deconstructed.io/ident/1234-big1-guid-goes43here12
-
+    curl http://api.deconstructed.io/identity/06e5140d-fa4e-4758-8d9d-e707bd19880d
 
 Example results would look like:
 
 ```javascript
 {"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
 ```
+
+### /identity/known/:id
+
+Get against this path to pull any ident information by the known id parameters passed in as a parameter. Examples of this path include:
+
+    curl http://api.deconstructed.io/known/identity/c625e601-fb42-40f8-a101-33301d290596
+
+Example results would look like:
+
+```javascript
+{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
+```
+
 
 <h2 id="consociation">Consociation</h2>
 
