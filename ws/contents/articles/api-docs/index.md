@@ -74,15 +74,15 @@ public class StorgieGetter {
 
 <h2 id="identity">Identity</h2>
 
-The root of all API calls are located at http://api.deconstructed.io/. The following are all listed with the root assumed to be this URI. All paths are then appended to this root.
+The root of all API calls are located at http://api.deconstructed.io/. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=[123456789].
 
-### /api/
+### /stat/
 
-Submit a get against this path for a status on the Deconstructed Ecosystem. This API end point will return a number of values relevant to determine system availability and status.
+Submit an HTTP get against this path for a status on the Deconstructed Ecosystem. This API end point will return a number of values relevant to determine system availability and status.
 
 Example of calling this path with cURL:
 
-    curl api.deconstructed.io/api
+    curl api.deconstructed.io/stat?access_token=123456789
 
 Example results would look like:
 
@@ -105,7 +105,7 @@ Post to this path to add any new application event that can be used to identify 
 
 Examples of this path include:
 
-    curl -X POST -H "Content-Type: application/json" -d '{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}' http://api.deconstructed.io/ident/
+    curl -X POST -H "Content-Type: application/json" -d '{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}' http://api.deconstructed.io/identity/?access_token=123456789
 
 Example results would look like this, with the key being returned when the write is successful.
 
@@ -113,23 +113,26 @@ Example results would look like this, with the key being returned when the write
 {"key": "06e5140d-fa4e-4758-8d9d-e707bd19880d"};
 ```
 
-### /identity/:id
+### /identity/by
 
 Get against this path to pull any ident information by the id passed in as a parameter. Examples of this path include:
 
-    curl http://api.deconstructed.io/identity/06e5140d-fa4e-4758-8d9d-e707bd19880d
+    curl -X POST -H "Content-Type: application/json" -d '' http://api.deconstructed.io/identity/by/?access_token=123456789
 
-Example results would look like:
+Where the data is passed (via -d) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get identity data by, currenlty this includes:
 
+ * Root ID: This is the ID that the system uses to track and find the profile records association to an individual identity in the system.
 ```javascript
-{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
+{"root":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
 ```
-
-### /identity/known/:id
-
-Get against this path to pull any ident information by the known id parameters passed in as a parameter. Examples of this path include:
-
-    curl http://api.deconstructed.io/known/identity/c625e601-fb42-40f8-a101-33301d290596
+ * Known ID: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]
+```javascript
+{"known":"{"ID":"c625e601-fb42-40f8-a101-33301d290596","emailId":"foo@bar.com"}"}
+```
+ * search: This is a query based on SOLR/Lucene to find data with. [Currently unreleased feature]
+```javascript
+{"search":"portland"}
+```
 
 Example results would look like:
 
@@ -144,6 +147,4 @@ Example results would look like:
 
 ### /converged/
 
-### /converged/:id
-
-### /converged/:query
+### /converged/by
