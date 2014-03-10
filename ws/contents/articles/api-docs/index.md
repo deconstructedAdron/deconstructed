@@ -13,10 +13,8 @@ APIs
 ===
 
 *   [Overview](#overview)
-    *   [Philosophy](#philosophy)
-    *   [Documentation Conventions](#conventions)
-*   [Identity API Services](#consociation)
-*   [Consociation API Services](#identity)
+*   [Identity API Services](#identity)
+*   [Consociation API Services](#consociation)
 
 * * *
 
@@ -26,63 +24,17 @@ APIs
 
 The idea behind the API services is to provide a simple RESTful style interface for interaction with client mobile apps, native interfaces, browser based clients or whatever might make use of this data consociation.
 
-<h3 id="conventions">Documentation Conventions</h3>
-
-In this documentation many of the API calls will have examples provided in JavaScript initially and over time in other prospective languages such as Csharp, Java, Objective-C and others.
-
-#### Example JavaScript Code
-
-```javascript
-function getStorgieConsociationData() {
-    return StorgieStuff;
-}
-```
-
-#### ObjectiveC
-
-```objectivec
-#import <stdio.h>
-
-int main(void)
-{
-    printf("Hello, Storgie!\n");
-    return 0;
-}
-```
-
-#### Example CSharp Code
-
-```cs
-class StorgieGetter
-{
-    static void Main()
-    {
-        System.Console.WriteLine(Consociation.Data.StorgieStuff());
-    }
-}
-```
-
-#### Java
-
-```java
-public class StorgieGetter {
-   public static void main(String[] args) {
-       System.out.println(Storgie.Data.StorgieStuff());
-   }
-}
-```
-
 <h2 id="identity">Identity</h2>
 
-The root of all API calls are located at http://api.deconstructed.io/. The following are all listed with the root assumed to be this URI. All paths are then appended to this root.
+The root of all API calls are located at http://api.deconstructed.io/. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=[123456789].
 
-### /api/
+### /stat/
 
-Submit a get against this path for a status on the Deconstructed Ecosystem. This API end point will return a number of values relevant to determine system availability and status.
+Submit an HTTP get against this path for a status on the Deconstructed Ecosystem. This API end point will return a number of values relevant to determine system availability and status.
 
 Example of calling this path with cURL:
 
-    curl api.deconstructed.io/api
+    curl api.deconstructed.io/stat?access_token=123456789
 
 Example results would look like:
 
@@ -99,13 +51,13 @@ Example results would look like:
 
 Identity Tracking & Retrieval
 
-### /ident/
+### /identity/
 
 Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the consociation engine. For an example of JSON data to pass into the ident service check out the [Inbound Consociated Data Schema](/articles/inbound-data-schema/).
 
 Examples of this path include:
 
-    curl -X POST -H "Content-Type: application/json" -d '{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}' http://api.deconstructed.io/ident/
+    curl -X POST -H "Content-Type: application/json" -d '{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}' http://api.deconstructed.io/identity/?access_token=123456789
 
 Example results would look like this, with the key being returned when the write is successful.
 
@@ -113,20 +65,26 @@ Example results would look like this, with the key being returned when the write
 {"key": "06e5140d-fa4e-4758-8d9d-e707bd19880d"};
 ```
 
-### /ident/:id
+### /identity/by
 
-Get against this path to pull any ident information by the id passed in as a parameter. Examples of this path include:
+Get against this path to pull any ident information by the id passed in as a parameter. Examples of curling this path include:
 
-    http://api.deconstructed.io/ident/1
+    curl -X POST -H "Content-Type: application/json" -d '' http://api.deconstructed.io/identity/by/?access_token=123456789
 
-or
+Where the data is passed (via -d) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get identity data by, currenlty this includes:
 
-    http://api.deconstructed.io/ident/h4sh4y0u
-
-or
-
-    http://api.deconstructed.io/ident/1234-big1-guid-goes43here12
-
+ * Root ID: This is the ID that the system uses to track and find the profile records association to an individual identity in the system.
+```javascript
+{"root":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
+```
+ * Known ID: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]
+```javascript
+{"known":"{"ID":"c625e601-fb42-40f8-a101-33301d290596","emailId":"foo@bar.com"}"}
+```
+ * search: This is a query based on SOLR/Lucene to find data with. [Currently unreleased feature]
+```javascript
+{"search":"portland"}
+```
 
 Example results would look like:
 
@@ -134,12 +92,46 @@ Example results would look like:
 {"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
 ```
 
+
 <h2 id="consociation">Consociation</h2>
 
 ### /convergence/
 
-### /converged/
+The convergence end point provides rolled up information for the number of convergences that have occurred in the last 5 days. An example of curling this path include:
 
-### /converged/:id
+    curl -X http://api.deconstructed.io/convergence/?access_token=123456789
 
-### /converged/:query
+Example results would look like:
+
+```javascript
+{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
+```
+
+### /converged/by
+
+This API end point provides a query interface very similar to the identity by interface except that it provides only a single response for any of the keys. As it returns the data for the identity in a post consociated state after a convergence of the data has occurred. The converged by end point provides information
+
+    curl -X POST -H "Content-Type: application/json" -d '' http://api.deconstructed.io/converged/by/?access_token=123456789
+
+Where the data is passed (via -d) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get identity data by, currenlty this includes:
+
+ * Root ID: This is the ID that the system uses to track and find the profile records association to an individual identity in the system.
+```javascript
+{"root":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
+```
+ * Known ID: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]
+```javascript
+{"known":"{"ID":"c625e601-fb42-40f8-a101-33301d290596","emailId":"foo@bar.com"}"}
+```
+ * search: This is a query based on SOLR/Lucene to find data with. [Currently unreleased feature]
+```javascript
+{"search":"portland"}
+```
+
+In return a result might look like this:
+
+```javascript
+{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
+```
+
+If other profile identity information has been added to this identity through convergence in consociation the data could have a number of other known IDs and related metadata.
