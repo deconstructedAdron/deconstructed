@@ -137,10 +137,10 @@
 <pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;&#39; http://api.deconstructed.io/identity/by/?access_token=123456789
 </code></pre><p>Where the data is passed (via -d) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get identity data by, currenlty this&nbsp;includes:</p>
 <ul>
-<li>Root <span class="caps">ID</span>: This is the ID that the system uses to track and find the profile records association to an individual identity in the system.<pre><code class="lang-javascript">{<span class="string">"root"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>}
+<li>Root <span class="caps">ID</span>: This is the ID that the system uses to track and find the profile records association to an individual identity in the system.<pre><code class="lang-javascript">{<span class="string">"rootid"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>}
 </code></pre>
 </li>
-<li>Known <span class="caps">ID</span>: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]<pre><code class="lang-javascript">{<span class="string">"known"</span>:<span class="string">"{"</span><span class="caps">ID</span><span class="string">":"</span>c625e601-fb42-<span class="number">40</span>f8-a101-<span class="number">33301</span>d290596<span class="string">","</span>emailId<span class="string">":"</span>foo@bar.com<span class="string">"}"</span>}
+<li>Known <span class="caps">ID</span>: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]<pre><code class="lang-javascript">{<span class="string">"knownid"</span>:<span class="string">"{"</span><span class="caps">ID</span><span class="string">":"</span>c625e601-fb42-<span class="number">40</span>f8-a101-<span class="number">33301</span>d290596<span class="string">","</span>emailId<span class="string">":"</span>foo@bar.com<span class="string">"}"</span>}
 </code></pre>
 </li>
 <li>search: This is a query based on <span class="caps">SOLR</span>/Lucene to find data with. [Currently unreleased feature]<pre><code class="lang-javascript">{<span class="string">"search"</span>:<span class="string">"portland"</span>}
