@@ -75,11 +75,11 @@ Where the data is passed (via -d) the following would be passed based on what ty
 
  * Root ID: This is the ID that the system uses to track and find the profile records association to an individual identity in the system.
 ```javascript
-{"root":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
+{"rootid":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
 ```
  * Known ID: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]
 ```javascript
-{"known":"{"ID":"c625e601-fb42-40f8-a101-33301d290596","emailId":"foo@bar.com"}"}
+{"knownid":"{"ID":"c625e601-fb42-40f8-a101-33301d290596","emailId":"foo@bar.com"}"}
 ```
  * search: This is a query based on SOLR/Lucene to find data with. [Currently unreleased feature]
 ```javascript
