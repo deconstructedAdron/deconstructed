@@ -1,11 +1,11 @@
 ---
-title: "Inbound Consociated Data Schema"
+title: "Inbound Data Schema"
 author: adron-hall
 date: 2014-02-17
 template: article.jade
 ---
 
-The [Consociation Engine](/articles/consociation/) processes certain data as the data is collected by client apps and brought into the system. The purpose of the schema is to provide an outline of what is used for processing and adding value to the data that is sent to Deconstructed. This data is then processed for consociation and then provided by various medium.
+The Deconstructed Engine processes certain data as the data is collected, in real-time, by client apps and brought into the system. The purpose of the schema is to provide an outline of what is used for processing and adding value to the data that is sent to Deconstructed. This data is then processed for consociation and then provided by various medium.
 
 <span class="more"></span>
 
