@@ -1,5 +1,5 @@
 ---
-title: "Consociated Data Results"
+title: "Outbound Data Results"
 author: adron-hall
 date: 2014-02-17
 template: article.jade
