@@ -20,25 +20,74 @@ The philosophy is to use the recursive, open ended nature of of JavaScript Objec
 
 ### Baseline JSON Data
 
-At the most basic level there are several key required pieces of data. If these value pairs are left out of the JSON data that is sent to Deconstructed the identifiers and other consociated data will not be processed for the particular collection.
+At the most basic level there are several key required pieces of data. If these value pairs are left out of the JSON data that is sent to Deconstructed the identifiers and other  data will not be processed for the particular collection. At the root level there are two elements that must be present. These elements; key and value, are shown below.
 
-In the JSON data there needs to be a pair with a key of "KnownID" and the value is then a list of JSON data pairs that signify what keys this data will be cross-correlated against for known identified matches.
 ```javascript
 {
-    "KnownID" : {
-        "ID" : "c625e601-fb42-40f8-a101-33301d290596"
+    "key" : "a725e312-fb51-49f8-a101-33301d290236",
+    "value" : {
+    	...all content values go here...
     }
 }
 ```
-Other key pairs can be added to match across, some examples are provided in the JSON data below. In this example 
+
+When referred to in other documentation, the two domains of identity, device or other elements have a key, each are referred to as *identity key* or *device key*.
+
+Also in the value there should be certain elements, many are optional. One of the most important, to draw on the functionality of the Deconstructed services, is a pair with a key of *knownid* and the value of that pair being a list of JSON data pairs that signify keys. This data will be cross-correlated against for known identified matches. Here is an example of the baeline JSON with values that one could submit for *knownid*.
+
 ```javascript
 {
-    "KnownID" : {
-        "ID" : "c625e601-fb42-40f8-a101-33301d290596"
-        "email_hash" : "8743b52063cd84097a65d1633f5c74f5"
-        "identifier" : "7674b50e-4085-486a-b6b9-4de75927c551"
-        "a_device_hash_id" : "$P$984478476IagS59wHZvyQMArzfx58u."
-        "etcid" : "b302cae5-f638-4668-acb1-4e12b3eac170"
+    "key" : "a725e312-fb51-49f8-a101-33301d290236",
+    "value" : {
+    	"knownid":{
+    		"ID":"c625e601-fb42-40f8-a101-33301d290596",
+			"email-md5-hash":"8d86e026da849d333a518a394bc37e0d",
+			"secret-id-hash":"1dce4e2a445350c5583d4663f9299af3",
+			"twitter-id":"adron",
+			"dropbox-hash":"d0c14f38429d9494a96211d660f6a48c",
+			"github-id":"adron"
+    	}
+    }
+}
+```
+
+...or...
+
+```javascript
+{
+    "key" : "a3c86502-8d19-4bfb-9922-25f9ed26cda8",
+    "value" : {
+    	"knownid":{
+    		"id":"7aa1ec01-59a9-4185-a990-38e650b0aebb",
+			"secret-id-guid":"4499c77d-6db0-4dd7-b516-b4be0aad49a4",
+			"dropbox-hash":"d0c14f38429d9494a96211d660f6a48c",
+			"github-id":"adron"
+    	}
+    }
+}
+```
+
+Other data can be sent in the value. Here's a few examples that show other data that can be sent along in any addition.
+
+```javascript
+{
+    "key" : "a3c86502-8d19-4bfb-9922-25f9ed26cda8",
+    "value" : {
+    	"knownid":{
+    		"id":"7aa1ec01-59a9-4185-a990-38e650b0aebb",
+			"secret-id-guid":"4499c77d-6db0-4dd7-b516-b4be0aad49a4",
+			"dropbox-hash":"d0c14f38429d9494a96211d660f6a48c",
+			"github-id":"adron"
+    	},
+		"company-domain":{
+		},
+		"delete":"marked",
+		"lorum-ipsum-whatev":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent augue dolor, pulvinar quis tortor viverra, pellentesque tristique augue. Curabitur lorem massa, ullamcorper quis nunc id, convallis ultricies nibh. Sed dapibus facilisis feugiat. Etiam porta ullamcorper euismod.",
+		"big-money":"432.21",
+		"purchase":"864.42",
+		"created":"04/10/2018 22:34",
+		"last-edit":"05/14/2018 23:17",
+		"stamp":"05/15/2018 02:34"
     }
 }
 ```
