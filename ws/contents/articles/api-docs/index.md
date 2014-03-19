@@ -30,7 +30,7 @@ The root of all API calls are located at http://api.deconstructed.io/. The follo
 
 ### /device/
 
-Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of JSON data to pass into the ident service check out the [Inbound Consociated Data Schema](/articles/inbound-data-schema/).
+Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of JSON data to pass into the ident service check out the [Inbound Data Schema](/articles/inbound-data-schema/).
 
 Examples of this path include:
 

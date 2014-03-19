@@ -5,7 +5,7 @@ date: 2014-02-17
 template: article.jade
 ---
 
-The [Consociation Engine](/articles/consociation/) processes certain data and it is returned via various results. This documentation outlines what you'll receive when making a request for consociated data.
+The Deconstructed Engine processes certain data and it is returned via various results. This documentation outlines what you'll receive when making a request for consociated data.
 
 <span class="more"></span>
 
