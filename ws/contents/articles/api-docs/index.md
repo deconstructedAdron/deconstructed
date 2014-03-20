@@ -26,7 +26,7 @@ The idea behind the API services is to provide a simple RESTful style interface 
 
 <h2 id="device">device</h2>
 
-The root of all API calls are located at http://api.deconstructed.io/. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=[123456789].
+The root of all API calls are located at http://api.deconstructed.io/. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=123456789.
 
 ### /device/
 

@@ -11,7 +11,6 @@ The Deconstructed Engine processes certain data as the data is collected, in rea
 
 * * *
 
-
 ##Overview & Philosophy
 
 The idea behind the Inbound Consociated Data Schema isn't to confine what might be sent to, stored and processed. Instead this is set as a guideline of what will be processed. These specific schema JSON key value pairs are values that will be acted upon once received by the Consociation Engine.
