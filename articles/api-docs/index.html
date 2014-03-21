@@ -59,19 +59,7 @@
       -->
       <div class="navbar navbar-fixed-top scroll-hide">
         <div class="container-fluid top-bar">
-          <div class="pull-right">
-            <ul class="nav navbar-nav pull-right">
-              <li class="dropdown notifications hidden-xs"><a data-toggle="dropdown" href="#" class="dropdown-toggle"><span aria-hidden="true" class="se7en-flag"></span>
-                  <div class="sr-only">Notifications</div>
-                  <p class="counter">1</p></a>
-                <ul class="dropdown-menu">
-                  <li><a href="/articles/api-docs/">
-                      <div class="notifications label label-info">New</div>
-                      <p>API Docs</p></a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+          <div class="pull-right"></div>
           <button class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="http://deconstructed.io" class="logo">se7en</a>
         </div>
         <div class="container-fluid main-nav clearfix">
@@ -79,7 +67,7 @@
             <ul class="nav">
               <li><a href="/" class="current"><span aria-hidden="true" class="se7en-pages"></span>Docs Home</a></li>
               <li><a href="/articles/api-docs/" class="current"><span aria-hidden="true" class="se7en-forms"></span>API Docs</a></li>
-              <li><a href="http://api.deconstructed.io/status" class="current"><span aria-hidden="true" class="se7en-feed"></span>API Status</a></li>
+              <li><a href="http://api.deconstructed.io/" class="current"><span aria-hidden="true" class="se7en-feed"></span>API Status</a></li>
             </ul>
           </div>
         </div>
@@ -111,44 +99,44 @@
 
 <p>The root of all <span class="caps">API</span> calls are located at <a href="http://api.deconstructed.io/">http://api.deconstructed.io/</a>. The following are all listed with the root assumed to be this <span class="caps">URI</span>. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable&nbsp;access_token=123456789.</p>
 <h3 id="-device-">/device/</h3>
-<p>Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of <span class="caps">JSON</span> data to pass into the ident service check out the <a href="/articles/inbound-data-schema/">Inbound Data Schema</a>.</p>
+<p>Post to this path to add device specific user identifying data that will be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of <span class="caps">JSON</span> data to pass into the services check out the <a href="/articles/inbound-data-schema/">Inbound Data Schema</a>.</p>
 <p>Examples of this path&nbsp;include:</p>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;{&quot;key&quot;:&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;, &quot;value&quot;:{&quot;KnownID&quot; : {&quot;ID&quot; : &quot;c625e601-fb42-40f8-a101-33301d290596&quot;}}}&#39; http://api.deconstructed.io/device/?access_token=123456789
+<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;{&quot;key&quot;:&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;, &quot;value&quot;:{&quot;knownid&quot; : {&quot;ID&quot; : &quot;c625e601-fb42-40f8-a101-33301d290596&quot;}}}&#39; http://api.deconstructed.io/device/?access_token=123456789
 </code></pre><p>Example results would look like this, with the key being returned when the write is&nbsp;successful.</p>
 <pre><code class="lang-javascript">{<span class="string">"key"</span>: <span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>};
 </code></pre>
 <h3 id="-device-by">/device/by</h3>
-<p>Get against this path to pull any ident information by the id passed in as a parameter. Examples of curling this path&nbsp;include:</p>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;&#39; http://api.deconstructed.io/device/by/?access_token=123456789
-</code></pre><p>Where the data is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this&nbsp;includes:</p>
+<p>Issuing an <span class="caps">HTTP</span> POST against this route and including a body (-d with a curl command) of JSON parameters will return the device or devices that match the criteria passed in. The passed in data can be either deviceid or knownid but not both. Examples of curling this path&nbsp;include:</p>
+<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;**&#39; http://api.deconstructed.io/device/by/?access_token=123456789
+</code></pre><p>Where the data (** above) is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this&nbsp;includes:</p>
 <ul>
-<li>rootid: This is the <span class="caps">ID</span> that the system uses to track and find the profile records association to an individual device in the system.<pre><code class="lang-javascript">{<span class="string">"rootid"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>}
+<li>deviceid: This is the <span class="caps">ID</span> that the system uses to track and find the device records association to a single device in the system.<pre><code class="lang-javascript">{<span class="string">"deviceid"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>}
 </code></pre>
 </li>
 <li>knownid: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]<pre><code class="lang-javascript">{<span class="string">"knownid"</span>:<span class="string">"{"</span><span class="caps">ID</span><span class="string">":"</span>c625e601-fb42-<span class="number">40</span>f8-a101-<span class="number">33301</span>d290596<span class="string">","</span>emailId<span class="string">":"</span>foo@bar.com<span class="string">"}"</span>}
 </code></pre>
 </li>
-<li>search: This is a query based on <span class="caps">SOLR</span>/Lucene to find data with. [Currently unreleased feature]<pre><code class="lang-javascript">{<span class="string">"search"</span>:<span class="string">"portland"</span>}
-</code></pre>
-</li>
 </ul>
 <p>Example results would look&nbsp;like:</p>
-<pre><code class="lang-javascript">{<span class="string">"key"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>, <span class="string">"value"</span>:{<span class="string">"KnownID"</span> : {<span class="string">"<span class="caps">ID</span>"</span> : <span class="string">"c625e601-fb42-40f8-a101-33301d290596"</span>}}}
+<pre><code class="lang-javascript">{<span class="string">"key"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>, <span class="string">"value"</span>:{<span class="string">"knownid"</span> : {<span class="string">"<span class="caps">ID</span>"</span> : <span class="string">"c625e601-fb42-40f8-a101-33301d290596"</span>}}}
 </code></pre>
 <h2 id="identity">Identity</h2>
 
 <h3 id="-identities-">/identities/</h3>
-<p>The convergence end point provides rolled up information for the number of convergences that have occurred in the last 5 days. An example of curling this path&nbsp;include:</p>
+<p>The identities end point provides rolled up information for the device(s) that are converged into an identifying model of data. An example of curling this path&nbsp;include:</p>
 <pre><code>curl -X http://api.deconstructed.io/identities/?access_token=123456789
 </code></pre><p>Example results would look&nbsp;like:</p>
-<pre><code class="lang-javascript">{<span class="string">"key"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>, <span class="string">"value"</span>:{<span class="string">"KnownID"</span> : {<span class="string">"<span class="caps">ID</span>"</span> : <span class="string">"c625e601-fb42-40f8-a101-33301d290596"</span>}}}
+<pre><code class="lang-javascript">{<span class="string">"key"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>, <span class="string">"value"</span>:{<span class="string">"knownid"</span> : {<span class="string">"<span class="caps">ID</span>"</span> : <span class="string">"c625e601-fb42-40f8-a101-33301d290596"</span>}}}
 </code></pre>
 <h3 id="-identity-by">/identity/by</h3>
-<p>This <span class="caps">API</span> end point provides a query interface very similar to the device by interface except that it provides only a single response for any of the keys. As it returns the data for the device in a post consociated state after a convergence of the data has occurred. The converged by end point provides&nbsp;information</p>
+<p>This <span class="caps">API</span> route provides a query interface very similar to the device by search query interface except that it has an additional parameter option (identitykey) provides only a single element in response for any of the keys. As it returns the data for the device in a post consociated state after a convergence of the data has occurred. The converged by end point provides&nbsp;information</p>
 <pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;&#39; http://api.deconstructed.io/identity/by/?access_token=123456789
 </code></pre><p>Where the data is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this&nbsp;includes:</p>
 <ul>
-<li>rootid: This is the <span class="caps">ID</span> that the system uses to track and find the profile records association to an individual device in the system.<pre><code class="lang-javascript">{<span class="string">"rootid"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>}
+<li>identitykey: This is the <span class="caps">ID</span> that the system uses to track and find the profile records association to an individual device in the system.<pre><code class="lang-javascript">{<span class="string">"identitykey"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>}
+</code></pre>
+</li>
+<li>devicekey: This is the <span class="caps">ID</span> that the system uses to track individual devices and can be used to find an identity by since the identitykey goes along with converged data when it is graphed together to form a complete identity.<pre><code class="lang-javascript">{<span class="string">"devicekey"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>}
 </code></pre>
 </li>
 <li>knownid: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]<pre><code class="lang-javascript">{<span class="string">"knownid"</span>:<span class="string">"{"</span><span class="caps">ID</span><span class="string">":"</span>c625e601-fb42-<span class="number">40</span>f8-a101-<span class="number">33301</span>d290596<span class="string">","</span>emailId<span class="string">":"</span>foo@bar.com<span class="string">"}"</span>}
