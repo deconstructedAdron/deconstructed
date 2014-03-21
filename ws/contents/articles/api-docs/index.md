@@ -30,11 +30,11 @@ The root of all API calls are located at http://api.deconstructed.io/. The follo
 
 ### /device/
 
-Post to this path to add any new application event that can be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of JSON data to pass into the ident service check out the [Inbound Data Schema](/articles/inbound-data-schema/).
+Post to this path to add device specific user identifying data that will be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of JSON data to pass into the services check out the [Inbound Data Schema](/articles/inbound-data-schema/).
 
 Examples of this path include:
 
-    curl -X POST -H "Content-Type: application/json" -d '{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}' http://api.deconstructed.io/device/?access_token=123456789
+    curl -X POST -H "Content-Type: application/json" -d '{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"knownid" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}' http://api.deconstructed.io/device/?access_token=123456789
 
 Example results would look like this, with the key being returned when the write is successful.
 
@@ -44,29 +44,25 @@ Example results would look like this, with the key being returned when the write
 
 ### /device/by
 
-Get against this path to pull any ident information by the id passed in as a parameter. Examples of curling this path include:
+Get against this path to pull any device information by the id passed in as a parameter. This can include the deviceid or knownid. Examples of curling this path include:
 
     curl -X POST -H "Content-Type: application/json" -d '' http://api.deconstructed.io/device/by/?access_token=123456789
 
 Where the data is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this includes:
 
- * rootid: This is the ID that the system uses to track and find the profile records association to an individual device in the system.
+ * deviceid: This is the ID that the system uses to track and find the device records association to a single device in the system.
 ```javascript
-{"rootid":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
+{"deviceid":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
 ```
  * knownid: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]
 ```javascript
 {"knownid":"{"ID":"c625e601-fb42-40f8-a101-33301d290596","emailId":"foo@bar.com"}"}
 ```
- * search: This is a query based on SOLR/Lucene to find data with. [Currently unreleased feature]
-```javascript
-{"search":"portland"}
-```
 
 Example results would look like:
 
 ```javascript
-{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
+{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"knownid" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
 ```
 
 <h2 id="identity">Identity</h2>
@@ -80,7 +76,7 @@ The convergence end point provides rolled up information for the number of conve
 Example results would look like:
 
 ```javascript
-{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"KnownID" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
+{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"knownid" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
 ```
 
 ### /identity/by
@@ -91,10 +87,14 @@ This API end point provides a query interface very similar to the device by inte
 
 Where the data is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this includes:
 
- * rootid: This is the ID that the system uses to track and find the profile records association to an individual device in the system.
+ * identitykey: This is the ID that the system uses to track and find the profile records association to an individual device in the system.
 ```javascript
-{"rootid":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
+{"identitykey":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
 ```
+ * devicekey: This is the ID that the system uses to track individual devices and can be used to find an identity by since the identitykey goes along with converged data when it is graphed together to form a complete identity.
+```javascript
+{"devicekey":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
+``` 
  * knownid: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]
 ```javascript
 {"knownid":"{"ID":"c625e601-fb42-40f8-a101-33301d290596","emailId":"foo@bar.com"}"}
