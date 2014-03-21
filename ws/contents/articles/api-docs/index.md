@@ -95,7 +95,7 @@ Where the data is passed (via -d with a curl command) the following would be pas
 ```javascript
 {"devicekey":"06e5140d-fa4e-4758-8d9d-e707bd19880d"}
 ``` 
- * knownid: This can be one or more IDs associated to the IDs tracked against identities. [Currently unreleased feature]
+ * knownid: This can be one or more IDs associated to the IDs tracked against devices.
 ```javascript
 {"knownid":"{"ID":"c625e601-fb42-40f8-a101-33301d290596","emailId":"foo@bar.com"}"}
 ```
@@ -106,4 +106,3 @@ In return a result might look like this:
 ```
 
 If other profile device information has been added to this device through convergence in identity the data could have a number of other known IDs and related metadata.
-
