@@ -65,28 +65,3 @@ Also in the value there should be certain elements, many are optional. One of th
     }
 }
 ```
-
-Other data can be sent in the value. Here's a few examples that show other data that can be sent along in any addition.
-
-```javascript
-{
-    "key" : "a3c86502-8d19-4bfb-9922-25f9ed26cda8",
-    "value" : {
-    	"knownid":{
-    		"id":"7aa1ec01-59a9-4185-a990-38e650b0aebb",
-			"secret-id-guid":"4499c77d-6db0-4dd7-b516-b4be0aad49a4",
-			"dropbox-hash":"d0c14f38429d9494a96211d660f6a48c",
-			"github-id":"adron"
-    	},
-		"company-domain":{
-		},
-		"delete":"marked",
-		"lorum-ipsum-whatev":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent augue dolor, pulvinar quis tortor viverra, pellentesque tristique augue. Curabitur lorem massa, ullamcorper quis nunc id, convallis ultricies nibh. Sed dapibus facilisis feugiat. Etiam porta ullamcorper euismod.",
-		"big-money":"432.21",
-		"purchase":"864.42",
-		"created":"04/10/2018 22:34",
-		"last-edit":"05/14/2018 23:17",
-		"stamp":"05/15/2018 02:34"
-    }
-}
-```
