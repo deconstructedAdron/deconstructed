@@ -44,11 +44,11 @@ Example results would look like this, with the key being returned when the write
 
 ### /device/by
 
-Get against this path to pull any device information by the id passed in as a parameter. This can include the deviceid or knownid. Examples of curling this path include:
+Issuing an HTTP POST against this route and including a body (-d with a curl command) of JSON parameters will return the device or devices that match the criteria passed in. The passed in data can be either deviceid or knownid but not both. Examples of curling this path include:
 
-    curl -X POST -H "Content-Type: application/json" -d '' http://api.deconstructed.io/device/by/?access_token=123456789
+    curl -X POST -H "Content-Type: application/json" -d '**' http://api.deconstructed.io/device/by/?access_token=123456789
 
-Where the data is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this includes:
+Where the data (** above) is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this includes:
 
  * deviceid: This is the ID that the system uses to track and find the device records association to a single device in the system.
 ```javascript
@@ -69,7 +69,7 @@ Example results would look like:
 
 ### /identities/
 
-The convergence end point provides rolled up information for the number of convergences that have occurred in the last 5 days. An example of curling this path include:
+The identities end point provides rolled up information for the device(s) that are converged into an identifying model of data. An example of curling this path include:
 
     curl -X http://api.deconstructed.io/identities/?access_token=123456789
 
@@ -81,7 +81,7 @@ Example results would look like:
 
 ### /identity/by
 
-This API end point provides a query interface very similar to the device by interface except that it provides only a single response for any of the keys. As it returns the data for the device in a post consociated state after a convergence of the data has occurred. The converged by end point provides information
+This API route provides a query interface very similar to the device by search query interface except that it has an additional parameter option (identitykey) provides only a single element in response for any of the keys. As it returns the data for the device in a post consociated state after a convergence of the data has occurred. The converged by end point provides information
 
     curl -X POST -H "Content-Type: application/json" -d '' http://api.deconstructed.io/identity/by/?access_token=123456789
 
