@@ -5,7 +5,9 @@ date: 2014-02-17
 template: article.jade
 ---
 
-The Deconstructed Engine processes certain data as the data is collected, in real-time, by client apps and brought into the system. The purpose of the schema is to provide an outline of what is used for processing and adding value to the data that is sent to Deconstructed. This data is then processed for consociation and then provided by various medium.
+The Deconstructed Graph Engine automatically graphs relationships between users and devices based on shared user identity values.  A user identity value in Deconstructed is called a “knownid”.  The Engine processes in-bound data in real-time and updates the graph continuously. Devices sharing a “knownid” are associated together in the graph.
+When requesting data from the graph, there two domains of data: device-level and user-level (or identity-level).  Device profiles within the graph contain all of the knownid’s collected from that device.  User profiles, or “Identities” contain all of the knownid’s for that user across all of their devices, as well as all of the devices associated with that user.
+The purpose of the schema is to provide an outline of how to structure data to send to the Deconstructed Graph Engine for processing.
 
 <span class="more"></span>
 
@@ -13,13 +15,13 @@ The Deconstructed Engine processes certain data as the data is collected, in rea
 
 ##Overview & Philosophy
 
-The idea behind the Inbound Consociated Data Schema isn't to confine what might be sent to, stored and processed. Instead this is set as a guideline of what will be processed. These specific schema JSON key value pairs are values that will be acted upon once received by the Consociation Engine.
+The idea behind the Inbound Data Schema isn’t to confine what might be sent to, stored and processed. Instead this is set as a guideline of what will be processed. These specific JSON key value pairs are values that will be acted upon once received by the Graph Engine.
 
 The philosophy is to use the recursive, open ended nature of of JavaScript Object Notation, or JSON as an intelligent storage mechanism for data that is sent to the Deconstructed system. By doing so we gain the use of JavaScript and the native readability that JavaScript has for JSON but also the mass adoption of JSON across many platforms.
 
 ### Baseline JSON Data
 
-At the most basic level there are several key required pieces of data. If these value pairs are left out of the JSON data that is sent to Deconstructed the identifiers and other  data will not be processed for the particular collection. At the root level there are two elements that must be present. These elements; key and value, are shown below.
+At the most basic level there are several required pieces of data. If these value pairs are left out of the JSON data that is sent to Deconstructed the identifiers and other  data will not be processed for the particular collection. At the root level there are two elements that must be present. These elements; key and value, are shown below.
 
 ```javascript
 {
