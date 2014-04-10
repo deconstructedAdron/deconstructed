@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .container-fluid.main-content
+  .page-title
+    h1 Deconstructed Documentation
+  include author
+  each article in articles
+    article.article.intro
+      .row
+        .col-lg-12
+          .widget-container.fluid-height.clearfix
+            .col-md-3
+              .heading
+                header
+                h2
+                  a(href=article.url)= article.title
+            .col-md-9
+              .widget-content.padded
+                section.content
+                  | !{ typogr(article.intro).typogrify() }
+                if article.hasMore
+                  p.more
+                    a(href=article.url) more
+block prepend footer
+  div.nav
+    .row
+      .col-lg-12
+        .widget-container.fluid-height.clearfix
+          .col-md-3
+            .heading      
+              if prevPage
+                a(href=prevPage.url) « Newer
+              else
+                a(href='/archive.html') « Archives
+                = " | "
+              if nextPage
+                a(href=nextPage.url) Next page »
