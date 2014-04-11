@@ -1,5 +1,5 @@
 ---
-title: "Inbound Device Schema"
+title: "Inbound Data"
 author: adron-hall
 date: 2014-02-17
 template: article.jade
