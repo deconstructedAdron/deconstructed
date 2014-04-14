@@ -11,15 +11,26 @@ The purpose of the schema is to provide an outline of how to structure data to s
 
 <span class="more"></span>
 
+Data Schema
+===
+
+*   [Overview](#overview)
+*   [Minimum Inbound Data](#minimum)
+*   [Metadata Storage](#metadata)
+
 * * *
 
-##Overview & Philosophy
+<h2 id="overview">Overview & Philosophy</h2>
 
 The idea behind the Inbound Data Schema isn’t to confine what might be sent to, stored and processed. Instead this is set as a guideline of what will be processed. These specific JSON key value pairs are values that will be acted upon once received by the Graph Engine.
 
 The philosophy is to use the recursive, open ended nature of of JavaScript Object Notation, or JSON as an intelligent storage mechanism for data that is sent to the Deconstructed system. By doing so we gain the use of JavaScript and the native readability that JavaScript has for JSON but also the mass adoption of JSON across many platforms.
 
 ### Sending Inbound Data to Deconstructed
+
+Sending data to Deconstructed provides several key features, from cross-device identification to storing other key pieces of data around geo-location, fences and related information. The options are open ended and we'll be adding more servicse with intelligent processing to the services over time.
+
+<h4 id="minimum">Minimum Required Inbound Data</h4>
 
 At the most basic level there are several required pieces of data. This required data is to ensure that any possible 100% matches between devices can be pulled together into an identity. If these value pairs are left out of the JSON data that is sent to Deconstructed the identifiers and other  data will not be processed for the particular collection. At the root level there are two elements that must be present. These elements; key and value, are shown below.
 
@@ -68,7 +79,7 @@ Also in the value there should be certain elements, many are optional. One of th
 }
 ```
 
-#### Sending Inbound Metadata Store Metadata to Desconstructed
+<h4 id="metadata">Sending Inbound Metadata Store</h4>
 When sending data to the Deconstructed API additional metadata can be sent along with the standard pieces of data. Some elements in that metadata are stored and utilized in a specific way. In the sections below some examples of adding metadata to the inbound data are shown.
 ##### User Data Store
 One example of metadata that has specific uses, kind of like reserved words in programming languages, is the User Data Store metadata. Here's a complete example with the standard key and knownid values included.
