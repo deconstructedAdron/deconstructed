@@ -85,11 +85,21 @@
 When requesting data from the graph, there two domains of data: device-level and user-level (or identity-level).  Device profiles within the graph contain all of the knownid’s collected from that device.  User profiles, or “Identities” contain all of the knownid’s for that user across all of their devices, as well as all of the devices associated with that user.
 The purpose of the schema is to provide an outline of how to structure data to send to the Deconstructed Graph Engine for&nbsp;processing.</p>
 <p><span class="more"></span></p>
+<h1 id="data-schema">Data&nbsp;Schema</h1>
+<ul>
+<li><a href="/articles/inbound-outbound/#overview">Overview</a></li>
+<li><a href="/articles/inbound-outbound/#minimum">Minimum Inbound&nbsp;Data</a></li>
+<li><a href="/articles/inbound-outbound/#identity">Identity <span class="caps">API</span>&nbsp;Services</a></li>
+</ul>
 <hr>
-<h2 id="overview-philosophy">Overview <span class="amp">&amp;</span>&nbsp;Philosophy</h2>
+<h2 id="overview">Overview <span class="amp">&amp;</span>&nbsp;Philosophy</h2>
+
 <p>The idea behind the Inbound Data Schema isn’t to confine what might be sent to, stored and processed. Instead this is set as a guideline of what will be processed. These specific <span class="caps">JSON</span> key value pairs are values that will be acted upon once received by the Graph&nbsp;Engine.</p>
 <p>The philosophy is to use the recursive, open ended nature of of JavaScript Object Notation, or <span class="caps">JSON</span> as an intelligent storage mechanism for data that is sent to the Deconstructed system. By doing so we gain the use of JavaScript and the native readability that JavaScript has for JSON but also the mass adoption of JSON across many&nbsp;platforms.</p>
 <h3 id="sending-inbound-data-to-deconstructed">Sending Inbound Data to&nbsp;Deconstructed</h3>
+<p>Sending data to Deconstructed provides several key features, from cross-device identification to storing other key pieces of data around geo-location, fences and related information. The options are open ended and we’ll be adding more servicse with intelligent processing to the services over&nbsp;time.</p>
+<h4 id="minimum">Minimum Required Inbound&nbsp;Data</h4>
+
 <p>At the most basic level there are several required pieces of data. This required data is to ensure that any possible 100% matches between devices can be pulled together into an identity. If these value pairs are left out of the <span class="caps">JSON</span> data that is sent to Deconstructed the identifiers and other  data will not be processed for the particular collection. At the root level there are two elements that must be present. These elements; key and value, are shown&nbsp;below.</p>
 <pre><code class="lang-javascript">{
     <span class="string">"key"</span> : <span class="string">"a725e312-fb51-49f8-a101-33301d290236"</span>,
@@ -127,8 +137,8 @@ The purpose of the schema is to provide an outline of how to structure data to s
     }
 }
 </code></pre>
-<h4 id="sending-inbound-metadata-store-metadata-to-desconstructed">Sending Inbound Metadata Store Metadata to&nbsp;Desconstructed</h4>
-<p>When sending data to the Deconstructed <span class="caps">API</span> additional metadata can be sent along with the standard pieces of data. Some elements in that metadata are stored and utilized in a specific way. In the sections below some examples of adding metadata to the inbound data are&nbsp;shown.</p>
+<p><h4 id="metadata">Sending Inbound Metadata&nbsp;Store</h4>
+When sending data to the Deconstructed <span class="caps">API</span> additional metadata can be sent along with the standard pieces of data. Some elements in that metadata are stored and utilized in a specific way. In the sections below some examples of adding metadata to the inbound data are&nbsp;shown.</p>
 <h5 id="user-data-store">User Data&nbsp;Store</h5>
 <p>One example of metadata that has specific uses, kind of like reserved words in programming languages, is the User Data Store metadata. Here’s a complete example with the standard key and knownid values&nbsp;included.</p>
 <pre><code class="lang-javascript">{
