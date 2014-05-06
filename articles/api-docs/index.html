@@ -101,13 +101,13 @@
 <h3 id="-device-">/device/</h3>
 <p>Post to this path to add device specific user identifying data that will be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of <span class="caps">JSON</span> data to pass into the services check out the <a href="/articles/inbound-data-schema/">Inbound Data Schema</a>.</p>
 <p>Examples of this path&nbsp;include:</p>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;{&quot;key&quot;:&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;, &quot;value&quot;:{&quot;knownid&quot; : {&quot;ID&quot; : &quot;c625e601-fb42-40f8-a101-33301d290596&quot;}}}&#39; http://api.deconstructed.io/device/?access_token=123456789
+<pre><code>curl -u username:password -X POST -H &quot;Content-Type: application/json&quot; -d &#39;{&quot;key&quot;:&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;, &quot;value&quot;:{&quot;knownid&quot; : {&quot;ID&quot; : &quot;c625e601-fb42-40f8-a101-33301d290596&quot;}}}&#39; http://api.deconstructed.io/device
 </code></pre><p>Example results would look like this, with the key being returned when the write is&nbsp;successful.</p>
 <pre><code class="lang-javascript">{<span class="string">"key"</span>: <span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>};
 </code></pre>
 <h3 id="-device-by">/device/by</h3>
 <p>Issuing an <span class="caps">HTTP</span> POST against this route and including a body (-d with a curl command) of JSON parameters will return the device or devices that match the criteria passed in. The passed in data can be either deviceid or knownid but not both. Examples of curling this path&nbsp;include:</p>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;**&#39; http://api.deconstructed.io/device/by/?access_token=123456789
+<pre><code>curl -u username:password -X POST -H &quot;Content-Type: application/json&quot; -d &#39;**&#39; http://api.deconstructed.io/device/by
 </code></pre><p>Where the data (** above) is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this&nbsp;includes:</p>
 <ul>
 <li>deviceid: This is the <span class="caps">ID</span> that the system uses to track and find the device records association to a single device in the system.<pre><code class="lang-javascript">{<span class="string">"deviceid"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>}
@@ -120,17 +120,10 @@
 <p>Example results would look&nbsp;like:</p>
 <pre><code class="lang-javascript">{<span class="string">"key"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>, <span class="string">"value"</span>:{<span class="string">"knownid"</span> : {<span class="string">"<span class="caps">ID</span>"</span> : <span class="string">"c625e601-fb42-40f8-a101-33301d290596"</span>}}}
 </code></pre>
-<h2 id="identity">Identity</h2>
-
-<h3 id="-identities-">/identities/</h3>
-<p>The identities end point provides rolled up information for the device(s) that are converged into an identifying model of data. An example of curling this path&nbsp;include:</p>
-<pre><code>curl -X http://api.deconstructed.io/identities/?access_token=123456789
-</code></pre><p>Example results would look&nbsp;like:</p>
-<pre><code class="lang-javascript">{<span class="string">"key"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>, <span class="string">"value"</span>:{<span class="string">"knownid"</span> : {<span class="string">"<span class="caps">ID</span>"</span> : <span class="string">"c625e601-fb42-40f8-a101-33301d290596"</span>}}}
-</code></pre>
+<p><h2 id="identity">Identity</h2></p>
 <h3 id="-identity-by">/identity/by</h3>
 <p>This <span class="caps">API</span> route provides a query interface very similar to the device by search query interface except that it has an additional parameter option (identitykey) provides only a single element in response for any of the keys. As it returns the data for the device in a post consociated state after a convergence of the data has occurred. The converged by end point provides&nbsp;information</p>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;&#39; http://api.deconstructed.io/identity/by/?access_token=123456789
+<pre><code>curl -u username:password -X POST -H &quot;Content-Type: application/json&quot; -d &#39;&#39; http://api.deconstructed.io/identity/by
 </code></pre><p>Where the data is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this&nbsp;includes:</p>
 <ul>
 <li>identitykey: This is the <span class="caps">ID</span> that the system uses to track and find the profile records association to an individual device in the system.<pre><code class="lang-javascript">{<span class="string">"identitykey"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>}
