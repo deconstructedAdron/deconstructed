@@ -34,7 +34,7 @@ Post to this path to add device specific user identifying data that will be used
 
 Examples of this path include:
 
-    curl -X POST -H "Content-Type: application/json" -d '{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"knownid" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}' http://api.deconstructed.io/device/?access_token=123456789
+    curl -u username:password -X POST -H "Content-Type: application/json" -d '{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"knownid" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}' http://api.deconstructed.io/device
 
 Example results would look like this, with the key being returned when the write is successful.
 
@@ -46,7 +46,7 @@ Example results would look like this, with the key being returned when the write
 
 Issuing an HTTP POST against this route and including a body (-d with a curl command) of JSON parameters will return the device or devices that match the criteria passed in. The passed in data can be either deviceid or knownid but not both. Examples of curling this path include:
 
-    curl -X POST -H "Content-Type: application/json" -d '**' http://api.deconstructed.io/device/by/?access_token=123456789
+    curl -u username:password -X POST -H "Content-Type: application/json" -d '**' http://api.deconstructed.io/device/by
 
 Where the data (** above) is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this includes:
 
@@ -66,24 +66,11 @@ Example results would look like:
 ```
 
 <h2 id="identity">Identity</h2>
-
-### /identities/
-
-The identities end point provides rolled up information for the device(s) that are converged into an identifying model of data. An example of curling this path include:
-
-    curl -X http://api.deconstructed.io/identities/?access_token=123456789
-
-Example results would look like:
-
-```javascript
-{"key":"06e5140d-fa4e-4758-8d9d-e707bd19880d", "value":{"knownid" : {"ID" : "c625e601-fb42-40f8-a101-33301d290596"}}}
-```
-
 ### /identity/by
 
 This API route provides a query interface very similar to the device by search query interface except that it has an additional parameter option (identitykey) provides only a single element in response for any of the keys. As it returns the data for the device in a post consociated state after a convergence of the data has occurred. The converged by end point provides information
 
-    curl -X POST -H "Content-Type: application/json" -d '' http://api.deconstructed.io/identity/by/?access_token=123456789
+    curl -u username:password -X POST -H "Content-Type: application/json" -d '' http://api.deconstructed.io/identity/by
 
 Where the data is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this includes:
 

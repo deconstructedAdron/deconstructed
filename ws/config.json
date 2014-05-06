@@ -1,7 +1,7 @@
 {
     "output": "../",
     "locals": {
-        "url": "http://localhost:8080",
+        "url": "http://docs.deconstructed.io",
         "name": "Deconstructed Docs",
         "owner": "Adron Hall",
         "description": "This site provides the documentation around the Deconstructed API Services."
