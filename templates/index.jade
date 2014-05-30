@@ -1,0 +1,35 @@
+extends layout
+
+block content
+
+    #wrapper.clearfix
+        #cbp-so-scroller.cbp-so-scroller
+            #main
+                #page-header.clearfix
+            .row
+                .twelve.columns
+                    .archive-title-wrapper.clearfix
+                    h2.entry-title Welcome
+                .widget
+                    .float-left(style='width: 420px;')
+                        h1 Key Concepts
+                        a(href='#') The Graph Engine
+                        br
+                        a(href='#') Devices
+                        br
+                        a(href='#') Identities
+                        br
+                        a(href='#') Metadata
+                    .float-left.post-content(style='width: 420px;')
+                        h1 API Docs
+                        b Writing Data
+                        br
+                        a(href='/articles/api-docs/') /device
+                        hr
+                        b Reading & Searching Data
+                        br
+                        a(href='#') /device/by
+                        br
+                        a(href='#') /identity/by
+                        br
+                        a(href='#') /metadata/by

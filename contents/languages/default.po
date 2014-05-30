@@ -1,0 +1,571 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FlatStudio Wordpress\n"
+"POT-Creation-Date: 2013-08-28 13:42+0100\n"
+"PO-Revision-Date: 2013-08-28 13:42+0100\n"
+"Last-Translator: \n"
+"Language-Team: Chocolatethemes <hello@chocolatethemes>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: ...\n"
+"X-Poedit-SearchPath-0: ...\n"
+
+
+#: .../404.php:10
+msgid "404 Page Not Found"
+msgstr ""
+
+
+#: .../404.php:16
+msgid ""
+"Sorry, but the page you are looking for has moved or no longer exists. "
+"Please use the search below, or the menu above to locate what you are "
+"looking for."
+msgstr ""
+
+
+#: .../comments.php:7
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+
+#: .../comments.php:31
+msgid "&larr; Older Comments"
+msgstr ""
+
+
+#: .../comments.php:32
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+
+#: .../customizer.php:22
+msgid "Logo image"
+msgstr ""
+
+
+#: .../customizer.php:32
+msgid "Logo Upload"
+msgstr ""
+
+
+#: .../customizer.php:39
+msgid "Favicon image"
+msgstr ""
+
+
+#: .../customizer.php:48
+msgid "Favicon Upload"
+msgstr ""
+
+
+#: .../customizer.php:55
+msgid "Footer socials"
+msgstr ""
+
+
+#: .../customizer.php:64
+msgid "Facebook link"
+msgstr ""
+
+
+#: .../customizer.php:75
+msgid "Envato link"
+msgstr ""
+
+
+#: .../customizer.php:86
+msgid "Twitter link"
+msgstr ""
+
+
+#: .../customizer.php:98
+msgid "Vimeo link"
+msgstr ""
+
+
+#: .../customizer.php:109
+msgid "Linkedin link"
+msgstr ""
+
+
+#: .../customizer.php:120
+msgid "Dribbble link"
+msgstr ""
+
+
+#: .../customizer.php:131
+msgid "Google plus link"
+msgstr ""
+
+
+#: .../customizer.php:142
+msgid "Flickr link"
+msgstr ""
+
+
+#: .../customizer.php:152
+msgid "Header intro text"
+msgstr ""
+
+
+#: .../customizer.php:161
+msgid "Intro text"
+msgstr ""
+
+
+#: .../customizer.php:193
+msgid "Footer outro text"
+msgstr ""
+
+
+#: .../customizer.php:202
+msgid "Outro text header"
+msgstr ""
+
+
+#: .../customizer.php:224
+msgid "Adress"
+msgstr ""
+
+
+#: .../customizer.php:236
+msgid "Email"
+msgstr ""
+
+
+#: .../customizer.php:248
+msgid "Email link (mailto:youremail.com)"
+msgstr ""
+
+
+#: .../customizer.php:260
+msgid "Telephone number"
+msgstr ""
+
+
+#: .../customizer.php:270
+msgid "Accent Color"
+msgstr ""
+
+
+#: .../customizer.php:282
+msgid "Selection Color"
+msgstr ""
+
+
+#: .../customizer.php:294
+msgid "Top Footer Background"
+msgstr ""
+
+
+#: .../customizer.php:306
+msgid "Bottom footer Background"
+msgstr ""
+
+
+#: .../customizer.php:318
+#: .../customizer.php:330
+msgid "Text Block Background"
+msgstr ""
+
+
+#: .../customizer.php:342
+msgid "Main Section Background"
+msgstr ""
+
+
+#: .../format-aside.php:38
+#: .../format-chat.php:39
+#: .../format-gallery.php:53
+#: .../format-image.php:31
+#: .../format-standard.php:39
+#: .../format-video.php:32
+msgid "read more"
+msgstr ""
+
+
+#: .../format-link.php:26
+msgid "visit"
+msgstr ""
+
+
+#: .../functions.php:77
+#: .../functions.php:78
+msgid "<div class=\"centered\"><a class=\"more-linkd\" href=\""
+msgstr ""
+
+
+#: .../functions.php:141
+msgid "Footer 1"
+msgstr ""
+
+
+#: .../functions.php:145
+msgid "Widgets in this area are used in the first footer column"
+msgstr ""
+
+
+#: .../functions.php:156
+msgid "Footer 2"
+msgstr ""
+
+
+#: .../functions.php:160
+msgid "Widgets in this area are used in the second footer column"
+msgstr ""
+
+
+#: .../functions.php:171
+msgid "footer 3"
+msgstr ""
+
+
+#: .../functions.php:175
+msgid "Widgets in this area are used in the third footer column"
+msgstr ""
+
+
+#: .../functions.php:194
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr ""
+
+
+#: .../functions.php:196
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+
+#: .../functions.php:196
+msgid "(Edit)"
+msgstr ""
+
+
+#: .../functions.php:210
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+
+#: .../functions.php:222
+msgid "Your Name *"
+msgstr ""
+
+
+#: .../functions.php:225
+msgid "Your Email *"
+msgstr ""
+
+
+#: .../functions.php:228
+msgid "Your Website"
+msgstr ""
+
+
+#: .../functions.php:292
+#: .../functions.php:380
+#: .../functions.php:445
+msgid "Add New Item"
+msgstr ""
+
+
+#: .../functions.php:293
+#: .../functions.php:381
+#: .../functions.php:446
+msgid "Edit Item"
+msgstr ""
+
+
+#: .../functions.php:294
+#: .../functions.php:382
+#: .../functions.php:447
+msgid "New Item"
+msgstr ""
+
+
+#: .../functions.php:295
+#: .../functions.php:383
+#: .../functions.php:448
+msgid "View Item"
+msgstr ""
+
+
+#: .../functions.php:296
+#: .../functions.php:384
+#: .../functions.php:449
+msgid "Search Items"
+msgstr ""
+
+
+#: .../functions.php:297
+#: .../functions.php:385
+#: .../functions.php:450
+msgid "No Items found"
+msgstr ""
+
+
+#: .../functions.php:298
+#: .../functions.php:386
+#: .../functions.php:451
+msgid "No Items found in Trash"
+msgstr ""
+
+
+#: .../functions.php:325
+msgid "Search Types"
+msgstr ""
+
+
+#: .../functions.php:326
+msgid "All Categories"
+msgstr ""
+
+
+#: .../functions.php:327
+msgid "Parent Category"
+msgstr ""
+
+
+#: .../functions.php:328
+msgid "Parent Category:"
+msgstr ""
+
+
+#: .../functions.php:329
+msgid "Edit Categoriess"
+msgstr ""
+
+
+#: .../functions.php:330
+msgid "Update Category"
+msgstr ""
+
+
+#: .../functions.php:331
+msgid "Add New Category"
+msgstr ""
+
+
+#: .../functions.php:332
+msgid "New Category Name"
+msgstr ""
+
+
+#: .../functions.php:353
+#, php-format
+msgid "Portfolio Item updated. <a href=\"%s\">View item</a>"
+msgstr ""
+
+
+#: .../functions.php:354
+#: .../functions.php:484
+msgid "Custom field updated."
+msgstr ""
+
+
+#: .../functions.php:355
+#: .../functions.php:420
+#: .../functions.php:485
+msgid "Custom field deleted."
+msgstr ""
+
+
+#: .../functions.php:356
+#: .../functions.php:421
+msgid "Item updated."
+msgstr ""
+
+
+#: .../functions.php:358
+#, php-format
+msgid "Portfolio Item restored to revision from %s"
+msgstr ""
+
+
+#: .../functions.php:359
+#, php-format
+msgid "Portfolio Item published. <a href=\"%s\">View item</a>"
+msgstr ""
+
+
+#: .../functions.php:360
+msgid "Portfolio Item saved."
+msgstr ""
+
+
+#: .../functions.php:361
+#, php-format
+msgid ""
+"Portfolio Item submitted. <a target=\"_blank\" href=\"%s\">Preview item</a>"
+msgstr ""
+
+
+#: .../functions.php:362
+#, php-format
+msgid ""
+"Portfolio Item scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" "
+"href=\"%2$s\">Preview item</a>"
+msgstr ""
+
+
+#: .../functions.php:364
+#: .../functions.php:429
+#: .../functions.php:494
+msgid "M j, Y @ G:i"
+msgstr ""
+
+
+#: .../functions.php:365
+#, php-format
+msgid ""
+"Portfolio Item draft updated. <a target=\"_blank\" href=\"%s\">Preview item</"
+"a>"
+msgstr ""
+
+
+#: .../functions.php:418
+#, php-format
+msgid "Member updated. <a href=\"%s\">View member</a>"
+msgstr ""
+
+
+#: .../functions.php:419
+msgid "Member updated."
+msgstr ""
+
+
+#: .../functions.php:423
+#, php-format
+msgid "Member restored to revision from %s"
+msgstr ""
+
+
+#: .../functions.php:424
+#, php-format
+msgid "Member published. <a href=\"%s\">View item</a>"
+msgstr ""
+
+
+#: .../functions.php:425
+msgid "Member saved."
+msgstr ""
+
+
+#: .../functions.php:426
+#, php-format
+msgid "Member submitted. <a target=\"_blank\" href=\"%s\">Preview member</a>"
+msgstr ""
+
+
+#: .../functions.php:427
+#, php-format
+msgid ""
+"Member scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview member</a>"
+msgstr ""
+
+
+#: .../functions.php:430
+#, php-format
+msgid "Member draft updated. <a target=\"_blank\" href=\"%s\">Preview item</a>"
+msgstr ""
+
+
+#: .../functions.php:483
+#, php-format
+msgid "Service updated. <a href=\"%s\">View service</a>"
+msgstr ""
+
+
+#: .../functions.php:486
+msgid "Service updated."
+msgstr ""
+
+
+#: .../functions.php:488
+#, php-format
+msgid "Service restored to revision from %s"
+msgstr ""
+
+
+#: .../functions.php:489
+#, php-format
+msgid "Service published. <a href=\"%s\">View item</a>"
+msgstr ""
+
+
+#: .../functions.php:490
+msgid "Item saved."
+msgstr ""
+
+
+#: .../functions.php:491
+#, php-format
+msgid "Service submitted. <a target=\"_blank\" href=\"%s\">Preview service</a>"
+msgstr ""
+
+
+#: .../functions.php:492
+#, php-format
+msgid ""
+"Service scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
+"\"%2$s\">Preview service</a>"
+msgstr ""
+
+
+#: .../functions.php:495
+#, php-format
+msgid ""
+"Service draft updated. <a target=\"_blank\" href=\"%s\">Preview service</a>"
+msgstr ""
+
+
+#: .../index.php:7
+msgid "Results for"
+msgstr ""
+
+
+#: .../index.php:9
+#: .../index.php:11
+#: .../index.php:13
+#: .../index.php:15
+#: .../index.php:17
+#: .../index.php:19
+msgid "Archive:"
+msgstr ""
+
+
+#: .../index.php:17
+msgid "Page Not Found!"
+msgstr ""
+
+
+#: .../index.php:48
+msgid "Next"
+msgstr ""
+
+
+#: .../index.php:52
+msgid "Prev"
+msgstr ""
+
+
+#: .../includes/metabox/init.php:633
+msgid "Please Try Again"
+msgstr ""
+
+
+#: .../includes/metabox/init.php:650
+msgid "Remove Embed"
+msgstr ""
+
+
+#: .../includes/metabox/init.php:656
+#, php-format
+msgid "No oEmbed Results Found for %s. View more info at"
+msgstr ""
