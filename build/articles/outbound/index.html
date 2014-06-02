@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Inbound and Outbound Data - Deconstructed Docs
+    </title>
+    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml"
+          title="Documentation for the Deconstructed API.">
+    <link rel="stylesheet" id="google_sourcesanspro-css"
+          href="http://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400&amp;#038;ver=3.9.1" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="google_montserrat-css"
+          href="http://fonts.googleapis.com/css?family=Montserrat&amp;#038;ver=3.9.1" type="text/css" media="all">
+    <link rel="stylesheet" id="google_raleway-css"
+          href="http://fonts.googleapis.com/css?family=Raleway%3A200%2C400&amp;#038;ver=3.9.1" type="text/css"
+          media="all">
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <body style="display: block;" class="home blog logged-in admin-bar no-customize-support custom-background">
+    <section id="header" style="background-position: 0% 16px; background-color: white;">
+        <div class="row row-header clearfix z-d animated fadeIn">
+            <div class="logo"><a href="http://docs.deconstructed.io" class="clearfix">
+                <script class="pagespeed_no_defer">
+                    //<![CDATA[
+                    (function () {
+                        var a = "src";
+                        window.pagespeed = window.pagespeed || {};
+                        var b = window.pagespeed, f = function () {
+                        };
+                        f.prototype.a = function (g, h) {
+                            var d = document.getElementById (g);
+                            if (d) {
+                                var c = document.getElementById (h);
+                                if (c) {
+                                    var e = c.previousSibling;
+                                    e && (e.src = d.getAttribute (a), c.parentNode.removeChild (c))
+                                }
+                            }
+                        };
+                        f.prototype.inlineImg = f.prototype.a;
+                        b.b = function () {
+                            b.dedupInlinedImages = new f
+                        };
+                        b.dedupInlinedImagesInit = b.b;
+                    }) ();
+                    pagespeed.dedupInlinedImagesInit ();
+                    //]]>
+                </script>
+                <img alt="Docs @ Deconstructed"
+                     src="data:image/png;base64,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"
+                     class="logo"></a></div>
+            <div class="sharing"></div>
+        </div>
+    </section>
+    </body>
+    <div id="wrapper" class="clearfix">
+        <div id="cbp-so-scroller" class="cbp-so-scroller">
+            <div id="main">
+                <div id="page-header" class="clearfix"></div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <div class="archive-title-wrapper clearfix"></div>
+                    <h1>Inbound and Outbound Data</h1>
+                    <section class="content"><p>The Deconstructed Graph Engine automatically graphs relationships
+                        between users and devices based on shared user identity values. A user identity value in
+                        Deconstructed is called a “knownid”. The Engine processes in-bound data in real-time and updates
+                        the graph continuously. Devices sharing a “knownid” are associated together in the graph.
+                        When requesting data from the graph, there two domains of data: device-level and user-level (or
+                        identity-level). Device profiles within the graph contain all of the knownid’s collected from
+                        that device. User profiles, or “Identities” contain all of the knownid’s for that user across
+                        all of their devices, as well as all of the devices associated with that user.
+                        The purpose of the schema is to provide an outline of how to structure data to send to the
+                        Deconstructed Graph Engine for&nbsp;processing.</p>
+
+                        <p><span class="more"></span></p>
+
+                        <h1 id="data-schema">Data&nbsp;Schema</h1>
+                        <ul>
+                            <li><a href="/articles/outbound/#overview">Overview</a></li>
+                            <li><a href="/articles/outbound/#minimum">Minimum Inbound&nbsp;Data</a></li>
+                            <li><a href="/articles/outbound/#metadata">Metadata&nbsp;Storage</a></li>
+                        </ul>
+                        <hr>
+                        <h2 id="overview">Overview <span class="amp">&amp;</span>&nbsp;Philosophy</h2>
+
+                        <p>The idea behind the Inbound Data Schema isn’t to confine what might be sent to, stored and
+                            processed. Instead this is set as a guideline of what will be processed. These specific
+                            <span class="caps">JSON</span> key value pairs are values that will be acted upon once
+                            received by the Graph&nbsp;Engine.</p>
+
+                        <p>The philosophy is to use the recursive, open ended nature of of JavaScript Object Notation,
+                            or <span class="caps">JSON</span> as an intelligent storage mechanism for data that is sent
+                            to the Deconstructed system. By doing so we gain the use of JavaScript and the native
+                            readability that JavaScript has for JSON but also the mass adoption of JSON across many&nbsp;platforms.
+                        </p>
+
+                        <h3 id="sending-inbound-data-to-deconstructed">Sending Inbound Data to&nbsp;Deconstructed</h3>
+
+                        <p>Sending data to Deconstructed provides several key features, from cross-device identification
+                            to storing other key pieces of data around geo-location, fences and related information. The
+                            options are open ended and we’ll be adding more servicse with intelligent processing to the
+                            services over&nbsp;time.</p>
+                        <h4 id="minimum">Minimum Required Inbound&nbsp;Data</h4>
+
+                        <p>At the most basic level there are several required pieces of data. This required data is to
+                            ensure that any possible 100% matches between devices can be pulled together into an
+                            identity. If these value pairs are left out of the <span class="caps">JSON</span> data that
+                            is sent to Deconstructed the identifiers and other data will not be processed for the
+                            particular collection. At the root level there are two elements that must be present. These
+                            elements; key and value, are shown&nbsp;below.</p>
+<pre><code class="lang-javascript">{
+    <span class="string">"key"</span> : <span class="string">"a725e312-fb51-49f8-a101-33301d290236"</span>,
+    <span class="string">"value"</span> : {
+    ...all content values go here...
+    }
+    }
+</code></pre>
+                        <p>When referred to in other documentation, the two domains of identity, device or other
+                            elements have a key, each are referred to as <em>identity key</em> or <em>device key</em>.
+                        </p>
+
+                        <p>Also in the value there should be certain elements, many are optional. One of the most
+                            important, to draw on the functionality of the Deconstructed services, is a pair with a key
+                            of <em>knownid</em> and the value of that pair being a list of <span
+                                    class="caps">JSON</span> data pairs that signify keys. This data will be
+                            cross-correlated against for known identified matches. Here is an example of the baeline
+                            JSON with values that one could submit for <em>knownid</em>.</p>
+<pre><code class="lang-javascript">{
+    <span class="string">"key"</span> : <span class="string">"a725e312-fb51-49f8-a101-33301d290236"</span>,
+    <span class="string">"value"</span> : {
+    <span class="string">"knownid"</span>:{
+    <span class="string">"<span class="caps">ID</span>"</span>:<span class="string">"c625e601-fb42-40f8-a101-33301d290596"</span>,
+    <span class="string">"email-md5-hash"</span>:<span class="string">"8d86e026da849d333a518a394bc37e0d"</span>,
+    <span class="string">"secret-id-hash"</span>:<span class="string">"1dce4e2a445350c5583d4663f9299af3"</span>,
+    <span class="string">"twitter-id"</span>:<span class="string">"adron"</span>,
+    <span class="string">"dropbox-hash"</span>:<span class="string">"d0c14f38429d9494a96211d660f6a48c"</span>,
+    <span class="string">"github-id"</span>:<span class="string">"adron"</span>
+    }
+    }
+    }
+</code></pre>
+                        <p>…or…</p>
+<pre><code class="lang-javascript">{
+    <span class="string">"key"</span> : <span class="string">"a3c86502-8d19-4bfb-9922-25f9ed26cda8"</span>,
+    <span class="string">"value"</span> : {
+    <span class="string">"knownid"</span>:{
+    <span class="string">"id"</span>:<span class="string">"7aa1ec01-59a9-4185-a990-38e650b0aebb"</span>,
+    <span class="string">"secret-id-guid"</span>:<span class="string">"4499c77d-6db0-4dd7-b516-b4be0aad49a4"</span>,
+    <span class="string">"dropbox-hash"</span>:<span class="string">"d0c14f38429d9494a96211d660f6a48c"</span>,
+    <span class="string">"github-id"</span>:<span class="string">"adron"</span>
+    }
+    }
+    }
+</code></pre>
+                        <p><h4 id="metadata">Sending Inbound Metadata&nbsp;Store</h4>
+                        When sending data to the Deconstructed <span class="caps">API</span> additional metadata can be
+                        sent along with the standard pieces of data. Some elements in that metadata are stored and
+                        utilized in a specific way. In the sections below some examples of adding metadata to the
+                        inbound data are&nbsp;shown.</p>
+                        <h5 id="user-data-store">User Data&nbsp;Store</h5>
+
+                        <p>One example of metadata that has specific uses, kind of like reserved words in programming
+                            languages, is the User Data Store metadata. Here’s a complete example with the standard key
+                            and knownid values&nbsp;included.</p>
+<pre><code class="lang-javascript">{
+    <span class="string">"key"</span> : <span class="string">"a725e312-fb51-49f8-a101-33301d290236"</span>,
+    <span class="string">"value"</span> : {
+    <span class="string">"knownid"</span>:{
+    <span class="string">"<span class="caps">ID</span>"</span>:<span class="string">"c625e601-fb42-40f8-a101-33301d290596"</span>,
+    <span class="string">"email-md5-hash"</span>:<span class="string">"8d86e026da849d333a518a394bc37e0d"</span>,
+    <span class="string">"secret-id-hash"</span>:<span class="string">"1dce4e2a445350c5583d4663f9299af3"</span>,
+    <span class="string">"twitter-id"</span>:<span class="string">"adron"</span>,
+    <span class="string">"dropbox-hash"</span>:<span class="string">"d0c14f38429d9494a96211d660f6a48c7c4"</span>,
+    <span class="string">"github-id"</span>:<span class="string">"adron"</span>
+    }
+    <span class="string">"ms"</span>:{
+    <span class="string">"favCoffeeShopGeoJson"</span>:{
+    <span class="string">"type"</span>: <span class="string">"Feature"</span>,
+    <span class="string">"geometry"</span>: {
+    <span class="string">"type"</span>: <span class="string">"Point"</span>,
+    <span class="string">"coordinates"</span>: [<span class="number">124.1</span>, <span class="number">10.4</span>]
+    },
+    <span class="string">"properties"</span>: {
+    <span class="string">"name"</span>: <span class="string">"Favorite Coffee Shop"</span>
+    }
+    },
+    <span class="string">"homeLocationGeoJson"</span>:{
+    <span class="string">"type"</span>: <span class="string">"Feature"</span>,
+    <span class="string">"geometry"</span>: {
+    <span class="string">"type"</span>: <span class="string">"Point"</span>,
+    <span class="string">"coordinates"</span>: [<span class="number">125.6</span>, <span class="number">10.2</span>]
+    },
+    <span class="string">"properties"</span>: {
+    <span class="string">"name"</span>: <span class="string">"Home"</span>
+    }
+    },
+    <span class="string">"officeLocationGeoJson"</span>:{
+    <span class="string">"type"</span>: <span class="string">"Feature"</span>,
+    <span class="string">"geometry"</span>: {
+    <span class="string">"type"</span>: <span class="string">"Point"</span>,
+    <span class="string">"coordinates"</span>: [<span class="number">125.3</span>, <span class="number">10.3</span>]
+    },
+    <span class="string">"properties"</span>: {
+    <span class="string">"name"</span>: <span class="string">"Office"</span>
+    }
+    },
+    <span class="string">"favoriteDevice"</span>:<span class="string">"iPad"</span>,
+    <span class="string">"mostUsedDevice"</span>:<span class="string">"<span class="caps">IBM</span> Work Laptop"</span>,
+    <span class="string">"session"</span>:{
+    <span class="string">"session-device"</span>:<span class="string">"iPhone"</span>
+    <span class="string">"a29bc541-d8d2-4b16-871e-b09357d6121ba9c13dfd-e359-4e5b-9cd8-66c3f13fb7c4"</span>
+    <span class="string">"session-device"</span>:<span class="string">"Android Tablet"</span>
+    <span class="string">"a29bc541-d8d2-4b16-871e-b09357d6121ba9c13dfd-e359-4e5b-9cd8-66c3f13fb7c4"</span>
+    <span class="string">"session-device"</span>:<span class="string">"Android Samsung S3"</span>
+    <span class="string">"a29bc541-d8d2-4b16-871e-b09357d6121ba9c13dfd-e359-4e5b-9cd8-66c3f13fb7c4"</span>
+    <span class="string">"session-device"</span>:<span class="string">"Android Samsung S3"</span>
+    <span class="string">"a29bc541-d8d2-4b16-871e-b09357d6121ba9c13dfd-e359-4e5b-9cd8-66c3f13fb7c4"</span>
+    }
+    }
+    }
+    }
+</code></pre>
+                        <p>There are several key pieces of Metadata Store information above. The first three elements
+                            are what is called <a href="http://geojson.org/">Geo <span class="caps">JSON</span></a>.
+                            Some great examples of displaying the GeoJSON Data is using <a href="http://leafletjs.com/">Leaflet.js</a>.
+                            The 4<span class="ord">th</span> and 5<span class="ord">th</span> elements; favoriteDevice
+                            and mostUsedDevice are standard string data representing device use of the&nbsp;user.</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav"><a href="/">« Full blog</a></div>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push (arguments)
+            }, i[r].l = 1 * new Date ();
+            a = s.createElement (o),
+                    m = s.getElementsByTagName (o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore (a, m)
+        }) (window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga ('create', 'UA-39158070-4', 'deconstructed.io');
+        ga ('send', 'pageview');
+    </script>
+</head>
+</html>
