@@ -9,6 +9,33 @@
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
+      <title>API Workflow</title>
+      <link>http://docs.deconstructed.io/articles/concept-deconstructed-workflow/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-deconstructed-workflow/</guid>
+      <author></author>
+      <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Identities</title>
+      <link>http://docs.deconstructed.io/articles/concept-identities/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-identities/</guid>
+      <author></author>
+      <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Devices</title>
+      <link>http://docs.deconstructed.io/articles/concept-device/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-device/</guid>
+      <author></author>
+      <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>The Metadata Store</title>
       <link>http://docs.deconstructed.io/articles/concept-metadata/</link>
       <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
@@ -33,15 +60,6 @@
 DeviceKey (because that would be confusing)
 KnownID (reserved for values that can be used to match a user across devices)
 Event (reserved for future use)   &lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>API Workflow</title>
-      <link>http://docs.deconstructed.io/articles/concept-deconstructed-workflow/</link>
-      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-deconstructed-workflow/</guid>
-      <author></author>
-      <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
 </description>
     </item>
     <item>
@@ -72,48 +90,12 @@ Another benefit of working independent of log-in is that the Graph Engine also w
 </description>
     </item>
     <item>
-      <title>Identities</title>
-      <link>http://docs.deconstructed.io/articles/concept-identities/</link>
-      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-identities/</guid>
-      <author></author>
-      <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
-</description>
-    </item>
-    <item>
       <title>Deconstructed API Overview</title>
       <link>http://docs.deconstructed.io/articles/concept-overview/</link>
       <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
       <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-overview/</guid>
       <author></author>
       <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>Devices</title>
-      <link>http://docs.deconstructed.io/articles/concept-device/</link>
-      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-device/</guid>
-      <author></author>
-      <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>Deconstructed Data Collection</title>
-      <link>http://docs.deconstructed.io/articles/device/</link>
-      <pubDate>Sun, 01 Jun 2014 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://docs.deconstructed.io/articles/device/</guid>
-      <author></author>
-      <description>&lt;h2 id=&quot;writing&quot;&gt;Writing Data&lt;/h2&gt;
-
-&lt;p&gt;The root of all API calls are located at &lt;a href=&quot;http://api.deconstructed.io/&quot;&gt;http://api.deconstructed.io/&lt;/a&gt;. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=123456789.&lt;/p&gt;
-&lt;h3 id=&quot;-device-&quot;&gt;/device/&lt;/h3&gt;
-&lt;p&gt;Post to this path to add device specific user identifying data that will be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of JSON data to pass into the services check out the &lt;a href=&quot;http://docs.deconstructed.io/articles/inbound-data-schema/&quot;&gt;Inbound Data Schema&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Examples of this path to write a new device and associated data:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;curl -u username:password -X POST -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;{&amp;quot;key&amp;quot;:&amp;quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&amp;quot;, &amp;quot;value&amp;quot;:{&amp;quot;knownid&amp;quot; : {&amp;quot;ID&amp;quot; : &amp;quot;c625e601-fb42-40f8-a101-33301d290596&amp;quot;}}}&amp;#39; http://api.deconstructed.io/device
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Example results would look like this, with the key being returned when the write is successful.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{&lt;span class=&quot;string&quot;&gt;&quot;key&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;&lt;/span&gt;};
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     <item>
@@ -172,6 +154,24 @@ In return a result might look like this:&lt;/li&gt;
 
 &lt;p&gt;URI: &lt;a href=&quot;http://docs.deconstructed.io/articles/reading-data/#&quot;&gt;api.deconstructed.io/metadata/by&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Coming soon!&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Deconstructed Data Collection</title>
+      <link>http://docs.deconstructed.io/articles/device/</link>
+      <pubDate>Sun, 01 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/device/</guid>
+      <author></author>
+      <description>&lt;h2 id=&quot;writing&quot;&gt;Writing Data&lt;/h2&gt;
+
+&lt;p&gt;The root of all API calls are located at &lt;a href=&quot;http://api.deconstructed.io/&quot;&gt;http://api.deconstructed.io/&lt;/a&gt;. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=123456789.&lt;/p&gt;
+&lt;h3 id=&quot;-device-&quot;&gt;/device/&lt;/h3&gt;
+&lt;p&gt;Post to this path to add device specific user identifying data that will be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of JSON data to pass into the services check out the &lt;a href=&quot;http://docs.deconstructed.io/articles/inbound-data-schema/&quot;&gt;Inbound Data Schema&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Examples of this path to write a new device and associated data:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl -u username:password -X POST -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;{&amp;quot;key&amp;quot;:&amp;quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&amp;quot;, &amp;quot;value&amp;quot;:{&amp;quot;knownid&amp;quot; : {&amp;quot;ID&amp;quot; : &amp;quot;c625e601-fb42-40f8-a101-33301d290596&amp;quot;}}}&amp;#39; http://api.deconstructed.io/device
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Example results would look like this, with the key being returned when the write is successful.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{&lt;span class=&quot;string&quot;&gt;&quot;key&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;&lt;/span&gt;};
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     <item>
