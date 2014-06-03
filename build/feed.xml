@@ -9,12 +9,12 @@
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
-      <title>API Docs - Devices</title>
+      <title>Deconstructed Data Collection</title>
       <link>http://localhost:8080/articles/device/</link>
       <pubDate>Sun, 01 Jun 2014 17:00:00 -0700</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/device/</guid>
       <author></author>
-      <description>&lt;h2 id=&quot;device&quot;&gt;device&lt;/h2&gt;
+      <description>&lt;h2 id=&quot;writing&quot;&gt;Writing Data&lt;/h2&gt;
 
 &lt;p&gt;The root of all API calls are located at &lt;a href=&quot;http://api.deconstructed.io/&quot;&gt;http://api.deconstructed.io/&lt;/a&gt;. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=123456789.&lt;/p&gt;
 &lt;h3 id=&quot;-device-&quot;&gt;/device/&lt;/h3&gt;
@@ -27,12 +27,14 @@
 </description>
     </item>
     <item>
-      <title>API Docs - Devices By</title>
-      <link>http://localhost:8080/articles/device-by/</link>
+      <title>Deconstructed Consociated Data</title>
+      <link>http://localhost:8080/articles/reading-data/</link>
       <pubDate>Sun, 01 Jun 2014 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/device-by/</guid>
+      <guid isPermaLink="true">http://localhost:8080/articles/reading-data/</guid>
       <author></author>
-      <description>&lt;h3 id=&quot;-device-by&quot;&gt;/device/by&lt;/h3&gt;
+      <description>&lt;h2 id=&quot;device&quot;&gt;Reading Device Data&lt;/h2&gt;
+
+&lt;p&gt;URI: &lt;a href=&quot;http://localhost:8080/articles/reading-data/#&quot;&gt;api.deconstructed.io/device/by&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Issuing an HTTP POST against this route and including a body (-d with a curl command) of JSON parameters will return the device or devices that match the criteria passed in. The passed in data can be either deviceid or knownid but not both. Examples of curling this path include:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;curl -u username:password -X POST -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;**&amp;#39; http://api.deconstructed.io/device/by
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Where the data (** above) is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this includes:&lt;/p&gt;
@@ -45,8 +47,28 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Example results would look like:&lt;/p&gt;
-&lt;p&gt;```javascript
-{“key”:”06e5140d-fa4e-4758-8d9d-e707bd19880d”, “value”:{“knownid” : {“ID” : “c625e601-fb42-40f8-a101-33301d290596”}}}&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{&lt;span class=&quot;string&quot;&gt;&quot;key&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;value&quot;&lt;/span&gt;:{&lt;span class=&quot;string&quot;&gt;&quot;knownid&quot;&lt;/span&gt; : {&lt;span class=&quot;string&quot;&gt;&quot;ID&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;c625e601-fb42-40f8-a101-33301d290596&quot;&lt;/span&gt;}}}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;identity&quot;&gt;Reading Identity Data&lt;/h2&gt;
+
+&lt;p&gt;URI: &lt;a href=&quot;http://localhost:8080/articles/reading-data/#&quot;&gt;api.deconstructed.io/identity/by&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This API route provides a query interface very similar to the device by search query interface except that it has an additional parameter option (identitykey) provides only a single element in response for any of the keys. As it returns the data for the device in a post consociated state after a convergence of the data has occurred. The converged by end point provides information&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl -u username:password -X POST -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;&amp;#39; http://api.deconstructed.io/identity/by
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Where the data is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;identitykey: This is the ID that the system uses to track and find the profile records association to an individual device in the system.&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{&lt;span class=&quot;string&quot;&gt;&quot;identitykey&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;&lt;/span&gt;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;devicekey: This is the ID that the system uses to track individual devices and can be used to find an identity by since the identitykey goes along with converged data when it is graphed together to form a complete identity.&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{&lt;span class=&quot;string&quot;&gt;&quot;devicekey&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;&lt;/span&gt;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;knownid: This can be one or more IDs associated to the IDs tracked against devices.&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{&lt;span class=&quot;string&quot;&gt;&quot;knownid&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;{&quot;&lt;/span&gt;ID&lt;span class=&quot;string&quot;&gt;&quot;:&quot;&lt;/span&gt;c625e601-fb42-&lt;span class=&quot;number&quot;&gt;40&lt;/span&gt;f8-a101-&lt;span class=&quot;number&quot;&gt;33301&lt;/span&gt;d290596&lt;span class=&quot;string&quot;&gt;&quot;,&quot;&lt;/span&gt;emailId&lt;span class=&quot;string&quot;&gt;&quot;:&quot;&lt;/span&gt;foo@bar.com&lt;span class=&quot;string&quot;&gt;&quot;}&quot;&lt;/span&gt;}
+&lt;/code&gt;&lt;/pre&gt;
+In return a result might look like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{&lt;span class=&quot;string&quot;&gt;&quot;key&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;value&quot;&lt;/span&gt;:{&lt;span class=&quot;string&quot;&gt;&quot;knownid&quot;&lt;/span&gt; : {&lt;span class=&quot;string&quot;&gt;&quot;ID&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;c625e601-fb42-40f8-a101-33301d290596&quot;&lt;/span&gt;}}}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If other profile device information has been added to this device through convergence in identity the data could have a number of other known IDs and related metadata.&lt;/p&gt;
 </description>
     </item>
     <item>
@@ -73,133 +95,6 @@ The purpose of the schema is to provide an outline of how to structure data to s
 &lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/outbound/#overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/outbound/#minimum&quot;&gt;Minimum Inbound Data&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/outbound/#metadata&quot;&gt;Metadata Storage&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;overview&quot;&gt;Overview &amp;amp; Philosophy&lt;/h2&gt;
-
-&lt;p&gt;The idea behind the Inbound Data Schema isn’t to confine what might be sent to, stored and processed. Instead this is set as a guideline of what will be processed. These specific JSON key value pairs are values that will be acted upon once received by the Graph Engine.&lt;/p&gt;
-&lt;p&gt;The philosophy is to use the recursive, open ended nature of of JavaScript Object Notation, or JSON as an intelligent storage mechanism for data that is sent to the Deconstructed system. By doing so we gain the use of JavaScript and the native readability that JavaScript has for JSON but also the mass adoption of JSON across many platforms.&lt;/p&gt;
-&lt;h3 id=&quot;sending-inbound-data-to-deconstructed&quot;&gt;Sending Inbound Data to Deconstructed&lt;/h3&gt;
-&lt;p&gt;Sending data to Deconstructed provides several key features, from cross-device identification to storing other key pieces of data around geo-location, fences and related information. The options are open ended and we’ll be adding more servicse with intelligent processing to the services over time.&lt;/p&gt;
-&lt;h4 id=&quot;minimum&quot;&gt;Minimum Required Inbound Data&lt;/h4&gt;
-
-&lt;p&gt;At the most basic level there are several required pieces of data. This required data is to ensure that any possible 100% matches between devices can be pulled together into an identity. If these value pairs are left out of the JSON data that is sent to Deconstructed the identifiers and other  data will not be processed for the particular collection. At the root level there are two elements that must be present. These elements; key and value, are shown below.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{
-    &lt;span class=&quot;string&quot;&gt;&quot;key&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;a725e312-fb51-49f8-a101-33301d290236&quot;&lt;/span&gt;,
-    &lt;span class=&quot;string&quot;&gt;&quot;value&quot;&lt;/span&gt; : {
-        ...all content values go here...
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;When referred to in other documentation, the two domains of identity, device or other elements have a key, each are referred to as &lt;em&gt;identity key&lt;/em&gt; or &lt;em&gt;device key&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Also in the value there should be certain elements, many are optional. One of the most important, to draw on the functionality of the Deconstructed services, is a pair with a key of &lt;em&gt;knownid&lt;/em&gt; and the value of that pair being a list of JSON data pairs that signify keys. This data will be cross-correlated against for known identified matches. Here is an example of the baeline JSON with values that one could submit for &lt;em&gt;knownid&lt;/em&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{
-    &lt;span class=&quot;string&quot;&gt;&quot;key&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;a725e312-fb51-49f8-a101-33301d290236&quot;&lt;/span&gt;,
-    &lt;span class=&quot;string&quot;&gt;&quot;value&quot;&lt;/span&gt; : {
-        &lt;span class=&quot;string&quot;&gt;&quot;knownid&quot;&lt;/span&gt;:{
-            &lt;span class=&quot;string&quot;&gt;&quot;ID&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;c625e601-fb42-40f8-a101-33301d290596&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;email-md5-hash&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;8d86e026da849d333a518a394bc37e0d&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;secret-id-hash&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;1dce4e2a445350c5583d4663f9299af3&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;twitter-id&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;adron&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;dropbox-hash&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;d0c14f38429d9494a96211d660f6a48c&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;github-id&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;adron&quot;&lt;/span&gt;
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;…or…&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{
-    &lt;span class=&quot;string&quot;&gt;&quot;key&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;a3c86502-8d19-4bfb-9922-25f9ed26cda8&quot;&lt;/span&gt;,
-    &lt;span class=&quot;string&quot;&gt;&quot;value&quot;&lt;/span&gt; : {
-        &lt;span class=&quot;string&quot;&gt;&quot;knownid&quot;&lt;/span&gt;:{
-            &lt;span class=&quot;string&quot;&gt;&quot;id&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;7aa1ec01-59a9-4185-a990-38e650b0aebb&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;secret-id-guid&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;4499c77d-6db0-4dd7-b516-b4be0aad49a4&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;dropbox-hash&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;d0c14f38429d9494a96211d660f6a48c&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;github-id&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;adron&quot;&lt;/span&gt;
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;h4 id=&quot;metadata&quot;&gt;Sending Inbound Metadata Store&lt;/h4&gt;
-When sending data to the Deconstructed API additional metadata can be sent along with the standard pieces of data. Some elements in that metadata are stored and utilized in a specific way. In the sections below some examples of adding metadata to the inbound data are shown.&lt;/p&gt;
-&lt;h5 id=&quot;user-data-store&quot;&gt;User Data Store&lt;/h5&gt;
-&lt;p&gt;One example of metadata that has specific uses, kind of like reserved words in programming languages, is the User Data Store metadata. Here’s a complete example with the standard key and knownid values included.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{
-    &lt;span class=&quot;string&quot;&gt;&quot;key&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;a725e312-fb51-49f8-a101-33301d290236&quot;&lt;/span&gt;,
-    &lt;span class=&quot;string&quot;&gt;&quot;value&quot;&lt;/span&gt; : {
-        &lt;span class=&quot;string&quot;&gt;&quot;knownid&quot;&lt;/span&gt;:{
-            &lt;span class=&quot;string&quot;&gt;&quot;ID&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;c625e601-fb42-40f8-a101-33301d290596&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;email-md5-hash&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;8d86e026da849d333a518a394bc37e0d&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;secret-id-hash&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;1dce4e2a445350c5583d4663f9299af3&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;twitter-id&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;adron&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;dropbox-hash&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;d0c14f38429d9494a96211d660f6a48c7c4&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;github-id&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;adron&quot;&lt;/span&gt;
-        }
-        &lt;span class=&quot;string&quot;&gt;&quot;ms&quot;&lt;/span&gt;:{
-            &lt;span class=&quot;string&quot;&gt;&quot;favCoffeeShopGeoJson&quot;&lt;/span&gt;:{
-              &lt;span class=&quot;string&quot;&gt;&quot;type&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Feature&quot;&lt;/span&gt;,
-              &lt;span class=&quot;string&quot;&gt;&quot;geometry&quot;&lt;/span&gt;: {
-                &lt;span class=&quot;string&quot;&gt;&quot;type&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Point&quot;&lt;/span&gt;,
-                &lt;span class=&quot;string&quot;&gt;&quot;coordinates&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;124.1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10.4&lt;/span&gt;]
-              },
-              &lt;span class=&quot;string&quot;&gt;&quot;properties&quot;&lt;/span&gt;: {
-                &lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Favorite Coffee Shop&quot;&lt;/span&gt;
-              }
-            },
-            &lt;span class=&quot;string&quot;&gt;&quot;homeLocationGeoJson&quot;&lt;/span&gt;:{
-              &lt;span class=&quot;string&quot;&gt;&quot;type&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Feature&quot;&lt;/span&gt;,
-              &lt;span class=&quot;string&quot;&gt;&quot;geometry&quot;&lt;/span&gt;: {
-                &lt;span class=&quot;string&quot;&gt;&quot;type&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Point&quot;&lt;/span&gt;,
-                &lt;span class=&quot;string&quot;&gt;&quot;coordinates&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;125.6&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10.2&lt;/span&gt;]
-              },
-              &lt;span class=&quot;string&quot;&gt;&quot;properties&quot;&lt;/span&gt;: {
-                &lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Home&quot;&lt;/span&gt;
-              }
-            },
-            &lt;span class=&quot;string&quot;&gt;&quot;officeLocationGeoJson&quot;&lt;/span&gt;:{
-              &lt;span class=&quot;string&quot;&gt;&quot;type&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Feature&quot;&lt;/span&gt;,
-              &lt;span class=&quot;string&quot;&gt;&quot;geometry&quot;&lt;/span&gt;: {
-                &lt;span class=&quot;string&quot;&gt;&quot;type&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Point&quot;&lt;/span&gt;,
-                &lt;span class=&quot;string&quot;&gt;&quot;coordinates&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;125.3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10.3&lt;/span&gt;]
-              },
-              &lt;span class=&quot;string&quot;&gt;&quot;properties&quot;&lt;/span&gt;: {
-                &lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Office&quot;&lt;/span&gt;
-              }
-            },
-            &lt;span class=&quot;string&quot;&gt;&quot;favoriteDevice&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;iPad&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;mostUsedDevice&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;IBM Work Laptop&quot;&lt;/span&gt;,
-            &lt;span class=&quot;string&quot;&gt;&quot;session&quot;&lt;/span&gt;:{
-              &lt;span class=&quot;string&quot;&gt;&quot;session-device&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;iPhone&quot;&lt;/span&gt;
-              &lt;span class=&quot;string&quot;&gt;&quot;a29bc541-d8d2-4b16-871e-b09357d6121ba9c13dfd-e359-4e5b-9cd8-66c3f13fb7c4&quot;&lt;/span&gt;
-              &lt;span class=&quot;string&quot;&gt;&quot;session-device&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;Android Tablet&quot;&lt;/span&gt;
-              &lt;span class=&quot;string&quot;&gt;&quot;a29bc541-d8d2-4b16-871e-b09357d6121ba9c13dfd-e359-4e5b-9cd8-66c3f13fb7c4&quot;&lt;/span&gt;
-              &lt;span class=&quot;string&quot;&gt;&quot;session-device&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;Android Samsung S3&quot;&lt;/span&gt;
-              &lt;span class=&quot;string&quot;&gt;&quot;a29bc541-d8d2-4b16-871e-b09357d6121ba9c13dfd-e359-4e5b-9cd8-66c3f13fb7c4&quot;&lt;/span&gt;
-              &lt;span class=&quot;string&quot;&gt;&quot;session-device&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;Android Samsung S3&quot;&lt;/span&gt;
-              &lt;span class=&quot;string&quot;&gt;&quot;a29bc541-d8d2-4b16-871e-b09357d6121ba9c13dfd-e359-4e5b-9cd8-66c3f13fb7c4&quot;&lt;/span&gt;
-            }
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;There are several key pieces of Metadata Store information above. The first three elements are what is called &lt;a href=&quot;http://geojson.org/&quot;&gt;Geo JSON&lt;/a&gt;. Some great examples of displaying the GeoJSON Data is using &lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet.js&lt;/a&gt;. The 4th and 5th elements; favoriteDevice and mostUsedDevice are standard string data representing device use of the user.&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>Inbound and Outbound Data</title>
-      <link>http://localhost:8080/articles/inbound/</link>
-      <pubDate>Sun, 16 Feb 2014 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/inbound/</guid>
-      <author></author>
-      <description>&lt;p&gt;The Deconstructed Graph Engine automatically graphs relationships between users and devices based on shared user identity values.  A user identity value in Deconstructed is called a “knownid”.  The Engine processes in-bound data in real-time and updates the graph continuously. Devices sharing a “knownid” are associated together in the graph.
-When requesting data from the graph, there two domains of data: device-level and user-level (or identity-level).  Device profiles within the graph contain all of the knownid’s collected from that device.  User profiles, or “Identities” contain all of the knownid’s for that user across all of their devices, as well as all of the devices associated with that user.
-The purpose of the schema is to provide an outline of how to structure data to send to the Deconstructed Graph Engine for processing.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&quot;data-schema&quot;&gt;Data Schema&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/inbound/#overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/inbound/#minimum&quot;&gt;Minimum Inbound Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/inbound/#metadata&quot;&gt;Metadata Storage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;overview&quot;&gt;Overview &amp;amp; Philosophy&lt;/h2&gt;
@@ -424,14 +319,6 @@ In return a result might look like this:&lt;/li&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If other profile device information has been added to this device through convergence in identity the data could have a number of other known IDs and related metadata.&lt;/p&gt;
 </description>
-    </item>
-    <item>
-      <title>Untitled</title>
-      <link>http://localhost:8080/articles/identity/</link>
-      <pubDate>Wed, 31 Dec 1969 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/identity/</guid>
-      <author></author>
-      <description></description>
     </item>
   </channel>
 </rss>

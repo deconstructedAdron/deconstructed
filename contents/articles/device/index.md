@@ -1,11 +1,11 @@
 ---
-title: "API Docs - Devices"
+title: "Deconstructed Data Collection"
 author: adron-hall
 date: 2014-06-02
 template: article.jade
 ---
 
-<h2 id="device">device</h2>
+<h2 id="writing">Writing Data</h2>
 
 The root of all API calls are located at http://api.deconstructed.io/. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=123456789.
 
