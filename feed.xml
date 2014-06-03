@@ -9,6 +9,42 @@
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
+      <title>The Metadata Store</title>
+      <link>http://docs.deconstructed.io/articles/concept-metadata/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-metadata/</guid>
+      <author></author>
+      <description>&lt;p&gt;The Meta Data Store makes it easy to store and retrieve schema-less state or meta data against any user in the Graph, in real-time.&lt;/p&gt;
+&lt;h3 id=&quot;how-it-works&quot;&gt;How it Works&lt;/h3&gt;
+&lt;p&gt;The Meta Data Store adds a third, open data type to the platform (the first two, KnownID and DeviceKey, are discussed under the User Device Graph).  &lt;/p&gt;
+&lt;p&gt;The primary data entities for the Meta Data Store are:   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DeviceKey (key)   &lt;/li&gt;
+&lt;li&gt;Meta&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Meta data is state data or data about a person that is not necessarily uniquely associated with just one person. Any data you want to store against a user, but do not want the Graph Engine to process as a matchable identifier, can be stored as Meta data.&lt;/p&gt;
+&lt;h3 id=&quot;data-structure-and-processing&quot;&gt;Data Structure and Processing&lt;/h3&gt;
+&lt;p&gt;Meta data is structured as key-value pairs without an enforced schema. Any key-value data sent to the API that isn’t a KnownID (or a DeviceKey) will be stored as Meta data in the Meta Data Store.&lt;/p&gt;
+&lt;p&gt;Similar to KnownIDs, any Meta key-value pairs you pass to Deconstructed must be accompanied by the DeviceKey for the device you’re calling the API from. If that DeviceKey is associated with an Identity in the Graph, then any data passed in with that DeviceKey will also be associated with that Identity - and can be accessed instantaneously from any device associated with it in the Graph. Meta, KnownID and DeviceKey data can be passed on a single API call as recursive JSON, minimizing roundtrips and maintaining responsiveness.  &lt;/p&gt;
+&lt;p&gt;When passing data from a device for the first time, you can create your own DeviceKey or you can have Deconstructed create one for you. If you pass in Meta data without a DeviceKey, Deconstructed will store the data under a new DeviceKey and return the new DeviceKey as the result.&lt;/p&gt;
+&lt;h3 id=&quot;reserved-keys&quot;&gt;Reserved Keys&lt;/h3&gt;
+&lt;p&gt;These keys are reserved, and will not be stored as Meta data:&lt;/p&gt;
+&lt;p&gt;key (which is the actual syntax for DeviceKey)
+DeviceKey (because that would be confusing)
+KnownID (reserved for values that can be used to match a user across devices)
+Event (reserved for future use)   &lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>API Workflow</title>
+      <link>http://docs.deconstructed.io/articles/concept-deconstructed-workflow/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-deconstructed-workflow/</guid>
+      <author></author>
+      <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>The Graph Engine</title>
       <link>http://docs.deconstructed.io/articles/concept-graph-engine/</link>
       <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
@@ -36,30 +72,30 @@ Another benefit of working independent of log-in is that the Graph Engine also w
 </description>
     </item>
     <item>
-      <title>The Metadata Store</title>
-      <link>http://docs.deconstructed.io/articles/concept-metadata/</link>
+      <title>Identities</title>
+      <link>http://docs.deconstructed.io/articles/concept-identities/</link>
       <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-metadata/</guid>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-identities/</guid>
       <author></author>
-      <description>&lt;p&gt;The Meta Data Store makes it easy to store and retrieve schema-less state or meta data against any user in the Graph, in real-time.&lt;/p&gt;
-&lt;h3 id=&quot;how-it-works&quot;&gt;How it Works&lt;/h3&gt;
-&lt;p&gt;The Meta Data Store adds a third, open data type to the platform (the first two, KnownID and DeviceKey, are discussed under the User Device Graph).  &lt;/p&gt;
-&lt;p&gt;The primary data entities for the Meta Data Store are:   &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;DeviceKey (key)   &lt;/li&gt;
-&lt;li&gt;Meta&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Meta data is state data or data about a person that is not necessarily uniquely associated with just one person. Any data you want to store against a user, but do not want the Graph Engine to process as a matchable identifier, can be stored as Meta data.&lt;/p&gt;
-&lt;h3 id=&quot;data-structure-and-processing&quot;&gt;Data Structure and Processing&lt;/h3&gt;
-&lt;p&gt;Meta data is structured as key-value pairs without an enforced schema. Any key-value data sent to the API that isn’t a KnownID (or a DeviceKey) will be stored as Meta data in the Meta Data Store.&lt;/p&gt;
-&lt;p&gt;Similar to KnownIDs, any Meta key-value pairs you pass to Deconstructed must be accompanied by the DeviceKey for the device you’re calling the API from. If that DeviceKey is associated with an Identity in the Graph, then any data passed in with that DeviceKey will also be associated with that Identity - and can be accessed instantaneously from any device associated with it in the Graph. Meta, KnownID and DeviceKey data can be passed on a single API call as recursive JSON, minimizing roundtrips and maintaining responsiveness.  &lt;/p&gt;
-&lt;p&gt;When passing data from a device for the first time, you can create your own DeviceKey or you can have Deconstructed create one for you. If you pass in Meta data without a DeviceKey, Deconstructed will store the data under a new DeviceKey and return the new DeviceKey as the result.&lt;/p&gt;
-&lt;h3 id=&quot;reserved-keys&quot;&gt;Reserved Keys&lt;/h3&gt;
-&lt;p&gt;These keys are reserved, and will not be stored as Meta data:&lt;/p&gt;
-&lt;p&gt;key (which is the actual syntax for DeviceKey)
-DeviceKey (because that would be confusing)
-KnownID (reserved for values that can be used to match a user across devices)
-Event (reserved for future use)   &lt;/p&gt;
+      <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Deconstructed API Overview</title>
+      <link>http://docs.deconstructed.io/articles/concept-overview/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-overview/</guid>
+      <author></author>
+      <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Devices</title>
+      <link>http://docs.deconstructed.io/articles/concept-device/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-device/</guid>
+      <author></author>
+      <description>&lt;p&gt;Coming Soon!&lt;/p&gt;
 </description>
     </item>
     <item>
@@ -275,29 +311,6 @@ When sending data to the Deconstructed API additional metadata can be sent along
 </description>
     </item>
     <item>
-      <title>Deconstructed Key Concepts</title>
-      <link>http://docs.deconstructed.io/articles/deconstructed/</link>
-      <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://docs.deconstructed.io/articles/deconstructed/</guid>
-      <author></author>
-      <description>&lt;p&gt;At a high level the Deconstructed Platform sits across a multi-region, multi-tier architecture that is setup to auto-scale compute, storage and other resources as needed. On the back end the platform uses a comobination of storage mechanisms that are also distributed, storing key value, graph and event series data. Currently these are the key storage types that provide the functionality the storage and retainment facilities the system needs.&lt;/p&gt;
-&lt;div align=&quot;center&quot;&gt;&lt;img align=&quot;middle&quot; src=&quot;data-structures.svg&quot; width=&quot;100%&quot;&gt;&lt;/img&gt;&lt;/div&gt;
-
-&lt;p&gt;The Deconstructed Platform is made up of multiple layers distributed across a number of multi-server nodes that can scale horizontally and vertically as demand is increased or decreased. These layers can be broken down vertically into logical layers, from top to bottom as:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Clients (Built, controlled, maintained or managed by clients or Deconstructed)&lt;/li&gt;
-&lt;li&gt;SDKs or access tooling to the Deconstructed APIs.&lt;/li&gt;
-&lt;li&gt;APIs and Real-time streams to provide read/write access and query to data.&lt;/li&gt;
-&lt;li&gt;Graph Engine providing data collation, processing, logic and identity consociation.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Deconstructed/Storgie&quot;&gt;Storgie&lt;/a&gt; is the storage facade that provides the logical data transfer style objects to, from and for the consociation.&lt;/li&gt;
-&lt;li&gt;Data storage. This is the tier providing key value, graph and event based storage to the system, specifically to Storgie.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&quot;data-structures&quot;&gt;Data Structures&lt;/h1&gt;
-&lt;p&gt;The key data structures that underpin the storage system for the Deconstructed Platform include key value, graph and event storage.&lt;/p&gt;
-&lt;div align=&quot;center&quot;&gt;&lt;img align=&quot;middle&quot; src=&quot;storgie-flow.svg&quot; width=&quot;100%&quot;&gt;&lt;/img&gt;&lt;/div&gt;</description>
-    </item>
-    <item>
       <title>High Level Architecture</title>
       <link>http://docs.deconstructed.io/articles/system-elements/</link>
       <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
@@ -320,6 +333,29 @@ When sending data to the Deconstructed API additional metadata can be sent along
 &lt;p&gt;&lt;img src=&quot;storgie-simple-architecture.svg&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;&lt;/img&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;storgie-flow.svg&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;&lt;/img&gt;&lt;/p&gt;
 </description>
+    </item>
+    <item>
+      <title>Deconstructed Key Concepts</title>
+      <link>http://docs.deconstructed.io/articles/deconstructed/</link>
+      <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/deconstructed/</guid>
+      <author></author>
+      <description>&lt;p&gt;At a high level the Deconstructed Platform sits across a multi-region, multi-tier architecture that is setup to auto-scale compute, storage and other resources as needed. On the back end the platform uses a comobination of storage mechanisms that are also distributed, storing key value, graph and event series data. Currently these are the key storage types that provide the functionality the storage and retainment facilities the system needs.&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;img align=&quot;middle&quot; src=&quot;data-structures.svg&quot; width=&quot;100%&quot;&gt;&lt;/img&gt;&lt;/div&gt;
+
+&lt;p&gt;The Deconstructed Platform is made up of multiple layers distributed across a number of multi-server nodes that can scale horizontally and vertically as demand is increased or decreased. These layers can be broken down vertically into logical layers, from top to bottom as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clients (Built, controlled, maintained or managed by clients or Deconstructed)&lt;/li&gt;
+&lt;li&gt;SDKs or access tooling to the Deconstructed APIs.&lt;/li&gt;
+&lt;li&gt;APIs and Real-time streams to provide read/write access and query to data.&lt;/li&gt;
+&lt;li&gt;Graph Engine providing data collation, processing, logic and identity consociation.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Deconstructed/Storgie&quot;&gt;Storgie&lt;/a&gt; is the storage facade that provides the logical data transfer style objects to, from and for the consociation.&lt;/li&gt;
+&lt;li&gt;Data storage. This is the tier providing key value, graph and event based storage to the system, specifically to Storgie.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;data-structures&quot;&gt;Data Structures&lt;/h1&gt;
+&lt;p&gt;The key data structures that underpin the storage system for the Deconstructed Platform include key value, graph and event storage.&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;img align=&quot;middle&quot; src=&quot;storgie-flow.svg&quot; width=&quot;100%&quot;&gt;&lt;/img&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>API Docs</title>
