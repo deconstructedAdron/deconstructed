@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-    <title>Deconstructed Docs
+    <title>The Metadata Store - Deconstructed Docs
     </title>
     <link rel="alternate" href="http://docs.deconstructed.io/feed.xml" type="application/rss+xml" title="Documentation for the Deconstructed API.">
     <link rel="stylesheet" id="google_sourcesanspro-css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400&amp;#038;ver=3.9.1" type="text/css" media="all">
@@ -34,21 +34,33 @@
         </div>
         <div class="row">
           <div class="twelve columns">
-            <div class="archive-title-wrapper clearfix"></div>
-            <h2 class="entry-title">Welcome!</h2>
-            <p>The Deconstructed APIs are an extremely simple way to manage user data across devices, apps and systems. Deconstructed's Graph Engine processes device and identity data in real-time to map relationships between users and devices and to enable you to maintain an authoritative user data profile to which you can read and write data at web scale.</p>
-          </div>
-          <div class="widget">
-            <div style="width: 420px;" class="float-left"><a href="/articles/deconstructed/">
-                <h1>Key Concepts</h1></a><a href="/articles/concept-graph-engine/">The Graph Engine</a><br><a href="/articles/">Devices</a><br><a href="/articles/">Identities</a><br><a href="/articles/concept-metadata/">Metadata</a></div>
-            <div style="width: 420px;" class="float-left post-content"><a href="">
-                <h1>API Docs</h1></a><b>Writing Data</b><br><a href="/articles/device/">/device</a>
-              <hr><b>Reading & Searching Data</b><br><a href="/articles/reading-data/#device">/device/by</a><br><a href="/articles/reading-data/#identity">/identity/by</a><br><a href="/articles/reading-data/#metadata">/metadata/by</a>
-            </div>
+            <div class="archive-title-wrapper clearfix"><a href="../../">Home</a></div>
+            <h1>The Metadata Store</h1>
+            <section class="content"><p>The Meta Data Store makes it easy to store and retrieve schema-less state or meta data against any user in the Graph, in&nbsp;real-time.</p>
+<h3 id="how-it-works">How it&nbsp;Works</h3>
+<p>The Meta Data Store adds a third, open data type to the platform (the first two, KnownID and DeviceKey, are discussed under the User Device&nbsp;Graph).  </p>
+<p>The primary data entities for the Meta Data Store&nbsp;are:   </p>
+<ul>
+<li>DeviceKey&nbsp;(key)   </li>
+<li>Meta</li>
+</ul>
+<p>Meta data is state data or data about a person that is not necessarily uniquely associated with just one person. Any data you want to store against a user, but do not want the Graph Engine to process as a matchable identifier, can be stored as Meta&nbsp;data.</p>
+<h3 id="data-structure-and-processing">Data Structure and&nbsp;Processing</h3>
+<p>Meta data is structured as key-value pairs without an enforced schema. Any key-value data sent to the <span class="caps">API</span> that isn’t a KnownID (or a DeviceKey) will be stored as Meta data in the Meta Data&nbsp;Store.</p>
+<p>Similar to KnownIDs, any Meta key-value pairs you pass to Deconstructed must be accompanied by the DeviceKey for the device you’re calling the <span class="caps">API</span> from. If that DeviceKey is associated with an Identity in the Graph, then any data passed in with that DeviceKey will also be associated with that Identity - and can be accessed instantaneously from any device associated with it in the Graph. Meta, KnownID and DeviceKey data can be passed on a single API call as recursive JSON, minimizing roundtrips and maintaining&nbsp;responsiveness.  </p>
+<p>When passing data from a device for the first time, you can create your own DeviceKey or you can have Deconstructed create one for you. If you pass in Meta data without a DeviceKey, Deconstructed will store the data under a new DeviceKey and return the new DeviceKey as the&nbsp;result.</p>
+<h3 id="reserved-keys">Reserved&nbsp;Keys</h3>
+<p>These keys are reserved, and will not be stored as Meta&nbsp;data:</p>
+<p>key (which is the actual syntax for DeviceKey)
+DeviceKey (because that would be confusing)
+KnownID (reserved for values that can be used to match a user across devices)
+Event (reserved for future&nbsp;use)   </p>
+</section>
           </div>
         </div>
       </div>
-    </div><script>
+    </div>
+    <div class="nav"><a href="/">« Full blog</a></div><script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

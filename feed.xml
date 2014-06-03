@@ -2,23 +2,77 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deconstructed Docs</title>
-    <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
-    <link>http://localhost:8080</link>
+    <atom:link href="http://docs.deconstructed.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://docs.deconstructed.io</link>
     <description>Documentation for the Deconstructed API.</description>
-    <pubDate>Sun, 01 Jun 2014 17:00:00 -0700</pubDate>
+    <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
+      <title>The Metadata Store</title>
+      <link>http://docs.deconstructed.io/articles/concept-metadata/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-metadata/</guid>
+      <author></author>
+      <description>&lt;p&gt;The Meta Data Store makes it easy to store and retrieve schema-less state or meta data against any user in the Graph, in real-time.&lt;/p&gt;
+&lt;h3 id=&quot;how-it-works&quot;&gt;How it Works&lt;/h3&gt;
+&lt;p&gt;The Meta Data Store adds a third, open data type to the platform (the first two, KnownID and DeviceKey, are discussed under the User Device Graph).  &lt;/p&gt;
+&lt;p&gt;The primary data entities for the Meta Data Store are:   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DeviceKey (key)   &lt;/li&gt;
+&lt;li&gt;Meta&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Meta data is state data or data about a person that is not necessarily uniquely associated with just one person. Any data you want to store against a user, but do not want the Graph Engine to process as a matchable identifier, can be stored as Meta data.&lt;/p&gt;
+&lt;h3 id=&quot;data-structure-and-processing&quot;&gt;Data Structure and Processing&lt;/h3&gt;
+&lt;p&gt;Meta data is structured as key-value pairs without an enforced schema. Any key-value data sent to the API that isn’t a KnownID (or a DeviceKey) will be stored as Meta data in the Meta Data Store.&lt;/p&gt;
+&lt;p&gt;Similar to KnownIDs, any Meta key-value pairs you pass to Deconstructed must be accompanied by the DeviceKey for the device you’re calling the API from. If that DeviceKey is associated with an Identity in the Graph, then any data passed in with that DeviceKey will also be associated with that Identity - and can be accessed instantaneously from any device associated with it in the Graph. Meta, KnownID and DeviceKey data can be passed on a single API call as recursive JSON, minimizing roundtrips and maintaining responsiveness.  &lt;/p&gt;
+&lt;p&gt;When passing data from a device for the first time, you can create your own DeviceKey or you can have Deconstructed create one for you. If you pass in Meta data without a DeviceKey, Deconstructed will store the data under a new DeviceKey and return the new DeviceKey as the result.&lt;/p&gt;
+&lt;h3 id=&quot;reserved-keys&quot;&gt;Reserved Keys&lt;/h3&gt;
+&lt;p&gt;These keys are reserved, and will not be stored as Meta data:&lt;/p&gt;
+&lt;p&gt;key (which is the actual syntax for DeviceKey)
+DeviceKey (because that would be confusing)
+KnownID (reserved for values that can be used to match a user across devices)
+Event (reserved for future use)   &lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>The Graph Engine</title>
+      <link>http://docs.deconstructed.io/articles/concept-graph-engine/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-graph-engine/</guid>
+      <author></author>
+      <description>&lt;h2 id=&quot;user-graph-engine&quot;&gt;User Graph Engine&lt;/h2&gt;
+&lt;p&gt;The User Device Graph is the foundation of the Universal User Data Platform. Using data clues you pass in via the RESTful API, Deconstructed’s Graph Engine automatically maps relationships between actual users, their multiple ways of identifying themselves, and the devices they use.  &lt;/p&gt;
+&lt;h3 id=&quot;how-it-works&quot;&gt;How it Works&lt;/h3&gt;
+&lt;p&gt;Within the graph are two primary data entities:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;KnownID&lt;/strong&gt;&lt;br&gt;DeviceKey (key)&lt;br&gt;…and two domains of data:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Device&lt;/strong&gt;&lt;br&gt;Identity&lt;br&gt;Data Entities&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;KnownID is any key-value pair that is uniquely associated with a person. It could be a Twitter handle, an email address, a device-specific user identifier (such as identifierForVendor), or a hashed credit card number. We don’t enforce a schema or schema names…it’s up to you.&lt;/p&gt;
+&lt;p&gt;DeviceKey (shortened to ‘key’ in syntax) is Deconstructed’s unique internal identifier for a device writing to or reading from the Platform. You can create your own DeviceKey or you can have Deconstructed create one for you.&lt;/p&gt;
+&lt;p&gt;All you have to do is pass in KnownID’s as you gain access to them, along with the DeviceKey for the device you’re calling the API from. If you pass in KnownID’s without a DeviceKey, Deconstructed will store the data under a new DeviceKey and return the new DeviceKey as the result.&lt;/p&gt;
+&lt;h3 id=&quot;data-domains&quot;&gt;Data Domains&lt;/h3&gt;
+&lt;p&gt;The Device domain contains all data you’ve written to the API from a specific DeviceKey.  It’s the only domain to which you write data, and is an easy way to recall data only associated with that device. Via the API, this domain provides access to all KnownIDs associated with a DeviceKey.&lt;/p&gt;
+&lt;p&gt;The Identity domain can be thought of as the User Profile. It is the representation of an individual across all of their matched devices. This domain is created by the Graph Engine in real-time as it draws relationships between DeviceKeys that share KnownIDs. This domain provides access to all DeviceKeys and KnownIDs associated with any other DeviceKey or KnownID.&lt;/p&gt;
+&lt;h3 id=&quot;no-login-required&quot;&gt;No Login Required&lt;/h3&gt;
+&lt;p&gt;All of this happens independent of user log-in. The Graph Engine builds the Graph based solely on KnownIDs that you pass in. A KnownID is any key-value pair uniquely associated with a person, such as a Twitter handle or hashed credit card number. &lt;/p&gt;
+&lt;p&gt;We’re indifferent to user log-in; we’ll graph actual users across multiple log-ins if they have them. That said, it might be useful for you to pass in the user’s log-in ID as a KnownID. The best practice is to pass in as many KnownIDs as you can.  The more KnownIDs there are associated with a DeviceKey, the more likely it is that the Graph Engine will be able to draw relationships between devices.  &lt;/p&gt;
+&lt;p&gt;Works Across Apps
+Another benefit of working independent of log-in is that the Graph Engine also works independent of App. It doesn’t care if data is coming in from one app or from multiple apps, meaning you can build a truly universal user data layer that spans all of your digitally-enabled user and customer touchpoints.&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Deconstructed Data Collection</title>
-      <link>http://localhost:8080/articles/device/</link>
+      <link>http://docs.deconstructed.io/articles/device/</link>
       <pubDate>Sun, 01 Jun 2014 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/device/</guid>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/device/</guid>
       <author></author>
       <description>&lt;h2 id=&quot;writing&quot;&gt;Writing Data&lt;/h2&gt;
 
 &lt;p&gt;The root of all API calls are located at &lt;a href=&quot;http://api.deconstructed.io/&quot;&gt;http://api.deconstructed.io/&lt;/a&gt;. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=123456789.&lt;/p&gt;
 &lt;h3 id=&quot;-device-&quot;&gt;/device/&lt;/h3&gt;
-&lt;p&gt;Post to this path to add device specific user identifying data that will be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of JSON data to pass into the services check out the &lt;a href=&quot;http://localhost:8080/articles/inbound-data-schema/&quot;&gt;Inbound Data Schema&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Post to this path to add device specific user identifying data that will be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of JSON data to pass into the services check out the &lt;a href=&quot;http://docs.deconstructed.io/articles/inbound-data-schema/&quot;&gt;Inbound Data Schema&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Examples of this path to write a new device and associated data:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;curl -u username:password -X POST -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;{&amp;quot;key&amp;quot;:&amp;quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&amp;quot;, &amp;quot;value&amp;quot;:{&amp;quot;knownid&amp;quot; : {&amp;quot;ID&amp;quot; : &amp;quot;c625e601-fb42-40f8-a101-33301d290596&amp;quot;}}}&amp;#39; http://api.deconstructed.io/device
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Example results would look like this, with the key being returned when the write is successful.&lt;/p&gt;
@@ -28,13 +82,13 @@
     </item>
     <item>
       <title>Deconstructed Consociated Data</title>
-      <link>http://localhost:8080/articles/reading-data/</link>
+      <link>http://docs.deconstructed.io/articles/reading-data/</link>
       <pubDate>Sun, 01 Jun 2014 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/reading-data/</guid>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/reading-data/</guid>
       <author></author>
       <description>&lt;h2 id=&quot;device&quot;&gt;Reading Device Data&lt;/h2&gt;
 
-&lt;p&gt;URI: &lt;a href=&quot;http://localhost:8080/articles/reading-data/#&quot;&gt;api.deconstructed.io/device/by&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;URI: &lt;a href=&quot;http://docs.deconstructed.io/articles/reading-data/#&quot;&gt;api.deconstructed.io/device/by&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Issuing an HTTP POST against this route and including a body (-d with a curl command) of JSON parameters will return the device or devices that match the criteria passed in. The passed in data can be either deviceid or knownid but not both. Examples of curling this path include:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;curl -u username:password -X POST -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;**&amp;#39; http://api.deconstructed.io/device/by
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Where the data (** above) is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this includes:&lt;/p&gt;
@@ -51,7 +105,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;identity&quot;&gt;Reading Identity Data&lt;/h2&gt;
 
-&lt;p&gt;URI: &lt;a href=&quot;http://localhost:8080/articles/reading-data/#&quot;&gt;api.deconstructed.io/identity/by&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;URI: &lt;a href=&quot;http://docs.deconstructed.io/articles/reading-data/#&quot;&gt;api.deconstructed.io/identity/by&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This API route provides a query interface very similar to the device by search query interface except that it has an additional parameter option (identitykey) provides only a single element in response for any of the keys. As it returns the data for the device in a post consociated state after a convergence of the data has occurred. The converged by end point provides information&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;curl -u username:password -X POST -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;&amp;#39; http://api.deconstructed.io/identity/by
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Where the data is passed (via -d with a curl command) the following would be passed based on what type of information will be used to find data by. There are several ways to pass data to get device data by, currenlty this includes:&lt;/p&gt;
@@ -73,18 +127,18 @@ In return a result might look like this:&lt;/li&gt;
     </item>
     <item>
       <title>Storgie Data Tier</title>
-      <link>http://localhost:8080/articles/storgie/</link>
+      <link>http://docs.deconstructed.io/articles/storgie/</link>
       <pubDate>Tue, 15 Apr 2014 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/storgie/</guid>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/storgie/</guid>
       <author></author>
-      <description>&lt;p&gt;The &lt;a href=&quot;http://localhost:8080/articles/storgie/&quot;&gt;Storgie Data Tier&lt;/a&gt; provides the intelligent API access to the underlying key value, graph and event storage for the Deconstructed System. It acts as a simple facade, with intelligent organization, management, maintenance, selection and query of the underlying data collected. The Storgie Data Tier provides this data through mechanisms that provide easy access and also data collection.&lt;/p&gt;
+      <description>&lt;p&gt;The &lt;a href=&quot;http://docs.deconstructed.io/articles/storgie/&quot;&gt;Storgie Data Tier&lt;/a&gt; provides the intelligent API access to the underlying key value, graph and event storage for the Deconstructed System. It acts as a simple facade, with intelligent organization, management, maintenance, selection and query of the underlying data collected. The Storgie Data Tier provides this data through mechanisms that provide easy access and also data collection.&lt;/p&gt;
 </description>
     </item>
     <item>
       <title>Inbound and Outbound Data</title>
-      <link>http://localhost:8080/articles/outbound/</link>
+      <link>http://docs.deconstructed.io/articles/outbound/</link>
       <pubDate>Sun, 16 Feb 2014 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/outbound/</guid>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/outbound/</guid>
       <author></author>
       <description>&lt;p&gt;The Deconstructed Graph Engine automatically graphs relationships between users and devices based on shared user identity values.  A user identity value in Deconstructed is called a “knownid”.  The Engine processes in-bound data in real-time and updates the graph continuously. Devices sharing a “knownid” are associated together in the graph.
 When requesting data from the graph, there two domains of data: device-level and user-level (or identity-level).  Device profiles within the graph contain all of the knownid’s collected from that device.  User profiles, or “Identities” contain all of the knownid’s for that user across all of their devices, as well as all of the devices associated with that user.
@@ -92,9 +146,9 @@ The purpose of the schema is to provide an outline of how to structure data to s
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&quot;data-schema&quot;&gt;Data Schema&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/outbound/#overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/outbound/#minimum&quot;&gt;Minimum Inbound Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/outbound/#metadata&quot;&gt;Metadata Storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/outbound/#overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/outbound/#minimum&quot;&gt;Minimum Inbound Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/outbound/#metadata&quot;&gt;Metadata Storage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;overview&quot;&gt;Overview &amp;amp; Philosophy&lt;/h2&gt;
@@ -209,9 +263,9 @@ When sending data to the Deconstructed API additional metadata can be sent along
     </item>
     <item>
       <title>Deconstructed Key Concepts</title>
-      <link>http://localhost:8080/articles/deconstructed/</link>
+      <link>http://docs.deconstructed.io/articles/deconstructed/</link>
       <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/deconstructed/</guid>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/deconstructed/</guid>
       <author></author>
       <description>&lt;p&gt;At a high level the Deconstructed Platform sits across a multi-region, multi-tier architecture that is setup to auto-scale compute, storage and other resources as needed. On the back end the platform uses a comobination of storage mechanisms that are also distributed, storing key value, graph and event series data. Currently these are the key storage types that provide the functionality the storage and retainment facilities the system needs.&lt;/p&gt;
 &lt;div align=&quot;center&quot;&gt;&lt;img align=&quot;middle&quot; src=&quot;data-structures.svg&quot; width=&quot;100%&quot;&gt;&lt;/img&gt;&lt;/div&gt;
@@ -232,11 +286,11 @@ When sending data to the Deconstructed API additional metadata can be sent along
     </item>
     <item>
       <title>High Level Architecture</title>
-      <link>http://localhost:8080/articles/system-elements/</link>
+      <link>http://docs.deconstructed.io/articles/system-elements/</link>
       <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/system-elements/</guid>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/system-elements/</guid>
       <author></author>
-      <description>&lt;p&gt;At a high level the Deconstructed Platform sits across a multi-region, multi-tier architecture that is setup to auto-scale compute, storage and other resources as needed. On the back end the platform uses a comobination of storage mechanisms that are also distributed, storing key value, graph and event series data. Currently these are the key storage types that provide the &lt;a href=&quot;http://localhost:8080/articles/consociation/&quot;&gt;consociation&lt;/a&gt; &lt;a href=&quot;http://www.merriam-webster.com/dictionary/consociation&quot;&gt;(definition of consociation)&lt;/a&gt; functionality the storage and retainment facilities the system needs.&lt;/p&gt;
+      <description>&lt;p&gt;At a high level the Deconstructed Platform sits across a multi-region, multi-tier architecture that is setup to auto-scale compute, storage and other resources as needed. On the back end the platform uses a comobination of storage mechanisms that are also distributed, storing key value, graph and event series data. Currently these are the key storage types that provide the &lt;a href=&quot;http://docs.deconstructed.io/articles/consociation/&quot;&gt;consociation&lt;/a&gt; &lt;a href=&quot;http://www.merriam-webster.com/dictionary/consociation&quot;&gt;(definition of consociation)&lt;/a&gt; functionality the storage and retainment facilities the system needs.&lt;/p&gt;
 &lt;p&gt;The Deconstructed Platform is made up of multiple layers distributed across a number of multi-server nodes that can scale horizontally and vertically as demand is increased or decreased. These layers can be broken down vertically into logical layers, from top to bottom as:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Clients (Built, controlled, maintained or managed by clients or Deconstructed Inc.)&lt;/li&gt;
@@ -248,7 +302,7 @@ When sending data to the Deconstructed API additional metadata can be sent along
 &lt;/ul&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&quot;data-structures&quot;&gt;Data Structures&lt;/h1&gt;
-&lt;p&gt;The key data structures that underpin the storage system for the Deconstructed Platform include key value, graph and event storage. These mechanisms are provided to the Storgie data tier which provides them via APIs for client systems and for the &lt;a href=&quot;http://localhost:8080/articles/consociation/&quot;&gt;Consociation Engine&lt;/a&gt;. The &lt;a href=&quot;http://localhost:8080/articles/storgie/&quot;&gt;Storgie Data Tier&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The key data structures that underpin the storage system for the Deconstructed Platform include key value, graph and event storage. These mechanisms are provided to the Storgie data tier which provides them via APIs for client systems and for the &lt;a href=&quot;http://docs.deconstructed.io/articles/consociation/&quot;&gt;Consociation Engine&lt;/a&gt;. The &lt;a href=&quot;http://docs.deconstructed.io/articles/storgie/&quot;&gt;Storgie Data Tier&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;data-structures.svg&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;&lt;/img&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;storgie-simple-architecture.svg&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;&lt;/img&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;storgie-flow.svg&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;&lt;/img&gt;&lt;/p&gt;
@@ -256,17 +310,17 @@ When sending data to the Deconstructed API additional metadata can be sent along
     </item>
     <item>
       <title>API Docs</title>
-      <link>http://localhost:8080/articles/api-docs/</link>
+      <link>http://docs.deconstructed.io/articles/api-docs/</link>
       <pubDate>Fri, 14 Feb 2014 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/api-docs/</guid>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/api-docs/</guid>
       <author></author>
       <description>&lt;p&gt;The Deconstructed APIs are an extremely simple way to manage known identities across devices. Devices are collected via the device services, with the Deconstructed service working in real-time to pull those correlated devices together to form complete identities for management of identity profiles across devices.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&quot;apis&quot;&gt;APIs&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/api-docs/#overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/api-docs/#device&quot;&gt;Device API Services&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://localhost:8080/articles/api-docs/#identity&quot;&gt;Identity API Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/api-docs/#overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/api-docs/#device&quot;&gt;Device API Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/api-docs/#identity&quot;&gt;Identity API Services&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
@@ -278,7 +332,7 @@ When sending data to the Deconstructed API additional metadata can be sent along
 
 &lt;p&gt;The root of all API calls are located at &lt;a href=&quot;http://api.deconstructed.io/&quot;&gt;http://api.deconstructed.io/&lt;/a&gt;. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=123456789.&lt;/p&gt;
 &lt;h3 id=&quot;-device-&quot;&gt;/device/&lt;/h3&gt;
-&lt;p&gt;Post to this path to add device specific user identifying data that will be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of JSON data to pass into the services check out the &lt;a href=&quot;http://localhost:8080/articles/inbound-data-schema/&quot;&gt;Inbound Data Schema&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Post to this path to add device specific user identifying data that will be used to identify a new device and user. This is the single end point to send data that will be tracked, managed and processed with the identity engine. For an example of JSON data to pass into the services check out the &lt;a href=&quot;http://docs.deconstructed.io/articles/inbound-data-schema/&quot;&gt;Inbound Data Schema&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Examples of this path include:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;curl -u username:password -X POST -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;{&amp;quot;key&amp;quot;:&amp;quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&amp;quot;, &amp;quot;value&amp;quot;:{&amp;quot;knownid&amp;quot; : {&amp;quot;ID&amp;quot; : &amp;quot;c625e601-fb42-40f8-a101-33301d290596&amp;quot;}}}&amp;#39; http://api.deconstructed.io/device
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Example results would look like this, with the key being returned when the write is successful.&lt;/p&gt;
