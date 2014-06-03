@@ -5,9 +5,63 @@
     <atom:link href="http://docs.deconstructed.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://docs.deconstructed.io</link>
     <description>Documentation for the Deconstructed API.</description>
-    <pubDate>Sun, 01 Jun 2014 17:00:00 -0700</pubDate>
+    <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>The Metadata Store</title>
+      <link>http://docs.deconstructed.io/articles/concept-metadata/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-metadata/</guid>
+      <author></author>
+      <description>&lt;p&gt;The Meta Data Store makes it easy to store and retrieve schema-less state or meta data against any user in the Graph, in real-time.&lt;/p&gt;
+&lt;h3 id=&quot;how-it-works&quot;&gt;How it Works&lt;/h3&gt;
+&lt;p&gt;The Meta Data Store adds a third, open data type to the platform (the first two, KnownID and DeviceKey, are discussed under the User Device Graph).  &lt;/p&gt;
+&lt;p&gt;The primary data entities for the Meta Data Store are:   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DeviceKey (key)   &lt;/li&gt;
+&lt;li&gt;Meta&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Meta data is state data or data about a person that is not necessarily uniquely associated with just one person. Any data you want to store against a user, but do not want the Graph Engine to process as a matchable identifier, can be stored as Meta data.&lt;/p&gt;
+&lt;h3 id=&quot;data-structure-and-processing&quot;&gt;Data Structure and Processing&lt;/h3&gt;
+&lt;p&gt;Meta data is structured as key-value pairs without an enforced schema. Any key-value data sent to the API that isn’t a KnownID (or a DeviceKey) will be stored as Meta data in the Meta Data Store.&lt;/p&gt;
+&lt;p&gt;Similar to KnownIDs, any Meta key-value pairs you pass to Deconstructed must be accompanied by the DeviceKey for the device you’re calling the API from. If that DeviceKey is associated with an Identity in the Graph, then any data passed in with that DeviceKey will also be associated with that Identity - and can be accessed instantaneously from any device associated with it in the Graph. Meta, KnownID and DeviceKey data can be passed on a single API call as recursive JSON, minimizing roundtrips and maintaining responsiveness.  &lt;/p&gt;
+&lt;p&gt;When passing data from a device for the first time, you can create your own DeviceKey or you can have Deconstructed create one for you. If you pass in Meta data without a DeviceKey, Deconstructed will store the data under a new DeviceKey and return the new DeviceKey as the result.&lt;/p&gt;
+&lt;h3 id=&quot;reserved-keys&quot;&gt;Reserved Keys&lt;/h3&gt;
+&lt;p&gt;These keys are reserved, and will not be stored as Meta data:&lt;/p&gt;
+&lt;p&gt;key (which is the actual syntax for DeviceKey)
+DeviceKey (because that would be confusing)
+KnownID (reserved for values that can be used to match a user across devices)
+Event (reserved for future use)   &lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>The Graph Engine</title>
+      <link>http://docs.deconstructed.io/articles/concept-graph-engine/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-graph-engine/</guid>
+      <author></author>
+      <description>&lt;h2 id=&quot;user-graph-engine&quot;&gt;User Graph Engine&lt;/h2&gt;
+&lt;p&gt;The User Device Graph is the foundation of the Universal User Data Platform. Using data clues you pass in via the RESTful API, Deconstructed’s Graph Engine automatically maps relationships between actual users, their multiple ways of identifying themselves, and the devices they use.  &lt;/p&gt;
+&lt;h3 id=&quot;how-it-works&quot;&gt;How it Works&lt;/h3&gt;
+&lt;p&gt;Within the graph are two primary data entities:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;KnownID&lt;/strong&gt;&lt;br&gt;DeviceKey (key)&lt;br&gt;…and two domains of data:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Device&lt;/strong&gt;&lt;br&gt;Identity&lt;br&gt;Data Entities&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;KnownID is any key-value pair that is uniquely associated with a person. It could be a Twitter handle, an email address, a device-specific user identifier (such as identifierForVendor), or a hashed credit card number. We don’t enforce a schema or schema names…it’s up to you.&lt;/p&gt;
+&lt;p&gt;DeviceKey (shortened to ‘key’ in syntax) is Deconstructed’s unique internal identifier for a device writing to or reading from the Platform. You can create your own DeviceKey or you can have Deconstructed create one for you.&lt;/p&gt;
+&lt;p&gt;All you have to do is pass in KnownID’s as you gain access to them, along with the DeviceKey for the device you’re calling the API from. If you pass in KnownID’s without a DeviceKey, Deconstructed will store the data under a new DeviceKey and return the new DeviceKey as the result.&lt;/p&gt;
+&lt;h3 id=&quot;data-domains&quot;&gt;Data Domains&lt;/h3&gt;
+&lt;p&gt;The Device domain contains all data you’ve written to the API from a specific DeviceKey.  It’s the only domain to which you write data, and is an easy way to recall data only associated with that device. Via the API, this domain provides access to all KnownIDs associated with a DeviceKey.&lt;/p&gt;
+&lt;p&gt;The Identity domain can be thought of as the User Profile. It is the representation of an individual across all of their matched devices. This domain is created by the Graph Engine in real-time as it draws relationships between DeviceKeys that share KnownIDs. This domain provides access to all DeviceKeys and KnownIDs associated with any other DeviceKey or KnownID.&lt;/p&gt;
+&lt;h3 id=&quot;no-login-required&quot;&gt;No Login Required&lt;/h3&gt;
+&lt;p&gt;All of this happens independent of user log-in. The Graph Engine builds the Graph based solely on KnownIDs that you pass in. A KnownID is any key-value pair uniquely associated with a person, such as a Twitter handle or hashed credit card number. &lt;/p&gt;
+&lt;p&gt;We’re indifferent to user log-in; we’ll graph actual users across multiple log-ins if they have them. That said, it might be useful for you to pass in the user’s log-in ID as a KnownID. The best practice is to pass in as many KnownIDs as you can.  The more KnownIDs there are associated with a DeviceKey, the more likely it is that the Graph Engine will be able to draw relationships between devices.  &lt;/p&gt;
+&lt;p&gt;Works Across Apps
+Another benefit of working independent of log-in is that the Graph Engine also works independent of App. It doesn’t care if data is coming in from one app or from multiple apps, meaning you can build a truly universal user data layer that spans all of your digitally-enabled user and customer touchpoints.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Deconstructed Data Collection</title>
       <link>http://docs.deconstructed.io/articles/device/</link>
