@@ -19,9 +19,9 @@
     </item>
     <item>
       <title>Inbound and Outbound Data</title>
-      <link>http://docs.deconstructed.io/articles/inbound/</link>
+      <link>http://docs.deconstructed.io/articles/outbound/</link>
       <pubDate>Sun, 16 Feb 2014 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://docs.deconstructed.io/articles/inbound/</guid>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/outbound/</guid>
       <author></author>
       <description>&lt;p&gt;The Deconstructed Graph Engine automatically graphs relationships between users and devices based on shared user identity values.  A user identity value in Deconstructed is called a “knownid”.  The Engine processes in-bound data in real-time and updates the graph continuously. Devices sharing a “knownid” are associated together in the graph.
 When requesting data from the graph, there two domains of data: device-level and user-level (or identity-level).  Device profiles within the graph contain all of the knownid’s collected from that device.  User profiles, or “Identities” contain all of the knownid’s for that user across all of their devices, as well as all of the devices associated with that user.
@@ -29,9 +29,9 @@ The purpose of the schema is to provide an outline of how to structure data to s
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&quot;data-schema&quot;&gt;Data Schema&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/inbound/#overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/inbound/#minimum&quot;&gt;Minimum Inbound Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/inbound/#metadata&quot;&gt;Metadata Storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/outbound/#overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/outbound/#minimum&quot;&gt;Minimum Inbound Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/outbound/#metadata&quot;&gt;Metadata Storage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;overview&quot;&gt;Overview &amp;amp; Philosophy&lt;/h2&gt;
@@ -146,9 +146,9 @@ When sending data to the Deconstructed API additional metadata can be sent along
     </item>
     <item>
       <title>Inbound and Outbound Data</title>
-      <link>http://docs.deconstructed.io/articles/outbound/</link>
+      <link>http://docs.deconstructed.io/articles/inbound/</link>
       <pubDate>Sun, 16 Feb 2014 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://docs.deconstructed.io/articles/outbound/</guid>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/inbound/</guid>
       <author></author>
       <description>&lt;p&gt;The Deconstructed Graph Engine automatically graphs relationships between users and devices based on shared user identity values.  A user identity value in Deconstructed is called a “knownid”.  The Engine processes in-bound data in real-time and updates the graph continuously. Devices sharing a “knownid” are associated together in the graph.
 When requesting data from the graph, there two domains of data: device-level and user-level (or identity-level).  Device profiles within the graph contain all of the knownid’s collected from that device.  User profiles, or “Identities” contain all of the knownid’s for that user across all of their devices, as well as all of the devices associated with that user.
@@ -156,9 +156,9 @@ The purpose of the schema is to provide an outline of how to structure data to s
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&quot;data-schema&quot;&gt;Data Schema&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/outbound/#overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/outbound/#minimum&quot;&gt;Minimum Inbound Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/outbound/#metadata&quot;&gt;Metadata Storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/inbound/#overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/inbound/#minimum&quot;&gt;Minimum Inbound Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/inbound/#metadata&quot;&gt;Metadata Storage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;overview&quot;&gt;Overview &amp;amp; Philosophy&lt;/h2&gt;
