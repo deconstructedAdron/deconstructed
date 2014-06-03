@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-    <title>Deconstructed Docs
+    <title>Deconstructed Key Concepts - Deconstructed Docs
     </title>
     <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Documentation for the Deconstructed API.">
     <link rel="stylesheet" id="google_sourcesanspro-css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400&amp;#038;ver=3.9.1" type="text/css" media="all">
@@ -34,21 +34,29 @@
         </div>
         <div class="row">
           <div class="twelve columns">
-            <div class="archive-title-wrapper clearfix"></div>
-            <h2 class="entry-title">Welcome!</h2>
-            <p>The Deconstructed APIs are an extremely simple way to manage known identities across devices. Devices are collected via the device services, with the Deconstructed service working in real-time to pull those correlated devices together to form complete identities for management of identity profiles across devices.</p>
-          </div>
-          <div class="widget">
-            <div style="width: 420px;" class="float-left"><a href="/articles/deconstructed/">
-                <h1>Key Concepts</h1></a><a href="/articles/">The Graph Engine</a><br><a href="/articles/">Devices</a><br><a href="/articles/">Identities</a><br><a href="/articles/">Metadata</a></div>
-            <div style="width: 420px;" class="float-left post-content"><a href="">
-                <h1>API Docs</h1></a><b>Writing Data</b><br><a href="/articles/device/">/device</a>
-              <hr><b>Reading & Searching Data</b><br><a href="/articles/reading-data/#device">/device/by</a><br><a href="/articles/reading-data/#identity">/identity/by</a><br><a href="/articles/reading-data/#metadata">/metadata/by</a>
-            </div>
+            <div class="archive-title-wrapper clearfix"><a href="../../">Home</a></div>
+            <h1>Deconstructed Key Concepts</h1>
+            <section class="content"><p>At a high level the Deconstructed Platform sits across a multi-region, multi-tier architecture that is setup to auto-scale compute, storage and other resources as needed. On the back end the platform uses a comobination of storage mechanisms that are also distributed, storing key value, graph and event series data. Currently these are the key storage types that provide the functionality the storage and retainment facilities the system&nbsp;needs.</p>
+<div align="center"><img align="middle" src="data-structures.svg" width="100%"></img></div>
+
+<p>The Deconstructed Platform is made up of multiple layers distributed across a number of multi-server nodes that can scale horizontally and vertically as demand is increased or decreased. These layers can be broken down vertically into logical layers, from top to bottom&nbsp;as:</p>
+<ul>
+<li>Clients (Built, controlled, maintained or managed by clients or&nbsp;Deconstructed)</li>
+<li>SDKs or access tooling to the Deconstructed&nbsp;APIs.</li>
+<li>APIs and Real-time streams to provide read/write access and query to&nbsp;data.</li>
+<li>Graph Engine providing data collation, processing, logic and identity&nbsp;consociation.</li>
+<li><a href="https://github.com/Deconstructed/Storgie">Storgie</a> is the storage facade that provides the logical data transfer style objects to, from and for the&nbsp;consociation.</li>
+<li>Data storage. This is the tier providing key value, graph and event based storage to the system, specifically to&nbsp;Storgie.</li>
+</ul>
+<p><span class="more"></span></p>
+<h1 id="data-structures">Data&nbsp;Structures</h1>
+<p>The key data structures that underpin the storage system for the Deconstructed Platform include key value, graph and event&nbsp;storage.</p>
+<div align="center"><img align="middle" src="storgie-flow.svg" width="100%"></img></div></section>
           </div>
         </div>
       </div>
-    </div><script>
+    </div>
+    <div class="nav"><a href="/">« Full blog</a></div><script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
