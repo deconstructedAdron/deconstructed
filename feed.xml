@@ -9,33 +9,6 @@
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
-      <title>The Metadata Store</title>
-      <link>http://docs.deconstructed.io/articles/concept-metadata/</link>
-      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-metadata/</guid>
-      <author></author>
-      <description>&lt;p&gt;The Meta Data Store makes it easy to store and retrieve schema-less state or meta data against any user in the Graph, in real-time.&lt;/p&gt;
-&lt;h3 id=&quot;how-it-works&quot;&gt;How it Works&lt;/h3&gt;
-&lt;p&gt;The Meta Data Store adds a third, open data type to the platform (the first two, KnownID and DeviceKey, are discussed under the User Device Graph).  &lt;/p&gt;
-&lt;p&gt;The primary data entities for the Meta Data Store are:   &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;DeviceKey (key)   &lt;/li&gt;
-&lt;li&gt;Meta&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Meta data is state data or data about a person that is not necessarily uniquely associated with just one person. Any data you want to store against a user, but do not want the Graph Engine to process as a matchable identifier, can be stored as Meta data.&lt;/p&gt;
-&lt;h3 id=&quot;data-structure-and-processing&quot;&gt;Data Structure and Processing&lt;/h3&gt;
-&lt;p&gt;Meta data is structured as key-value pairs without an enforced schema. Any key-value data sent to the API that isn’t a KnownID (or a DeviceKey) will be stored as Meta data in the Meta Data Store.&lt;/p&gt;
-&lt;p&gt;Similar to KnownIDs, any Meta key-value pairs you pass to Deconstructed must be accompanied by the DeviceKey for the device you’re calling the API from. If that DeviceKey is associated with an Identity in the Graph, then any data passed in with that DeviceKey will also be associated with that Identity - and can be accessed instantaneously from any device associated with it in the Graph. Meta, KnownID and DeviceKey data can be passed on a single API call as recursive JSON, minimizing roundtrips and maintaining responsiveness.  &lt;/p&gt;
-&lt;p&gt;When passing data from a device for the first time, you can create your own DeviceKey or you can have Deconstructed create one for you. If you pass in Meta data without a DeviceKey, Deconstructed will store the data under a new DeviceKey and return the new DeviceKey as the result.&lt;/p&gt;
-&lt;h3 id=&quot;reserved-keys&quot;&gt;Reserved Keys&lt;/h3&gt;
-&lt;p&gt;These keys are reserved, and will not be stored as Meta data:&lt;/p&gt;
-&lt;p&gt;key (which is the actual syntax for DeviceKey)
-DeviceKey (because that would be confusing)
-KnownID (reserved for values that can be used to match a user across devices)
-Event (reserved for future use)   &lt;/p&gt;
-</description>
-    </item>
-    <item>
       <title>The Graph Engine</title>
       <link>http://docs.deconstructed.io/articles/concept-graph-engine/</link>
       <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
@@ -63,6 +36,33 @@ Another benefit of working independent of log-in is that the Graph Engine also w
 </description>
     </item>
     <item>
+      <title>The Metadata Store</title>
+      <link>http://docs.deconstructed.io/articles/concept-metadata/</link>
+      <pubDate>Mon, 02 Jun 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/concept-metadata/</guid>
+      <author></author>
+      <description>&lt;p&gt;The Meta Data Store makes it easy to store and retrieve schema-less state or meta data against any user in the Graph, in real-time.&lt;/p&gt;
+&lt;h3 id=&quot;how-it-works&quot;&gt;How it Works&lt;/h3&gt;
+&lt;p&gt;The Meta Data Store adds a third, open data type to the platform (the first two, KnownID and DeviceKey, are discussed under the User Device Graph).  &lt;/p&gt;
+&lt;p&gt;The primary data entities for the Meta Data Store are:   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DeviceKey (key)   &lt;/li&gt;
+&lt;li&gt;Meta&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Meta data is state data or data about a person that is not necessarily uniquely associated with just one person. Any data you want to store against a user, but do not want the Graph Engine to process as a matchable identifier, can be stored as Meta data.&lt;/p&gt;
+&lt;h3 id=&quot;data-structure-and-processing&quot;&gt;Data Structure and Processing&lt;/h3&gt;
+&lt;p&gt;Meta data is structured as key-value pairs without an enforced schema. Any key-value data sent to the API that isn’t a KnownID (or a DeviceKey) will be stored as Meta data in the Meta Data Store.&lt;/p&gt;
+&lt;p&gt;Similar to KnownIDs, any Meta key-value pairs you pass to Deconstructed must be accompanied by the DeviceKey for the device you’re calling the API from. If that DeviceKey is associated with an Identity in the Graph, then any data passed in with that DeviceKey will also be associated with that Identity - and can be accessed instantaneously from any device associated with it in the Graph. Meta, KnownID and DeviceKey data can be passed on a single API call as recursive JSON, minimizing roundtrips and maintaining responsiveness.  &lt;/p&gt;
+&lt;p&gt;When passing data from a device for the first time, you can create your own DeviceKey or you can have Deconstructed create one for you. If you pass in Meta data without a DeviceKey, Deconstructed will store the data under a new DeviceKey and return the new DeviceKey as the result.&lt;/p&gt;
+&lt;h3 id=&quot;reserved-keys&quot;&gt;Reserved Keys&lt;/h3&gt;
+&lt;p&gt;These keys are reserved, and will not be stored as Meta data:&lt;/p&gt;
+&lt;p&gt;key (which is the actual syntax for DeviceKey)
+DeviceKey (because that would be confusing)
+KnownID (reserved for values that can be used to match a user across devices)
+Event (reserved for future use)   &lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Deconstructed Data Collection</title>
       <link>http://docs.deconstructed.io/articles/device/</link>
       <pubDate>Sun, 01 Jun 2014 17:00:00 -0700</pubDate>
@@ -86,7 +86,16 @@ Another benefit of working independent of log-in is that the Graph Engine also w
       <pubDate>Sun, 01 Jun 2014 17:00:00 -0700</pubDate>
       <guid isPermaLink="true">http://docs.deconstructed.io/articles/reading-data/</guid>
       <author></author>
-      <description>&lt;h2 id=&quot;device&quot;&gt;Reading Device Data&lt;/h2&gt;
+      <description>&lt;p&gt;The Deconstructed APIs are an extremely simple way to manage known identities across devices. Devices are collected via the device services, with the Deconstructed service working in real-time to pull those correlated devices together to form complete identities for management of identity profiles across devices.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Reading and Searching Data APIs&lt;/strong&gt;&lt;br&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/reading-data/#overview&quot;&gt;Overview&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/reading-data/#device&quot;&gt;Device API Service&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/reading-data/#identity&quot;&gt;Identity API Service&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://docs.deconstructed.io/articles/reading-data/#metadata&quot;&gt;Metadata API Service&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;overview&quot;&gt;API Philosophy&lt;/h2&gt;
+
+&lt;p&gt;The idea behind the API services is to provide a simple RESTful style interface for interaction with client mobile apps, native interfaces, browser based clients or whatever might make use of this data identity.&lt;/p&gt;
+&lt;p&gt;The root of all API calls are located at &lt;a href=&quot;http://api.deconstructed.io/&quot;&gt;http://api.deconstructed.io/&lt;/a&gt;. The following are all listed with the root assumed to be this URI. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable access_token=123456789.&lt;/p&gt;
+&lt;h2 id=&quot;device&quot;&gt;Reading Device Data&lt;/h2&gt;
 
 &lt;p&gt;URI: &lt;a href=&quot;http://docs.deconstructed.io/articles/reading-data/#&quot;&gt;api.deconstructed.io/device/by&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Issuing an HTTP POST against this route and including a body (-d with a curl command) of JSON parameters will return the device or devices that match the criteria passed in. The passed in data can be either deviceid or knownid but not both. Examples of curling this path include:&lt;/p&gt;
@@ -123,6 +132,10 @@ In return a result might look like this:&lt;/li&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;{&lt;span class=&quot;string&quot;&gt;&quot;key&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;06e5140d-fa4e-4758-8d9d-e707bd19880d&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;value&quot;&lt;/span&gt;:{&lt;span class=&quot;string&quot;&gt;&quot;knownid&quot;&lt;/span&gt; : {&lt;span class=&quot;string&quot;&gt;&quot;ID&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;c625e601-fb42-40f8-a101-33301d290596&quot;&lt;/span&gt;}}}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If other profile device information has been added to this device through convergence in identity the data could have a number of other known IDs and related metadata.&lt;/p&gt;
+&lt;h2 id=&quot;metadata&quot;&gt;Reading Metadata&lt;/h2&gt;
+
+&lt;p&gt;URI: &lt;a href=&quot;http://docs.deconstructed.io/articles/reading-data/#&quot;&gt;api.deconstructed.io/metadata/by&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Coming soon!&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
     <item>

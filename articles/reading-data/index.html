@@ -36,7 +36,16 @@
           <div class="twelve columns">
             <div class="archive-title-wrapper clearfix"><a href="../../">Home</a></div>
             <h1>Deconstructed Consociated Data</h1>
-            <section class="content"><h2 id="device">Reading Device&nbsp;Data</h2>
+            <section class="content"><p>The Deconstructed APIs are an extremely simple way to manage known identities across devices. Devices are collected via the device services, with the Deconstructed service working in real-time to pull those correlated devices together to form complete identities for management of identity profiles across&nbsp;devices.</p>
+<p><span class="more"></span></p>
+<blockquote>
+<p><strong>Reading and Searching Data APIs</strong><br><a href="/articles/reading-data/#overview">Overview</a><br><a href="/articles/reading-data/#device">Device <span class="caps">API</span> Service</a><br><a href="/articles/reading-data/#identity">Identity <span class="caps">API</span> Service</a><br><a href="/articles/reading-data/#metadata">Metadata <span class="caps">API</span>&nbsp;Service</a></p>
+</blockquote>
+<h2 id="overview"><span class="caps">API</span>&nbsp;Philosophy</h2>
+
+<p>The idea behind the <span class="caps">API</span> services is to provide a simple RESTful style interface for interaction with client mobile apps, native interfaces, browser based clients or whatever might make use of this data&nbsp;identity.</p>
+<p>The root of all <span class="caps">API</span> calls are located at <a href="http://api.deconstructed.io/">http://api.deconstructed.io/</a>. The following are all listed with the root assumed to be this <span class="caps">URI</span>. All paths are then appended to this root. Each API call is accessed via an access token for your particular account. This value is appended to the URI with a parameter variable&nbsp;access_token=123456789.</p>
+<h2 id="device">Reading Device&nbsp;Data</h2>
 
 <p><span class="caps">URI</span>: <a href="/articles/reading-data/#">api.deconstructed.io/device/by</a></p>
 <p>Issuing an <span class="caps">HTTP</span> POST against this route and including a body (-d with a curl command) of JSON parameters will return the device or devices that match the criteria passed in. The passed in data can be either deviceid or knownid but not both. Examples of curling this path&nbsp;include:</p>
@@ -73,6 +82,10 @@ In return a result might look like&nbsp;this:</li>
 <pre><code class="lang-javascript">{<span class="string">"key"</span>:<span class="string">"06e5140d-fa4e-4758-8d9d-e707bd19880d"</span>, <span class="string">"value"</span>:{<span class="string">"knownid"</span> : {<span class="string">"<span class="caps">ID</span>"</span> : <span class="string">"c625e601-fb42-40f8-a101-33301d290596"</span>}}}
 </code></pre>
 <p>If other profile device information has been added to this device through convergence in identity the data could have a number of other known IDs and related&nbsp;metadata.</p>
+<h2 id="metadata">Reading&nbsp;Metadata</h2>
+
+<p><span class="caps">URI</span>: <a href="/articles/reading-data/#">api.deconstructed.io/metadata/by</a></p>
+<p><strong>Coming&nbsp;soon!</strong></p>
 </section>
           </div>
         </div>
