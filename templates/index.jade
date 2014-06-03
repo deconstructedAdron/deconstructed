@@ -1,0 +1,38 @@
+extends layout
+
+block content
+
+    #wrapper.clearfix
+        #cbp-so-scroller.cbp-so-scroller
+            #main
+                #page-header.clearfix
+            .row
+                .twelve.columns
+                    .archive-title-wrapper.clearfix
+                    h2.entry-title Welcome!
+                    p The Deconstructed APIs are an extremely simple way to manage known identities across devices. Devices are collected via the device services, with the Deconstructed service working in real-time to pull those correlated devices together to form complete identities for management of identity profiles across devices.
+                .widget
+                    .float-left(style='width: 420px;')
+                        a(href='/articles/deconstructed/')
+                            h1 Key Concepts
+                        a(href='/articles/') The Graph Engine
+                        br
+                        a(href='/articles/') Devices
+                        br
+                        a(href='/articles/') Identities
+                        br
+                        a(href='/articles/') Metadata
+                    .float-left.post-content(style='width: 420px;')
+                        a(href='')
+                            h1 API Docs
+                        b Writing Data
+                        br
+                        a(href='/articles/device/') /device
+                        hr
+                        b Reading & Searching Data
+                        br
+                        a(href='/articles/reading-data/#device') /device/by
+                        br
+                        a(href='/articles/reading-data/#identity') /identity/by
+                        br
+                        a(href='/articles/reading-data/#metadata') /metadata/by
